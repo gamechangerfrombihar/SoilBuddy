@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Krishi Udaan - Input Form</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { transition: background-color 0.4s, color 0.4s; }
+    body.light { background-color: #ffffff; color: #064e3b; }
+    body.dark { background-color: #0f172a; color: #ffffff; }
+
+    .navbar { background-color: #065f46; position: fixed; top: 0; left: 0; width: 100%; z-index: 50; }
+    .logo-img { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; background-color: #d1fae5; padding: 4px; border: 2px solid #22c55e; }
+    .glow-btn { box-shadow: 0 0 20px rgba(34,197,94,0.6); transition: all 0.3s ease; }
+    .glow-btn:hover { transform: scale(1.05); box-shadow: 0 0 25px rgba(34,197,94,0.9); }
+  </style>
+</head>
+<body class="light transition-all">
+
+  <!-- Navbar -->
+  <nav class="navbar text-white body-font shadow-lg">
+    <div class="container mx-auto flex flex-wrap p-5 flex-row items-center justify-between">
+      <a href="HomePage.html" class="flex title-font font-medium items-center mb-4 md:mb-0">
+        <img src="SoilBuddy Logo.png" alt="SoilBuddy Logo" class="logo-img mr-3">
+        <span class="text-2xl">SoilBuddy</span>
+      </a>
+
+      <div class="flex space-x-6 text-sm md:text-base">
+        <a href="KrishiUdaanF.html" class="hover:text-green-300 transition">KrishiUdaan</a>
+        <a href="AmritJeevanF.html" class="hover:text-green-300 transition">AmritJeevan</a>
+        <a href="https://bharatbot-2a7793.zapier.app" target="_blank" rel="noopener noreferrer" class="hover:text-green-300 transition">BharatBot</a>
+        <a href="SoilScanF.html" class="hover:text-green-300 transition">SoilScan</a>
+      </div>
+
+      <button id="theme-toggle" class="text-white bg-green-500 border-0 py-1 px-4 focus:outline-none hover:bg-green-600 rounded-md text-sm glow-btn">
+        Dark Theme
+      </button>
+    </div>
+  </nav>
+
+  <!-- Spacer -->
+  <div class="pt-24"></div>
+
+  <!-- Input Form -->
+  <div class="max-w-3xl mx-auto p-6 bg-white dark:bg-[#1e2a47] rounded-lg shadow-lg">
+    <h1 class="text-3xl font-semibold mb-6 text-green-800 dark:text-green-400 text-center">🌾 Krishi Udaan - Smart Plan Input</h1>
+
+    <form action="/krishiudaan/result" method="POST" class="space-y-4">
+      <div>
+        <label class="block mb-1 font-semibold">Land Size (acres)</label>
+        <input type="number" name="land_size" step="0.1" required class="w-full px-3 py-2 border rounded-md dark:bg-[#1e2a47] dark:text-white"/>
+      </div>
+
+      <div>
+        <label class="block mb-1 font-semibold">Climate</label>
+        <select name="climate" required class="w-full px-3 py-2 border rounded-md dark:bg-[#1e2a47] dark:text-white">
+          <option value="">--Select Climate--</option>
+          <option value="Humid">Humid</option>
+          <option value="Semi-Humid">Semi-Humid</option>
+          <option value="Dry">Dry</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="block mb-1 font-semibold">Working Capital (₹)</label>
+        <input type="number" name="capital" step="1000" required class="w-full px-3 py-2 border rounded-md dark:bg-[#1e2a47] dark:text-white"/>
+      </div>
+
+      <div>
+        <label class="block mb-1 font-semibold">Water Availability</label>
+        <select name="water" required class="w-full px-3 py-2 border rounded-md dark:bg-[#1e2a47] dark:text-white">
+          <option value="">--Select--</option>
+          <option value="High">High</option>
+          <option value="Medium">Medium</option>
+          <option value="Low">Low</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="block mb-1 font-semibold">No. of Labourers</label>
+        <input type="number" name="labour" min="1" required class="w-full px-3 py-2 border rounded-md dark:bg-[#1e2a47] dark:text-white"/>
+      </div>
+
+      <div>
+        <label class="block mb-1 font-semibold">Region</label>
+        <select name="region" required class="w-full px-3 py-2 border rounded-md dark:bg-[#1e2a47] dark:text-white">
+          <option value="">--Select Region--</option>
+          <option value="north india">North India</option>
+          <option value="south india">South India</option>
+          <option value="east india">East India</option>
+          <option value="west india">West India</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="block mb-1 font-semibold">No. of Crops to Plant</label>
+        <input type="number" name="num_crops" min="1" max="3" required class="w-full px-3 py-2 border rounded-md dark:bg-[#1e2a47] dark:text-white"/>
+      </div>
+
+      <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-md font-semibold glow-btn">Generate Smart Plan</button>
+    </form>
+  </div>
+
+  <script>
+    // Theme toggle
+    const body = document.body;
+    const toggleBtn = document.getElementById('theme-toggle');
+    toggleBtn.addEventListener('click', () => {
+      body.classList.toggle('dark');
+      body.classList.toggle('light');
+      toggleBtn.textContent = body.classList.contains('dark') ? 'Light Theme' : 'Dark Theme';
+    });
+  </script>
+</body>
+</html>
