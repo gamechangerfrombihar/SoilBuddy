@@ -1,25 +1,28 @@
-import os
-from flask import Flask, render_template, request, redirect, flash
+from flask import Flask, render_template, request, redirect, flash, url_for
 from werkzeug.utils import secure_filename
-from utils.krishi_logic import generate_plan
-from utils.soilscan_logic import analyze_soil
+import os
 
-# ----------------- App Setup -----------------
+from utils.krishi_logic import generate_plan
+from utils.soilscan_logic import analyze_soil  # make sure this exists
+
 app = Flask(__name__)
 app.secret_key = 'some_secret_key'
 
-# Upload folder for SoilScan
-app.config['UPLOAD_FOLDER'] = 'static/uploads'
-os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
+# Folder for uploaded images
+UPLOAD_FOLDER = 'static/uploads'
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-# ----------------- Routes -----------------
-
-# Home Page
+# ----------------- Home & Features -----------------
 @app.route('/')
 def home():
     return render_template('HomePage.html')
 
 # ----------------- KrishiUdaan -----------------
+@app.route('/krishiudaan/desc')
+def krishiudaan_desc():
+    return render_template('KrishiUdaan.html')
+
 @app.route('/krishiudaan')
 def krishiudaan():
     return render_template('KrishiUdaanF.html')
@@ -42,10 +45,23 @@ def krishiudaan_result():
         flash(str(ve))
         return redirect('/krishiudaan')
 
+# ----------------- AmritJeevan -----------------
+@app.route('/amritjeevan/desc')
+def amritjeevan_desc():
+    return render_template('AmritJeevan.html')
+
+@app.route('/amritjeevan')
+def amritjeevan():
+    return render_template('AmritJeevanF.html')
+
 # ----------------- SoilScan -----------------
+@app.route('/soilscan/desc')
+def soilscan_desc():
+    return render_template('SoilScan.html')
+
 @app.route('/soilscan')
 def soilscan():
-    return render_template('SoilScanF.html')  # Make sure the filename matches exactly
+    return render_template('SoilScanF.html')
 
 @app.route('/soilscan/result', methods=['POST'])
 def soilscan_result():
@@ -69,12 +85,6 @@ def soilscan_result():
         plot_path=plot_path,
         pdf_path=pdf_path
     )
-
-# ----------------- AmritJeevan Placeholder -----------------
-@app.route('/amritjeevan')
-def amritjeevan():
-    # Replace with actual AmritJeevan page later
-    return render_template('AmritJeevanF.html')
 
 # ----------------- Run App -----------------
 if __name__ == '__main__':
