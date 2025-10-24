@@ -3,118 +3,93 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SoilBuddy</title>
+  <title>SoilBuddy - SoilScanner</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    body {
-      transition: background-color 0.4s, color 0.4s;
-    }
+    body { transition: background-color 0.4s, color 0.4s; }
 
     /* Light Theme */
-    body.light {
-      background-color: #ffffff;
-      color: #064e3b;
-    }
+    body.light { background-color: #ffffff; color: #064e3b; }
 
     /* Dark Theme */
-    body.dark {
-      background-color: #0f172a;
-      color: #ffffff;
-    }
+    body.dark { background-color: #0f172a; color: #ffffff; }
 
-    .navbar {
-      background-color: #065f46;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 50;
-    }
-
-    .navbar h1 {
-      font-family: 'Poppins', sans-serif;
-      font-weight: 600;
-      letter-spacing: 1px;
-    }
+    .navbar { background-color: #065f46; position: fixed; top: 0; left: 0; width: 100%; z-index: 50; }
+    .navbar h1 { font-family: 'Poppins', sans-serif; font-weight: 600; letter-spacing: 1px; }
 
     .glow-btn {
       box-shadow: 0 0 20px rgba(34,197,94,0.6);
       transition: all 0.3s ease;
     }
-
     .glow-btn:hover {
       transform: scale(1.05);
       box-shadow: 0 0 25px rgba(34,197,94,0.9);
     }
 
-    .transition-all {
-      transition: all 0.4s ease-in-out;
-    }
+    .transition-all { transition: all 0.4s ease-in-out; }
 
     body.dark h1,
     body.dark h2,
     body.dark p,
-    body.dark a {
-      color: #ffffff !important;
-    }
+    body.dark a { color: #ffffff !important; }
 
-    body.dark a.text-green-500 {
-      color: #22c55e !important;
-    }
+    body.dark a.text-green-500 { color: #22c55e !important; }
 
-    .logo-img {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      object-fit: cover;
-      background-color: #d1fae5;
-      padding: 4px;
-      border: 2px solid #22c55e;
-    }
+    .logo-img { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; background-color: #d1fae5; padding: 4px; border: 2px solid #22c55e; }
   </style>
 </head>
 
 <body class="light transition-all">
-
-  <!-- 🌿 Navbar with clickable logo & text linking to home -->
+  <!-- Navbar -->
   <nav class="navbar text-white body-font shadow-lg">
     <div class="container mx-auto flex flex-wrap p-5 flex-row items-center justify-between">
-      <a href="Home Page" class="flex title-font font-medium items-center mb-4 md:mb-0">
+      <a href="/" class="flex title-font font-medium items-center mb-4 md:mb-0">
         <img src="SoilBuddy_Logo.png" alt="SoilBuddy Logo" class="logo-img mr-3">
         <span class="text-2xl">SoilBuddy</span>
       </a>
-
       <button id="theme-toggle" class="text-white bg-green-500 border-0 py-1 px-4 focus:outline-none hover:bg-green-600 rounded-md text-sm glow-btn">
         Dark Theme
       </button>
     </div>
   </nav>
 
-  <!-- Spacer so content doesn’t hide behind navbar -->
   <div class="pt-24"></div>
 
-  <!-- 🧱 Page Content Here -->
-   <section class="text-gray-600 body-font">
+  <!-- SoilScanner Content -->
+  <section class="text-gray-600 body-font">
     <div class="container px-5 py-24 mx-auto">
-      <h1 class="text-3xl font-semibold mb-4">SoilScanner</h1>
-      <p class="leading-relaxed text-base mb-6">
+
+      <h1 class="text-3xl font-semibold mb-4 text-center">SoilScanner</h1>
+      <p class="leading-relaxed text-base mb-6 text-center">
         SoilScanner is an advanced AI-powered feature within SoilBuddy designed to revolutionize how farmers understand their soil. By simply capturing and sending a clear photo of their soil, farmers can access an in-depth analysis powered by machine learning and computer vision technology. The feature identifies key physical and visual properties of the soil and provides precise insights into its nutrient profile and overall health.
       </p>
+
       <h2 class="text-2xl font-semibold mb-2">Key Features:</h2>
       <ul class="list-disc pl-6 space-y-2">
-        <li>Allows farmers to upload high-resolution soil photos through the SoilBuddy interface for instant analysis.</li>
-        <li>AI model evaluates soil color, granularity, texture, and moisture patterns to detect underlying conditions.</li>
-        <li>Generates a comprehensive digital report highlighting nitrogen, phosphorus, and potassium levels, pH range, and organic matter content.</li>
-        <li>Detects visible nutrient deficiencies and potential disease symptoms within the soil composition.</li>
-        <li>Provides smart recommendations for suitable fertilizers, crop rotation strategies, and organic enrichment methods to improve soil vitality.</li>
+        <li>Allows farmers to upload high-resolution soil photos for instant analysis.</li>
+        <li>AI model evaluates soil color, granularity, texture, and moisture patterns.</li>
+        <li>Generates comprehensive digital reports including NPK levels, pH, and organic matter content.</li>
+        <li>Detects nutrient deficiencies and potential disease symptoms in soil composition.</li>
+        <li>Provides recommendations for fertilizers, crop rotation, and organic enrichment methods.</li>
       </ul>
+
       <h2 class="text-2xl font-semibold mt-6 mb-2">Impact:</h2>
       <p class="leading-relaxed text-base">
-        SoilScanner transforms traditional farming practices by giving farmers instant, data-driven insights about their land. It eliminates the need for expensive laboratory testing and reduces turnaround time dramatically. With accurate digital diagnostics, farmers can make informed choices about fertilizer usage, irrigation schedules, and crop selection. This not only saves cost and time but also encourages sustainable farming practices by preventing soil depletion and over-fertilization.
+        SoilScanner transforms traditional farming practices by giving farmers instant, data-driven insights about their land. It eliminates expensive lab testing, reduces turnaround time, and helps farmers make informed choices about fertilizer usage, irrigation schedules, and crop selection. This encourages sustainable farming practices and prevents soil depletion.
       </p>
+
       <p class="leading-relaxed text-base mt-4">
         In essence, SoilScanner bridges the gap between artificial intelligence and agriculture, ensuring that every farmer, regardless of location or resources, can access scientific soil insights and take proactive steps towards healthier, more productive fields.
       </p>
+
+      <!-- Centered Launch Button -->
+      <div class="text-center mt-10">
+        <a href="/soilscan" 
+           class="bg-green-600 text-white px-6 py-3 rounded-md glow-btn inline-block text-lg font-semibold">
+          Launch
+        </a>
+      </div>
+
     </div>
   </section>
 
@@ -129,4 +104,3 @@
   </script>
 </body>
 </html>
-
