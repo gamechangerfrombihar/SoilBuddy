@@ -42,10 +42,19 @@
   <!-- 🌿 Navbar -->
   <nav class="navbar text-white shadow-lg">
     <div class="container mx-auto flex flex-wrap p-5 flex-row items-center justify-between">
-      <a href="#" class="flex items-center">
-        <img src="SoilBuddy Logo.png" alt="SoilBuddy Logo" class="logo-img mr-3" />
+      <a href="HomePage.html" class="flex items-center">
+        <img src="SoilBuddy_Logo.png" alt="SoilBuddy Logo" class="logo-img mr-3" />
         <span class="text-2xl font-semibold">SoilBuddy</span>
       </a>
+
+      <!-- Navbar Links -->
+      <div class="flex space-x-6 text-sm md:text-base">
+        <a href="KrishiUdaanF.html" class="hover:text-green-300 transition">KrishiUdaan</a>
+        <a href="AmritJeevanF.html" class="hover:text-green-300 transition">AmritJeevan</a>
+        <a href="https://bharatbot-2a7793.zapier.app" target="_blank" rel="noopener noreferrer" class="hover:text-green-300 transition">BharatBot</a>
+        <a href="SoilScanF.html" class="hover:text-green-300 transition">SoilScan</a>
+      </div>
+
       <button id="theme-toggle" class="text-white bg-green-500 py-1 px-4 rounded-md text-sm glow-btn">
         Dark Theme
       </button>
@@ -55,13 +64,13 @@
   <!-- Spacer -->
   <div class="pt-24"></div>
 
-  <!-- 💧 Amritjeevan Calculator -->
+  <!-- 💧 Amritjeevan Calculator (Light only) -->
   <section class="text-gray-600 body-font">
     <div
-      class="container px-5 py-12 mx-auto bg-white dark:bg-[#17213a] rounded-lg shadow-lg max-w-3xl transition-all"
+      class="container px-5 py-12 mx-auto bg-white rounded-lg shadow-lg max-w-3xl transition-all"
     >
       <h1
-        class="text-3xl font-semibold mb-8 text-green-800 dark:text-green-400 text-center"
+        class="text-3xl font-semibold mb-8 text-green-800 text-center"
       >
         Amritjeevan Irrigation Calculator
       </h1>
@@ -71,13 +80,12 @@
         <div>
           <label
             for="stateSelect"
-            class="block font-semibold mb-1 text-green-700 dark:text-green-300"
-            >Select State</label
-          >
+            class="block font-semibold mb-1 text-green-700"
+          >Select State</label>
           <select
             id="stateSelect"
             required
-            class="w-full px-3 py-2 border rounded-md dark:bg-[#1e2a47] dark:text-white"
+            class="w-full px-3 py-2 border rounded-md"
           >
             <option value="">-- Select State --</option>
             <option value="punjab">Punjab</option>
@@ -96,9 +104,8 @@
         <div>
           <label
             for="landSize"
-            class="block font-semibold mb-1 text-green-700 dark:text-green-300"
-            >Land Size (in bigha)</label
-          >
+            class="block font-semibold mb-1 text-green-700"
+          >Land Size (in bigha)</label>
           <input
             type="number"
             id="landSize"
@@ -106,7 +113,7 @@
             step="0.1"
             required
             placeholder="E.g., 3.5"
-            class="w-full px-3 py-2 border rounded-md dark:bg-[#1e2a47] dark:text-white"
+            class="w-full px-3 py-2 border rounded-md"
           />
         </div>
 
@@ -114,13 +121,12 @@
         <div>
           <label
             for="soilType"
-            class="block font-semibold mb-1 text-green-700 dark:text-green-300"
-            >Select Soil Type</label
-          >
+            class="block font-semibold mb-1 text-green-700"
+          >Select Soil Type</label>
           <select
             id="soilType"
             required
-            class="w-full px-3 py-2 border rounded-md dark:bg-[#1e2a47] dark:text-white"
+            class="w-full px-3 py-2 border rounded-md"
           >
             <option value="">--Select Soil Type--</option>
             <option value="alluvial">Alluvial</option>
@@ -134,13 +140,12 @@
         <div>
           <label
             for="cropType"
-            class="block font-semibold mb-1 text-green-700 dark:text-green-300"
-            >Select Crop Type</label
-          >
+            class="block font-semibold mb-1 text-green-700"
+          >Select Crop Type</label>
           <select
             id="cropType"
             required
-            class="w-full px-3 py-2 border rounded-md dark:bg-[#1e2a47] dark:text-white"
+            class="w-full px-3 py-2 border rounded-md"
           >
             <option value="">--Select Crop--</option>
             <option value="rice">Rice</option>
@@ -165,13 +170,12 @@
         <div>
           <label
             for="growthStage"
-            class="block font-semibold mb-1 text-green-700 dark:text-green-300"
-            >Select Growth Stage</label
-          >
+            class="block font-semibold mb-1 text-green-700"
+          >Select Growth Stage</label>
           <select
             id="growthStage"
             required
-            class="w-full px-3 py-2 border rounded-md dark:bg-[#1e2a47] dark:text-white"
+            class="w-full px-3 py-2 border rounded-md"
           >
             <option value="">--Select Stage--</option>
             <option value="initial">Initial</option>
@@ -190,13 +194,13 @@
 
       <div
         id="result"
-        class="mt-8 p-4 bg-green-100 text-green-900 dark:bg-green-900 dark:text-green-300 rounded-md font-bold text-center text-lg hidden"
+        class="mt-8 p-4 bg-green-100 text-green-900 rounded-md font-bold text-center text-lg hidden"
       ></div>
     </div>
   </section>
 
   <script>
-    // 🌙 Theme toggle
+    // 🌙 Navbar Theme toggle
     const toggleBtn = document.getElementById("theme-toggle");
     toggleBtn.addEventListener("click", () => {
       document.body.classList.toggle("dark");
@@ -206,15 +210,9 @@
         : "Dark Theme";
     });
 
-    // Simplified soil factors (water retention efficiency)
-    const soilFactors = {
-      alluvial: 0.9,
-      black: 0.85,
-      redYellow: 0.8,
-      desert: 0.6,
-    };
+    // Soil factors (water retention)
+    const soilFactors = { alluvial: 0.9, black: 0.85, redYellow: 0.8, desert: 0.6 };
 
-    // Updated Crop water needs in mm/day by growth stage (typical values based on FAO and Indian Agriculture)
     const cropWaterNeeds = {
       rice: { initial: 4.5, development: 7.0, maturity: 5.5 },
       wheat: { initial: 3.0, development: 5.0, maturity: 3.5 },
@@ -233,7 +231,6 @@
       vegetables: { initial: 2.0, development: 3.0, maturity: 2.5 },
     };
 
-    // Bigha to square meters conversion (varies by state/region)
     const bighaToSqM = {
       punjab: 2500,
       uttar_pradesh: 2500,
@@ -246,21 +243,17 @@
       default: 1600,
     };
 
-    // Main calculation logic
     document
       .getElementById("irrigationForm")
       .addEventListener("submit", function (e) {
         e.preventDefault();
-
         const soil = document.getElementById("soilType").value;
         const crop = document.getElementById("cropType").value;
         const stage = document.getElementById("growthStage").value;
         const bigha = parseFloat(document.getElementById("landSize").value);
         const state = document.getElementById("stateSelect").value;
-
         const res = document.getElementById("result");
 
-        // Validate inputs
         if (!soil || !crop || !stage || isNaN(bigha) || bigha <= 0 || !state) {
           res.textContent = "❌ Please fill all fields correctly.";
           res.classList.remove("hidden");
@@ -270,31 +263,12 @@
         const soilFactor = soilFactors[soil];
         const cropNeedPerDay = cropWaterNeeds[crop]?.[stage];
         const sqMetersPerBigha = bighaToSqM[state] || bighaToSqM["default"];
-
-        if (
-          cropNeedPerDay === undefined ||
-          soilFactor === undefined ||
-          sqMetersPerBigha === undefined
-        ) {
-          res.textContent =
-            "❌ Data unavailable for selected crop, soil, or state.";
-          res.classList.remove("hidden");
-          return;
-        }
-
         const irrigationEfficiency = 0.75; // 75%
-
         const totalAreaSqM = bigha * sqMetersPerBigha;
-
-        // Calculate water needed (liters/day)
-        // cropNeedPerDay is in mm = liters per sq meter
         const waterNeededLiters =
           (cropNeedPerDay * totalAreaSqM) / (soilFactor * irrigationEfficiency);
 
-        res.textContent = `💧 Estimated daily water needed: ${waterNeededLiters.toLocaleString(
-          undefined,
-          { maximumFractionDigits: 0 }
-        )} liters`;
+        res.textContent = `💧 Estimated daily water needed: ${waterNeededLiters.toLocaleString(undefined, { maximumFractionDigits: 0 })} liters`;
         res.classList.remove("hidden");
       });
   </script>
