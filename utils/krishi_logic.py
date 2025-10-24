@@ -1,12 +1,4 @@
-# utils/krishi_logic.py
-
 def generate_plan(land_size, climate, capital, water, labourers, region, num_crops):
-    """
-    Generates a Krishi Udaan smart plan based on farmer inputs.
-    Returns a dictionary ready to pass to the template.
-    """
-
-    # 1️⃣ Convert inputs
     land_size = float(land_size)
     capital = float(capital)
     labourers = int(labourers)
@@ -15,50 +7,51 @@ def generate_plan(land_size, climate, capital, water, labourers, region, num_cro
     region = region.lower()
     climate = climate.lower()
 
-    # 2️⃣ Select crops based on region & climate
+    # ----------------- Validations -----------------
+    if land_size < 0.1:
+        raise ValueError("Minimum land size is 0.1 acres")
+    if capital < 1000:
+        raise ValueError("Minimum working capital is ₹1000")
+    if num_crops > 2:
+        num_crops = 2
+    if labourers <= 0:
+        labourers = 1
+
+    # Prevent unrealistic conditions
+    if land_size < 0.5 and num_crops == 2:
+        num_crops = 1
+    if capital < 5000 and num_crops == 2:
+        num_crops = 1
+
+    # Crop selection based on region & climate
     primary_crop, secondary_crop = "", ""
     rotation_primary, rotation_secondary = "", ""
 
     if region in ["east india", "north india"]:
         if climate in ["humid", "tropical"]:
-            primary_crop = "Rice"
-            secondary_crop = "Lentil"
-            rotation_primary = "Maize"
-            rotation_secondary = "Mustard"
+            primary_crop, secondary_crop = "Rice", "Lentil"
+            rotation_primary, rotation_secondary = "Maize", "Mustard"
         else:
-            primary_crop = "Wheat"
-            secondary_crop = "Barley"
-            rotation_primary = "Soybean"
-            rotation_secondary = "Mustard"
+            primary_crop, secondary_crop = "Wheat", "Barley"
+            rotation_primary, rotation_secondary = "Soybean", "Mustard"
     elif region == "west india":
-        primary_crop = "Cotton"
-        secondary_crop = "Groundnut"
-        rotation_primary = "Sorghum"
-        rotation_secondary = "Chili"
+        primary_crop, secondary_crop = "Cotton", "Groundnut"
+        rotation_primary, rotation_secondary = "Sorghum", "Chili"
     elif region == "south india":
-        primary_crop = "Maize"
-        secondary_crop = "Pulses"
-        rotation_primary = "Rice"
-        rotation_secondary = "Soybean"
+        primary_crop, secondary_crop = "Maize", "Pulses"
+        rotation_primary, rotation_secondary = "Rice", "Soybean"
     else:
-        primary_crop = "Wheat"
-        secondary_crop = "Lentil"
-        rotation_primary = "Maize"
-        rotation_secondary = "Mustard"
+        primary_crop, secondary_crop = "Wheat", "Lentil"
+        rotation_primary, rotation_secondary = "Maize", "Mustard"
 
-    # 3️⃣ Decide area percentage per crop
     if num_crops >= 2:
-        primary_percent = 60
-        secondary_percent = 40
+        primary_percent, secondary_percent = 60, 40
     else:
-        primary_percent = 100
-        secondary_percent = 0
+        primary_percent, secondary_percent = 100, 0
 
-    # 4️⃣ Estimated impact
-    yield_increase = 15 + (land_size / 10)  # arbitrary formula
+    yield_increase = 15 + (land_size / 10)
     profit_increase = 10000 + (capital / 10)
 
-    # 5️⃣ Explanation for collapsible card
     explanation = (
         f"The system analyzed your inputs: {land_size} acres, {climate.title()} climate, "
         f"₹{capital} working capital, {labourers} labourers, water availability: {water}, "
@@ -70,7 +63,6 @@ def generate_plan(land_size, climate, capital, water, labourers, region, num_cro
         f"ensures soil fertility, pest resistance, and maximizes yield/profit."
     )
 
-    # 6️⃣ Assemble plan dictionary aligned with template
     plan = {
         "farmer_profile": f"{land_size} acres | {climate.title()} climate | ₹{capital} capital | {labourers} labourers | {region.title()}",
         "primary_crop": primary_crop,
@@ -80,7 +72,7 @@ def generate_plan(land_size, climate, capital, water, labourers, region, num_cro
         "rotation_plan": f"Rotate to {rotation_primary} + {rotation_secondary} for soil fertility and pest resistance.",
         "yield_improvement": f"+{yield_increase:.0f}%",
         "profitability": f"₹{profit_increase:,.0f} increase",
-        "soil_quality": "Nitrogen +12% (estimated)",  # Placeholder, can be dynamic later
+        "soil_quality": "Nitrogen +12% (estimated)",
         "explanation": explanation.strip()
     }
 
