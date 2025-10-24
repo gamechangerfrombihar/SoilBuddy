@@ -7,45 +7,17 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body { transition: background-color 0.4s, color 0.4s; }
-
     body.light { background-color: #ffffff; color: #064e3b; }
     body.dark { background-color: #0f172a; color: #ffffff; }
 
-    .navbar {
-      background-color: #065f46;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      z-index: 50;
-    }
+    .navbar { background-color: #065f46; position: fixed; top:0; left:0; width:100%; z-index:50; }
+    .glow-btn { box-shadow: 0 0 20px rgba(34,197,94,0.6); transition: all 0.3s ease; }
+    .glow-btn:hover { transform: scale(1.05); box-shadow:0 0 25px rgba(34,197,94,0.9); }
+    .logo-img { width:50px; height:50px; border-radius:50%; object-fit:cover; background:#d1fae5; padding:4px; border:2px solid #22c55e; }
 
-    .glow-btn {
-      box-shadow: 0 0 20px rgba(34,197,94,0.6);
-      transition: all 0.3s ease;
-    }
-    .glow-btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 25px rgba(34,197,94,0.9);
-    }
-    .logo-img {
-      width: 50px; height: 50px;
-      border-radius: 50%;
-      object-fit: cover;
-      background-color: #d1fae5;
-      padding: 4px; border: 2px solid #22c55e;
-    }
-
-    #map {
-      width: 100%; max-width: 1000px;
-      height: 500px;
-      margin: 2rem auto;
-      border: 2px solid #22c55e;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(34,197,94,0.5);
-    }
+    #map { width:100%; max-width:1000px; height:500px; margin:2rem auto; border:2px solid #22c55e; border-radius:8px; box-shadow:0 0 10px rgba(34,197,94,0.5); }
   </style>
 
-  <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-sA+uVTy38oi2Y+SpS53oOWhXz6D9h7PeUjI2kNjf2Hk=" crossorigin=""/>
 </head>
@@ -61,10 +33,10 @@
           <span class="text-2xl font-semibold">SoilBuddy</span>
         </a>
         <div class="flex space-x-6 text-sm md:text-base">
-          <a href="/krishiudaan" class="hover:text-green-300 transition">KrishiUdaan</a>
-          <a href="/amritjeevan" class="hover:text-green-300 transition">AmritJeevan</a>
+          <a href="/krishiudaan/desc" class="hover:text-green-300 transition">KrishiUdaan</a>
+          <a href="/amritjeevan/desc" class="hover:text-green-300 transition">AmritJeevan</a>
           <a href="https://bharatbot-2a7793.zapier.app" target="_blank" class="hover:text-green-300 transition">BharatBot</a>
-          <a href="/soilscan" class="hover:text-green-300 transition">SoilScan</a>
+          <a href="/soilscan/desc" class="hover:text-green-300 transition">SoilScan</a>
         </div>
       </div>
 
@@ -89,13 +61,13 @@
         <div class="p-6 border rounded-lg shadow hover:shadow-md transition">
           <h2 class="text-xl font-semibold mb-2">KrishiUdaan</h2>
           <p class="text-sm mb-2">Live crop transport tracking system for farmers and distributors.</p>
-          <a href="KrishiUdaan.html" class="text-green-500 hover:underline text-sm">Go to KrishiUdaan</a>
+          <a href="/krishiudaan/desc" class="text-green-500 hover:underline text-sm">Read More</a>
         </div>
 
         <div class="p-6 border rounded-lg shadow hover:shadow-md transition">
           <h2 class="text-xl font-semibold mb-2">AmritJeevan</h2>
           <p class="text-sm mb-2">Monitor and manage soil moisture in real-time using IoT sensors.</p>
-          <a href="/amritjeevan" class="text-green-500 hover:underline text-sm">Go to AmritJeevan</a>
+          <a href="/amritjeevan/desc" class="text-green-500 hover:underline text-sm">Read More</a>
         </div>
 
         <div class="p-6 border rounded-lg shadow hover:shadow-md transition">
@@ -107,7 +79,7 @@
         <div class="p-6 border rounded-lg shadow hover:shadow-md transition">
           <h2 class="text-xl font-semibold mb-2">SoilScan</h2>
           <p class="text-sm mb-2">Upload soil images and receive AI-based quality analysis instantly.</p>
-          <a href="/soilscan" class="text-green-500 hover:underline text-sm">Go to SoilScan</a>
+          <a href="/soilscan/desc" class="text-green-500 hover:underline text-sm">Read More</a>
         </div>
       </div>
     </div>
@@ -140,7 +112,6 @@
   <!-- Leaflet JS -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
           integrity="sha256-oN1vZyD6QHBgVQmUWyguNz9w6D7hCpDUIZlWvX7k+kM=" crossorigin=""></script>
-
   <script>
     const map = L.map('map').setView([28.5748, 77.3573], 17);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
