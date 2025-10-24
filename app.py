@@ -1,13 +1,25 @@
+import os
 from flask import Flask, render_template, request, redirect, flash
+from werkzeug.utils import secure_filename
 from utils.krishi_logic import generate_plan
+from utils.soilscan_logic import analyze_soil
 
+# ----------------- App Setup -----------------
 app = Flask(__name__)
 app.secret_key = 'some_secret_key'
 
+# Upload folder for SoilScan
+app.config['UPLOAD_FOLDER'] = 'static/uploads'
+os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
+
+# ----------------- Routes -----------------
+
+# Home Page
 @app.route('/')
 def home():
     return render_template('HomePage.html')
 
+# ----------------- KrishiUdaan -----------------
 @app.route('/krishiudaan')
 def krishiudaan():
     return render_template('KrishiUdaanF.html')
@@ -30,16 +42,11 @@ def krishiudaan_result():
         flash(str(ve))
         return redirect('/krishiudaan')
 
-if __name__ == '__main__':
-    app.run(debug=True)
-
-
-# SoilScan input page
+# ----------------- SoilScan -----------------
 @app.route('/soilscan')
 def soilscan():
-    return render_template('soilscanF.html')  # Make sure filename matches
+    return render_template('SoilScanF.html')  # Make sure the filename matches exactly
 
-# SoilScan result page
 @app.route('/soilscan/result', methods=['POST'])
 def soilscan_result():
     if 'soil_image' not in request.files:
@@ -63,11 +70,12 @@ def soilscan_result():
         pdf_path=pdf_path
     )
 
+# ----------------- AmritJeevan Placeholder -----------------
+@app.route('/amritjeevan')
+def amritjeevan():
+    # Replace with actual AmritJeevan page later
+    return render_template('AmritJeevanF.html')
+
 # ----------------- Run App -----------------
 if __name__ == '__main__':
     app.run(debug=True)
-
-
-
-
-    f
