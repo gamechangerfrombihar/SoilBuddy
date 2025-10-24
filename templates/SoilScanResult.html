@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SoilScan Results</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .navbar { background-color:#065f46; position:fixed; top:0; left:0; width:100%; z-index:50; }
+    .logo-img { width:50px; height:50px; border-radius:50%; object-fit:cover; background:#d1fae5; padding:4px; border:2px solid #22c55e; }
+    .glow-btn { box-shadow:0 0 20px rgba(34,197,94,0.6); transition:0.3s; }
+    .glow-btn:hover { transform:scale(1.05); box-shadow:0 0 25px rgba(34,197,94,0.9); }
+  </style>
+</head>
+<body class="bg-white text-gray-800">
+
+  <!-- Navbar -->
+  <nav class="navbar text-white shadow-lg">
+    <div class="container mx-auto flex flex-wrap p-5 items-center justify-between">
+      <a href="/" class="flex items-center">
+        <img src="/static/SoilScan_Logo.png" class="logo-img mr-3" alt="SoilBuddy Logo">
+        <span class="text-2xl font-semibold">SoilBuddy</span>
+      </a>
+
+      <div class="flex space-x-6">
+        <a href="/krishiudaan" class="hover:text-green-300">KrishiUdaan</a>
+        <a href="/amritjeevan" class="hover:text-green-300">AmritJeevan</a>
+        <a href="https://bharatbot-2a7793.zapier.app" target="_blank" class="hover:text-green-300">BharatBot</a>
+        <a href="/soilscan" class="hover:text-green-300">SoilScan</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="pt-24"></div>
+
+  <div class="max-w-3xl mx-auto p-6 bg-white rounded-lg shadow-lg">
+    <h2 class="text-3xl font-semibold mb-6 text-green-800 text-center">🌱 Soil Scan Results</h2>
+
+    <h3 class="text-xl font-semibold mb-2">Soil Composition:</h3>
+    <ul class="list-disc list-inside mb-6">
+      {% for key, val in soil_params.items() %}
+        <li>{{ key }}: {{ val }}%</li>
+      {% endfor %}
+    </ul>
+
+    {% if plot_path %}
+      <h3 class="text-xl font-semibold mb-2">NASA POWER Data Graph:</h3>
+      <img src="{{ plot_path }}" alt="NASA Data Plot" class="w-full mb-6">
+    {% endif %}
+
+    <h3 class="text-xl font-semibold mb-2">Download Report:</h3>
+    <a href="{{ pdf_path }}" download class="bg-green-600 text-white px-4 py-2 rounded-md glow-btn inline-block mb-6">Download PDF Report</a>
+
+    <br>
+    <a href="/soilscan" class="text-green-500 hover:underline">← Back to SoilScan</a>
+  </div>
+
+</body>
+</html>
