@@ -35,7 +35,7 @@
         <span class="text-2xl font-semibold">SoilBuddy</span>
       </a>
 
-      <!-- Hardcoded feature links -->
+      <!-- Feature Links -->
       <div class="flex space-x-6 text-sm md:text-base">
         <a href="/krishiudaan" class="hover:text-green-300 transition">KrishiUdaan</a>
         <a href="/amritjeevan" class="hover:text-green-300 transition">AmritJeevan</a>
@@ -46,96 +46,91 @@
 
     <!-- Right side: Language + Dark mode -->
     <div class="flex items-center space-x-4">
-      <!-- Language toggle -->
       {% if lang == 'en' %}
         <a href="{{ url_for('set_language', lang='hi', next=request.path) }}" class="text-white hover:underline">हिन्दी</a>
       {% else %}
         <a href="{{ url_for('set_language', lang='en', next=request.path) }}" class="text-white hover:underline">English</a>
       {% endif %}
 
-      <!-- Dark mode button -->
       <button id="theme-toggle" class="p-2 rounded-lg focus:outline-none">
         Dark / Light
       </button>
     </div>
-
   </div>
 </nav>
 
+<div class="pt-24"></div>
 
+<!-- Welcome Section -->
+<section class="text-gray-600 body-font">
+  <div class="container px-5 py-24 mx-auto">
+    <h1 class="text-3xl font-semibold mb-4">{{ texts.welcome_title }}</h1>
+    <p class="leading-relaxed text-base mb-10">{{ texts.welcome_desc }}</p>
 
-      <!-- Theme Toggle -->
-      <button id="theme-toggle" class="text-white bg-green-500 border-0 py-1 px-4 focus:outline-none hover:bg-green-600 rounded-md text-sm glow-btn">
-        Dark Theme
-      </button>
-    </div>
-  </nav>
+    <!-- Feature Cards -->
+    <div class="grid md:grid-cols-2 gap-8">
+      <!-- KrishiUdaan -->
+      <div class="p-6 border rounded-lg shadow hover:shadow-md transition">
+        <h2 class="text-xl font-semibold mb-2">{{ texts.krishi_title }}</h2>
+        <p class="text-sm mb-2">{{ texts.krishi_desc }}</p>
+        <a href="/krishiudaan/desc" class="text-green-500 hover:underline text-sm">Read More</a>
+      </div>
 
-  <div class="pt-24"></div>
+      <!-- AmritJeevan -->
+      <div class="p-6 border rounded-lg shadow hover:shadow-md transition">
+        <h2 class="text-xl font-semibold mb-2">{{ texts.amrit_title }}</h2>
+        <p class="text-sm mb-2">{{ texts.amrit_desc }}</p>
+        <a href="/amritjeevan/desc" class="text-green-500 hover:underline text-sm">Read More</a>
+      </div>
 
-  <!-- Welcome Text -->
-  <section class="text-gray-600 body-font">
-    <div class="container px-5 py-24 mx-auto">
-      <h1 class="text-3xl font-semibold mb-4">{{ texts.welcome_title }}</h1>
-      <p class="leading-relaxed text-base mb-10">{{ texts.welcome_desc }}</p>
+      <!-- BharatBot -->
+      <div class="p-6 border rounded-lg shadow hover:shadow-md transition">
+        <h2 class="text-xl font-semibold mb-2">{{ texts.bharatbot_title }}</h2>
+        <p class="text-sm mb-2">{{ texts.bharatbot_desc }}</p>
+        <a href="/bharatbot/desc" class="text-green-500 hover:underline text-sm">Read More</a>
+      </div>
 
-      <!-- Feature Cards -->
-      <div class="grid md:grid-cols-2 gap-8">
-        <div class="p-6 border rounded-lg shadow hover:shadow-md transition">
-          <h2 class="text-xl font-semibold mb-2">{{ texts.krishi_title }}</h2>
-          <p class="text-sm mb-2">{{ texts.krishi_desc }}</p>
-          <a href="/krishiudaan/desc" class="text-green-500 hover:underline text-sm">Read More</a>
-        </div>
-        <div class="p-6 border rounded-lg shadow hover:shadow-md transition">
-          <h2 class="text-xl font-semibold mb-2">{{ texts.amrit_title }}</h2>
-          <p class="text-sm mb-2">{{ texts.amrit_desc }}</p>
-          <a href="/amritjeevan/desc" class="text-green-500 hover:underline text-sm">Read More</a>
-        </div>
-        <div class="p-6 border rounded-lg shadow hover:shadow-md transition">
-          <h2 class="text-xl font-semibold mb-2">{{ texts.bharatbot_title }}</h2>
-          <p class="text-sm mb-2">{{ texts.bharatbot_desc }}</p>
-          <a href="/bharatbot/desc" class="text-green-500 hover:underline text-sm">Read More</a>
-        </div>
-        <div class="p-6 border rounded-lg shadow hover:shadow-md transition">
-          <h2 class="text-xl font-semibold mb-2">{{ texts.soilscan_title }}</h2>
-          <p class="text-sm mb-2">{{ texts.soilscan_desc }}</p>
-          <a href="/soilscan/desc" class="text-green-500 hover:underline text-sm">Read More</a>
-        </div>
+      <!-- SoilScan -->
+      <div class="p-6 border rounded-lg shadow hover:shadow-md transition">
+        <h2 class="text-xl font-semibold mb-2">{{ texts.soilscan_title }}</h2>
+        <p class="text-sm mb-2">{{ texts.soilscan_desc }}</p>
+        <a href="/soilscan/desc" class="text-green-500 hover:underline text-sm">Read More</a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Map Section -->
-  <section class="container mx-auto mt-24">
-    <div id="map"></div>
-    <div class="w-full md:w-1/3 mx-auto mt-4 text-center">
-      <h2 class="text-2xl font-semibold text-green-600 mb-3">{{ texts.location_title }}</h2>
-      <p class="leading-relaxed text-base dark:text-gray-300">{{ texts.location_desc }}</p>
-    </div>
-  </section>
+<!-- Map Section -->
+<section class="container mx-auto mt-24">
+  <div id="map"></div>
+  <div class="w-full md:w-1/3 mx-auto mt-4 text-center">
+    <h2 class="text-2xl font-semibold text-green-600 mb-3">{{ texts.location_title }}</h2>
+    <p class="leading-relaxed text-base dark:text-gray-300">{{ texts.location_desc }}</p>
+  </div>
+</section>
 
-  <!-- Theme Toggle Script -->
-  <script>
-    const body = document.body;
-    const toggleBtn = document.getElementById('theme-toggle');
-    toggleBtn.addEventListener('click', () => {
-      body.classList.toggle('dark');
-      body.classList.toggle('light');
-      toggleBtn.textContent = body.classList.contains('dark') ? 'Light Theme' : 'Dark Theme';
-    });
-  </script>
+<!-- Theme Toggle Script -->
+<script>
+  const body = document.body;
+  const toggleBtn = document.getElementById('theme-toggle');
+  toggleBtn.addEventListener('click', () => {
+    body.classList.toggle('dark');
+    body.classList.toggle('light');
+    toggleBtn.textContent = body.classList.contains('dark') ? 'Light Theme' : 'Dark Theme';
+  });
+</script>
 
-  <!-- Leaflet JS -->
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-          integrity="sha256-oN1vZyD6QHBgVQmUWyguNz9w6D7hCpDUIZlWvX7k+kM=" crossorigin=""></script>
-  <script>
-    const map = L.map('map').setView([28.5748, 77.3573], 17);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; OpenStreetMap contributors'
-    }).addTo(map);
-    L.marker([28.5748, 77.3573]).addTo(map)
-      .bindPopup("<b>Bal Bharati Public School</b><br>Sector 21, Noida").openPopup();
-  </script>
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-oN1vZyD6QHBgVQmUWyguNz9w6D7hCpDUIZlWvX7k+kM=" crossorigin=""></script>
+<script>
+  const map = L.map('map').setView([28.5748, 77.3573], 17);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(map);
+  L.marker([28.5748, 77.3573]).addTo(map)
+    .bindPopup("<b>Bal Bharati Public School</b><br>Sector 21, Noida").openPopup();
+</script>
 
 </body>
 </html>
