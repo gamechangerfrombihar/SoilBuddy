@@ -31,3 +31,4 @@ python-dateutil==2.9.0.post0
 requests==2.32.5
 six==1.17.0
 urllib3==2.5.0
+gdown>=4.6.6
