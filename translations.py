@@ -2,7 +2,7 @@
 translations = {
     "en": {
         # Homepage
-       'welcome_title': "Welcome to SoilBuddy",
+        'welcome_title': "Welcome to SoilBuddy",
         'welcome_desc': "Helping farmers make smarter decisions for their land.",
         'krishi_title': "KrishiUdaan",
         'krishi_desc': "Recommends the best crops to grow for your farm, helping you increase yield and productivity.",
@@ -27,7 +27,6 @@ translations = {
             "Government and NGOs working on water conservation initiatives.",
             "Researchers studying crop-water relationships and soil hydration levels.",
             "Agri-tech startups building sustainable smart farming systems."
-            
         ],
         "amrit_where_title": "Where can it be applied?",
         "amrit_where_list": [
@@ -139,12 +138,12 @@ translations = {
             "Provides recommendations for fertilizers, crop rotation, and organic enrichment methods."
         ],
         "soilscan_impact_title": "Impact:",
-        "soilscan_impact": "SoilScan transforms traditional farming practices by giving farmers instant, data-driven insights about their land. It eliminates expensive lab testing, reduces turnaround time, and helps farmers make informed choices about fertilizer usage, irrigation schedules, and crop selection. This encourages sustainable farming practices and prevents soil depletion."
+        "soilscan_impact": "SoilScan transforms traditional farming practices by giving farmers instant, data-driven insights about their land. It eliminates expensive lab testing, reduces turnaround time, and helps farmers make informed choices about fertilizer usage, irrigation schedules, and crop selection. This encourages sustainable farming practices and prevents soil depletion.",
         'launch_btn': "Launch", 
     },
     "hi": {
         # Homepage
-       'welcome_title': "सॉइलबड्डी में आपका स्वागत है",
+        'welcome_title': "सॉइलबड्डी में आपका स्वागत है",
         'welcome_desc': "किसानों को उनके खेत के लिए स्मार्ट निर्णय लेने में मदद।",
         'krishi_title': "कृषि उड़ान",
         'krishi_desc': "आपके खेत के लिए सबसे उपयुक्त फसल की सिफारिश करता है, जिससे उपज और उत्पादकता बढ़ती है।",
@@ -280,7 +279,7 @@ translations = {
             "उर्वरक, फसल चक्र और जैविक संवर्धन विधियों के लिए सिफारिशें प्रदान करता है।"
         ],
         "soilscan_impact_title": "प्रभाव:",
-        "soilscan_impact": "सोइलस्कैन पारंपरिक खेती के तरीकों को बदल देता है। यह किसानों को उनके खेत के बारे में त्वरित, डेटा-आधारित इनसाइट देता है। यह महंगे लैब परीक्षण को समाप्त करता है, समय बचाता है, और उर्वरक उपयोग, सिंचाई योजना और फसल चयन के निर्णय लेने में मदद करता है। यह स्थायी खेती प्रथाओं को प्रोत्साहित करता है और मिट्टी की कमी को रोकता है।"
+        "soilscan_impact": "सोइलस्कैन पारंपरिक खेती के तरीकों को बदल देता है। यह किसानों को उनके खेत के बारे में त्वरित, डेटा-आधारित इनसाइट देता है। यह महंगे लैब परीक्षण को समाप्त करता है, समय बचाता है, और उर्वरक उपयोग, सिंचाई योजना और फसल चयन के निर्णय लेने में मदद करता है। यह स्थायी खेती प्रथाओं को प्रोत्साहित करता है और मिट्टी की कमी को रोकता है।",
         'launch_btn': "प्रारंभ करें",
     }
 }
