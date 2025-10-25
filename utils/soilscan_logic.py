@@ -1,5 +1,3 @@
-# utils/soilscan_logic.py
-
 import os
 import requests
 import numpy as np
@@ -22,7 +20,7 @@ def fetch_nasa_power_data(lat, lon, start_date, end_date, parameters=None):
         print("NASA POWER API request failed:", e)
         return None
 
-# --- Approximate soil composition from image ---
+# --- Soil analysis from image ---
 def approximate_soil_from_image(image_path):
     try:
         img = Image.open(image_path).convert('RGB')
@@ -64,17 +62,17 @@ def plot_nasa_data(nasa_data):
     plt.close()
     return plot_path
 
-# --- Main Logic for Flask ---
-def analyze_soil(lat=None, lon=None, start_date=None, end_date=None, image_path=None):
-    # Step 1: NASA data (optional)
+# --- Main logic for Flask ---
+def analyze_soil(image_path, lat=None, lon=None, start_date=None, end_date=None):
+    # Step 1: Soil image
+    soil_params = approximate_soil_from_image(image_path)
+
+    # Step 2: NASA data (optional)
     nasa_data = None
     plot_path = None
     if all([lat, lon, start_date, end_date]):
         nasa_data = fetch_nasa_power_data(lat, lon, start_date, end_date)
         if nasa_data:
             plot_path = plot_nasa_data(nasa_data)
-
-    # Step 2: Soil image (or default)
-    soil_params = approximate_soil_from_image(image_path) if image_path else {'Clay': 30, 'Silt': 40, 'Sand': 30}
 
     return soil_params, plot_path
