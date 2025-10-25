@@ -44,7 +44,6 @@ translations = {
         "amrit_what_title": "What is AmritJeevan?",
         "amrit_what_desc1": "AmritJeevan is an advanced irrigation and water management system designed to help farmers achieve maximum water efficiency, crop health, and sustainability. It gathers essential farm-specific inputs such as location, total field area, soil type, crop variety, and climate data directly from farmers. Based on this data, AmritJeevan calculates the exact daily water requirement for each field, ensuring precise irrigation with minimal wastage.",
         "amrit_what_desc2": "The system promotes smart water use by integrating rainfall prediction, soil moisture sensing, and crop water demand analytics—making irrigation both sustainable and cost-effective.",
-
         "amrit_who_title": "Who is it for?",
         "amrit_who_list": [
             "Farmers aiming to optimize water use and reduce irrigation costs.",
@@ -53,7 +52,6 @@ translations = {
             "Researchers studying crop-water relationships and soil hydration levels.",
             "Agri-tech startups building sustainable smart farming systems."
         ],
-
         "amrit_where_title": "Where can it be applied?",
         "amrit_where_list": [
             "Regions facing irregular rainfall or limited water resources.",
@@ -61,7 +59,6 @@ translations = {
             "Farms using traditional irrigation systems seeking modernization.",
             "Smart farming setups using IoT-based sensors and water automation tools."
         ],
-
         "amrit_why_title": "Why use AmritJeevan?",
         "amrit_why_list": [
             "Water Conservation: Prevents water wastage by calculating exact crop-wise needs.",
@@ -71,7 +68,6 @@ translations = {
             "Automation Ready: Can integrate with IoT irrigation systems for auto-scheduling.",
             "Data-Driven: Replaces guesswork with accurate analytics and smart insights."
         ],
-
         "amrit_features_title": "Key Features",
         "amrit_features_list": [
             "Real-time water need estimation using farm data and weather info.",
@@ -82,10 +78,8 @@ translations = {
             "Region-wise comparison for better water resource planning.",
             "Smart irrigation planning compatible with all crop types."
         ],
-
         "amrit_innovation_title": "Innovation & USP",
         "amrit_innovation_desc": "AmritJeevan combines meteorological data and soil science to deliver intelligent irrigation insights. Its precision-based approach reduces water wastage up to 40% and boosts yield through efficient hydration cycles. The system’s USP lies in its ability to continuously learn from field data and refine future irrigation schedules automatically.",
-
         "amrit_impact_title": "Impact",
         "amrit_impact_list": [
             "Reduces irrigation water use by up to 30–40%.",
@@ -94,9 +88,58 @@ translations = {
             "Empowers farmers with accurate, actionable water insights.",
             "Promotes long-term sustainable water resource management."
         ],
-
         "amrit_vision_title": "Vision",
-        "amrit_vision_desc": "To revolutionize Indian agriculture by enabling smart, data-driven water management—ensuring every drop counts and every farm thrives sustainably with balanced irrigation and higher productivity."
+        "amrit_vision_desc": "To revolutionize Indian agriculture by enabling smart, data-driven water management—ensuring every drop counts and every farm thrives sustainably with balanced irrigation and higher productivity.",
+
+        # KrishiUdaan page
+        "krishi_welcome_title": "KrishiUdaan",
+        "krishi_what_title": "What is KrishiUdaan?",
+        "krishi_what_desc1": "KrishiUdaan is an advanced AI-powered crop recommendation and farm management system designed to help farmers maximize productivity, profitability, and sustainability. It analyzes multiple farm-specific factors—such as region, area, capital, irrigation system, soil type, climate, and number of crops a farmer intends to grow—to provide precise recommendations on which crops to cultivate and which modern techniques to use for optimum yield.",
+        "krishi_what_desc2": "Techniques like multicropping and crop rotation ensure efficient land use and soil health while boosting profitability.",
+        "krishi_who_title": "Who is it for?",
+        "krishi_who_list": [
+            "Small and medium-scale farmers seeking to optimize resources.",
+            "Agricultural planners and consultants who advise farmers.",
+            "Government agricultural departments aiming to improve regional crop planning.",
+            "Agri-tech startups and investors analyzing crop viability in different regions.",
+            "Anyone involved in crop cultivation who wants data-driven insights for informed decisions."
+        ],
+        "krishi_where_title": "Where can it be applied?",
+        "krishi_where_list": [
+            "Diverse regions with varying climate zones and soil types.",
+            "Urban and rural farms, from small kitchen gardens to large agricultural fields.",
+            "Areas with irrigation constraints or where capital investment optimization is crucial."
+        ],
+        "krishi_why_title": "Why use KrishiUdaan?",
+        "krishi_why_list": [
+            "Maximize Profits: Suggests suitable crops and techniques for higher yield per acre.",
+            "Data-Driven Decisions: Eliminates guesswork, adapting to regional conditions and climate patterns.",
+            "Sustainable Farming: Promotes crop rotation and multicropping for long-term soil health.",
+            "Resource Optimization: Recommends crops based on capital, irrigation, and labor availability.",
+            "Comprehensive Planning: End-to-end guidance for sowing, harvesting, and crop cycles.",
+            "Scalable & Customizable: Adapts recommendations for 1 or multiple crops."
+        ],
+        "krishi_features_title": "Key Features",
+        "krishi_features_list": [
+            "Multi-factor Analysis: region, area, soil, climate, water, and financial resources considered.",
+            "Crop Suitability Index: recommends crops with max profit potential and minimal risk.",
+            "Technique Suggestions: guides on multicropping, crop rotation, intercropping, and organic methods.",
+            "Profit Estimator: predicts potential revenue and ROI.",
+            "Seasonal Planning: sowing-to-harvest calendar tailored to local conditions.",
+            "Visualization & Reports: easy-to-read charts for farmers and planners.",
+            "Decision Support System: helps with capital allocation, irrigation planning, and land management."
+        ],
+        "krishi_innovation_title": "Innovation & USP",
+        "krishi_innovation_desc": "KrishiUdaan is more than a crop suggestion tool—it’s a holistic farm advisor. Its AI-driven recommendations combine agronomy, climate science, and economics to provide actionable insights, personalized for each farmer’s conditions.",
+        "krishi_impact_title": "Impact",
+        "krishi_impact_list": [
+            "Improves farmer income and reduces losses.",
+            "Promotes eco-friendly and sustainable farming practices.",
+            "Supports planning and policy-making for governments and NGOs.",
+            "Ensures food security and resource-efficient agriculture."
+        ],
+        "krishi_vision_title": "Vision",
+        "krishi_vision_desc": "To empower farmers with knowledge, technology, and actionable insights, enabling every farm to achieve maximum growth, sustainability, and profit."
     },
     "hi": {
         # Homepage
@@ -117,7 +160,6 @@ translations = {
         "amrit_what_title": "अमृतजीवन क्या है?",
         "amrit_what_desc1": "अमृतजीवन एक उन्नत सिंचाई और जल प्रबंधन प्रणाली है जो किसानों को अधिकतम जल दक्षता, फसल स्वास्थ्य और स्थिरता प्राप्त करने में मदद करती है। यह किसानों से स्थान, कुल क्षेत्रफल, मिट्टी का प्रकार, फसल की किस्म और जलवायु डेटा जैसे आवश्यक इनपुट सीधे प्राप्त करती है। इसके आधार पर अमृतजीवन प्रत्येक खेत के लिए सटीक दैनिक जल आवश्यकता की गणना करता है, जिससे न्यूनतम अपव्यय के साथ सटीक सिंचाई सुनिश्चित होती है।",
         "amrit_what_desc2": "यह प्रणाली स्मार्ट जल उपयोग को बढ़ावा देती है, जिसमें वर्षा पूर्वानुमान, मिट्टी की नमी सेंसर और फसल की जल आवश्यकता विश्लेषण को एकीकृत किया गया है—जिससे सिंचाई स्थायी और लागत-कुशल बनती है।",
-
         "amrit_who_title": "यह किसके लिए है?",
         "amrit_who_list": [
             "किसान जो जल उपयोग को अनुकूलित करना और सिंचाई लागत कम करना चाहते हैं।",
@@ -126,7 +168,6 @@ translations = {
             "शोधकर्ता जो फसल-जल संबंध और मिट्टी की नमी स्तर का अध्ययन कर रहे हैं।",
             "एग्री-टेक स्टार्टअप जो टिकाऊ स्मार्ट खेती प्रणाली बना रहे हैं।"
         ],
-
         "amrit_where_title": "यह कहाँ लागू हो सकता है?",
         "amrit_where_list": [
             "ऐसी क्षेत्र जहाँ वर्षा अनियमित या जल स्रोत सीमित हैं।",
@@ -134,7 +175,6 @@ translations = {
             "पारंपरिक सिंचाई प्रणाली वाले खेत जो आधुनिकीकरण चाहते हैं।",
             "स्मार्ट खेती सेटअप जो आईओटी आधारित सेंसर और जल स्वचालन उपकरण का उपयोग करते हैं।"
         ],
-
         "amrit_why_title": "अमृतजीवन क्यों इस्तेमाल करें?",
         "amrit_why_list": [
             "जल संरक्षण: सटीक फसल-वार आवश्यकता की गणना करके जल अपव्यय रोकता है।",
@@ -144,7 +184,6 @@ translations = {
             "स्वचालन के लिए तैयार: ऑटो-शेड्यूलिंग के लिए आईओटी सिंचाई सिस्टम के साथ एकीकृत हो सकता है।",
             "डेटा-प्रेरित: सटीक विश्लेषण और स्मार्ट इनसाइट के साथ अनुमान को बदलता है।"
         ],
-
         "amrit_features_title": "मुख्य विशेषताएँ",
         "amrit_features_list": [
             "खेत डेटा और मौसम जानकारी का उपयोग करके वास्तविक समय में जल आवश्यकता का अनुमान।",
@@ -155,10 +194,8 @@ translations = {
             "बेहतर जल संसाधन योजना के लिए क्षेत्रवार तुलना।",
             "सभी फसल प्रकारों के लिए संगत स्मार्ट सिंचाई योजना।"
         ],
-
         "amrit_innovation_title": "नवाचार और यूएसपी",
         "amrit_innovation_desc": "अमृतजीवन मौसमीय डेटा और मिट्टी विज्ञान को जोड़कर बुद्धिमान सिंचाई इनसाइट प्रदान करता है। इसकी सटीकता आधारित विधि 40% तक जल अपव्यय कम करती है और कुशल हाइड्रेशन चक्र के माध्यम से उपज बढ़ाती है। प्रणाली की यूएसपी इसकी क्षमता में निहित है कि यह लगातार क्षेत्र डेटा से सीखती है और भविष्य की सिंचाई अनुसूचियों को स्वचालित रूप से सुधारती है।",
-
         "amrit_impact_title": "प्रभाव",
         "amrit_impact_list": [
             "सिंचाई जल उपयोग को 30–40% तक कम करता है।",
@@ -167,11 +204,61 @@ translations = {
             "किसानों को सटीक, कार्रवाई योग्य जल इनसाइट प्रदान करता है।",
             "दीर्घकालिक स्थायी जल संसाधन प्रबंधन को बढ़ावा देता है।"
         ],
-
         "amrit_vision_title": "दृष्टि",
-        "amrit_vision_desc": "भारतीय कृषि को स्मार्ट, डेटा-आधारित जल प्रबंधन सक्षम करके क्रांतिकारी बदलाव लाना—सुनिश्चित करना कि हर बूँद मायने रखे और हर खेत संतुलित सिंचाई और उच्च उत्पादन के साथ स्थायी रूप से फल-फूल सके।"
+        "amrit_vision_desc": "भारतीय कृषि को स्मार्ट, डेटा-आधारित जल प्रबंधन सक्षम करके क्रांतिकारी बदलाव लाना—सुनिश्चित करना कि हर बूँद मायने रखे और हर खेत संतुलित सिंचाई और उच्च उत्पादन के साथ स्थायी रूप से फल-फूल सके।",
+
+        # KrishiUdaan page
+        "krishi_welcome_title": "कृषिउड़ान",
+        "krishi_what_title": "कृषिउड़ान क्या है?",
+        "krishi_what_desc1": "कृषिउड़ान एक उन्नत एआई-आधारित फसल सिफारिश और फार्म प्रबंधन प्रणाली है जो किसानों को अधिकतम उत्पादकता, लाभप्रदता और स्थिरता प्राप्त करने में मदद करती है। यह क्षेत्र, क्षेत्रफल, पूंजी, सिंचाई प्रणाली, मिट्टी का प्रकार, जलवायु और उगाई जाने वाली फसलों की संख्या जैसे कई फॉर्म-विशिष्ट कारकों का विश्लेषण करती है और सही फसल और आधुनिक तकनीकें सुझाती है।",
+        "krishi_what_desc2": "मल्टीक्रॉपिंग और फसल चक्रीय तकनीकें जमीन का कुशल उपयोग सुनिश्चित करती हैं और लाभप्रदता बढ़ाती हैं।",
+        "krishi_who_title": "यह किसके लिए है?",
+        "krishi_who_list": [
+            "छोटे और मध्यम स्तर के किसान जो संसाधनों का अनुकूलन करना चाहते हैं।",
+            "कृषि योजनाकार और सलाहकार जो किसानों को मार्गदर्शन देते हैं।",
+            "सरकारी कृषि विभाग जो क्षेत्रीय फसल योजना सुधारना चाहते हैं।",
+            "एग्री-टेक स्टार्टअप और निवेशक जो विभिन्न क्षेत्रों में फसल क्षमता का विश्लेषण करते हैं।",
+            "फसल उगाने में शामिल कोई भी व्यक्ति जो डेटा-आधारित निर्णय लेना चाहता है।"
+        ],
+        "krishi_where_title": "यह कहाँ लागू हो सकता है?",
+        "krishi_where_list": [
+            "विभिन्न जलवायु क्षेत्रों और मिट्टी के प्रकार वाले क्षेत्र।",
+            "शहरी और ग्रामीण खेत, छोटे किचन गार्डन से लेकर बड़े कृषि क्षेत्र तक।",
+            "सिंचाई सीमित या पूंजी निवेश अनुकूलन आवश्यक क्षेत्र।"
+        ],
+        "krishi_why_title": "क्यों उपयोग करें?",
+        "krishi_why_list": [
+            "लाभ अधिकतम करें: उच्च उत्पादन और लाभ के लिए उपयुक्त फसल और तकनीक सुझाता है।",
+            "डेटा-आधारित निर्णय: क्षेत्रीय परिस्थितियों और मौसम पैटर्न के अनुसार अनुमान समाप्त करता है।",
+            "सतत खेती: फसल चक्रीय और मल्टीक्रॉपिंग को बढ़ावा देता है।",
+            "संसाधन अनुकूलन: पूंजी, सिंचाई और श्रम उपलब्धता के आधार पर फसल सुझाता है।",
+            "समग्र योजना: बुवाई, कटाई और फसल चक्र के लिए पूर्ण मार्गदर्शन।",
+            "स्केलेबल और अनुकूलनीय: एक या अधिक फसलों के लिए सुझाव देता है।"
+        ],
+        "krishi_features_title": "मुख्य विशेषताएँ",
+        "krishi_features_list": [
+            "बहु-कारक विश्लेषण: क्षेत्र, क्षेत्रफल, मिट्टी, जलवायु, पानी और वित्तीय संसाधन विचारित।",
+            "फसल उपयुक्तता सूचकांक: अधिकतम लाभ और न्यूनतम जोखिम वाली फसल की सिफारिश।",
+            "तकनीक सुझाव: मल्टीक्रॉपिंग, फसल चक्र, इंटरक्रॉपिंग और ऑर्गेनिक विधियों पर मार्गदर्शन।",
+            "लाभ अनुमानक: संभावित राजस्व और ROI का पूर्वानुमान।",
+            "मौसमी योजना: स्थानीय परिस्थितियों के अनुसार बुवाई-से-कटाई कैलेंडर।",
+            "दृश्य और रिपोर्ट: किसानों और योजनाकारों के लिए आसान चार्ट।",
+            "निर्णय समर्थन प्रणाली: पूंजी आवंटन, सिंचाई योजना और भूमि प्रबंधन में मदद।"
+        ],
+        "krishi_innovation_title": "नवाचार और यूएसपी",
+        "krishi_innovation_desc": "कृषिउड़ान सिर्फ फसल सिफारिश उपकरण नहीं है—यह एक संपूर्ण फार्म सलाहकार है। इसकी एआई-आधारित सिफारिशें कृषि विज्ञान, जलवायु विज्ञान और अर्थशास्त्र को जोड़ती हैं।",
+        "krishi_impact_title": "प्रभाव",
+        "krishi_impact_list": [
+            "किसानों की आय बढ़ाता है और नुकसान कम करता है।",
+            "पर्यावरण-मित्र और स्थायी खेती को बढ़ावा देता है।",
+            "सरकार और एनजीओ के लिए योजना और नीति निर्माण का समर्थन करता है।",
+            "खाद्य सुरक्षा और संसाधन-कुशल कृषि सुनिश्चित करता है।"
+        ],
+        "krishi_vision_title": "दृष्टि",
+        "krishi_vision_desc": "किसानों को ज्ञान, तकनीक और कार्रवाई योग्य इनसाइट प्रदान करना, जिससे प्रत्येक खेत अधिकतम वृद्धि, स्थिरता और लाभ प्राप्त करे।"
     }
 }
+
 
 
 # ----------------- Home & Features -----------------
