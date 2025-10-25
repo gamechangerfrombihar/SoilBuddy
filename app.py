@@ -289,6 +289,39 @@ translations = {
     "bharatbot_launch_link": "https://bharatbot-2a7793.zapier.app/"
 }
 
+# SoilScan
+
+"en": {
+    ...
+    "soilscan_title": "SoilScan",
+    "soilscan_desc": "SoilScan is an advanced AI-powered feature within SoilBuddy designed to revolutionize how farmers understand their soil. By simply capturing and sending a clear photo of their soil, farmers can access an in-depth analysis powered by machine learning and computer vision technology. The feature identifies key physical and visual properties of the soil and provides precise insights into its nutrient profile and overall health.",
+    "soilscan_features_title": "Key Features:",
+    "soilscan_features": [
+        "Allows farmers to upload high-resolution soil photos for instant analysis.",
+        "AI model evaluates soil color, granularity, texture, and moisture patterns.",
+        "Generates comprehensive digital reports including NPK levels, pH, and organic matter content.",
+        "Detects nutrient deficiencies and potential disease symptoms in soil composition.",
+        "Provides recommendations for fertilizers, crop rotation, and organic enrichment methods."
+    ],
+    "soilscan_impact_title": "Impact:",
+    "soilscan_impact": "SoilScan transforms traditional farming practices by giving farmers instant, data-driven insights about their land. It eliminates expensive lab testing, reduces turnaround time, and helps farmers make informed choices about fertilizer usage, irrigation schedules, and crop selection. This encourages sustainable farming practices and prevents soil depletion."
+},
+"hi": {
+    ...
+    "soilscan_title": "सोइलस्कैन",
+    "soilscan_desc": "सोइलस्कैन SoilBuddy में एक उन्नत एआई-आधारित फीचर है, जो किसानों को उनकी मिट्टी की समझ को क्रांतिकारी बनाने में मदद करता है। केवल मिट्टी की स्पष्ट फोटो भेजकर, किसान मशीन लर्निंग और कंप्यूटर विज़न तकनीक से गहन विश्लेषण प्राप्त कर सकते हैं। यह फीचर मिट्टी की मुख्य भौतिक और दृश्य विशेषताओं की पहचान करता है और पोषक तत्व प्रोफ़ाइल और कुल स्वास्थ्य में सटीक जानकारी प्रदान करता है।",
+    "soilscan_features_title": "मुख्य विशेषताएँ:",
+    "soilscan_features": [
+        "किसानों को तुरंत विश्लेषण के लिए उच्च-रिज़ॉल्यूशन मिट्टी की तस्वीरें अपलोड करने की अनुमति देता है।",
+        "एआई मॉडल मिट्टी के रंग, दानेपन, बनावट और नमी पैटर्न का मूल्यांकन करता है।",
+        "एनपीके स्तर, पीएच, और कार्बनिक पदार्थ की सामग्री सहित व्यापक डिजिटल रिपोर्ट तैयार करता है।",
+        "मिट्टी की संरचना में पोषक तत्वों की कमी और संभावित रोग लक्षण का पता लगाता है।",
+        "उर्वरक, फसल चक्र, और जैविक संवर्धन विधियों के लिए सिफारिशें प्रदान करता है।"
+    ],
+    "soilscan_impact_title": "प्रभाव:",
+    "soilscan_impact": "सोइलस्कैन पारंपरिक खेती के तरीकों को बदल देता है, किसानों को उनकी भूमि के बारे में तुरंत, डेटा-आधारित जानकारी देता है। यह महंगे लैब परीक्षण को समाप्त करता है, समय बचाता है और किसानों को उर्वरक उपयोग, सिंचाई कार्यक्रम और फसल चयन के बारे में सूचित निर्णय लेने में मदद करता है। इससे टिकाऊ खेती को बढ़ावा मिलता है और मिट्टी के अपक्षय को रोका जाता है।"
+}
+
 
 
 
