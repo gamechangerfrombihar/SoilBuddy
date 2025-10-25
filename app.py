@@ -261,7 +261,6 @@ translations = {
 
 # BharatBot
 "en": {
-    ...
     "bharatbot_title": "BharatBot",
     "bharatbot_desc": "BharatBot is an intelligent AI chatbot integrated into SoilBuddy. It acts as a smart digital assistant for farmers, helping them get quick answers to their queries related to crops, soil health, irrigation, and fertilizers — anytime, anywhere.",
     "bharatbot_features_title": "Key Features:",
