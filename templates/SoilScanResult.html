@@ -41,20 +41,11 @@
 
     <div class="flex flex-col items-center space-y-4">
       {% if soil_params %}
-        <p class="text-lg"><strong>Predicted Soil Type:</strong> {{ soil_params.type }}</p>
-        <p class="text-lg"><strong>Confidence:</strong> {{ soil_params.confidence }}%</p>
-      {% endif %}
-
-      {% if recommendation %}
-        <p class="text-green-800 font-semibold text-center mt-4">{{ recommendation }}</p>
-      {% endif %}
-
-      {% if message %}
-        <p class="text-gray-600 text-center">{{ message }}</p>
-      {% endif %}
-
-      {% if plot_path %}
-        <img src="{{ plot_path }}" alt="Soil Plot" class="mt-4 rounded shadow">
+        <p class="text-lg"><strong>Clay:</strong> {{ soil_params['Clay'] }}%</p>
+        <p class="text-lg"><strong>Silt:</strong> {{ soil_params['Silt'] }}%</p>
+        <p class="text-lg"><strong>Sand:</strong> {{ soil_params['Sand'] }}%</p>
+      {% else %}
+        <p class="text-gray-600 text-center">No soil data available.</p>
       {% endif %}
 
       <a href="{{ url_for('soilscan') }}" class="mt-6 bg-green-600 hover:bg-green-700 text-white py-2 px-6 rounded font-semibold glow-btn">Analyze Another Soil</a>
