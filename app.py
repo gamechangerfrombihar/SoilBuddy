@@ -5,13 +5,16 @@ import os
 from utils.krishi_logic import generate_plan
 from utils.soilscan_logic import analyze_soil
 
+# --- Added imports for SoilScan model ---
+import gdown
+from tensorflow.keras.models import load_model
+
 app = Flask(__name__)
 app.secret_key = 'some_secret_key'
 # ----------------- File Upload -----------------
 UPLOAD_FOLDER = 'static/uploads'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-
 
 # ----------------- Language Logic -----------------
 @app.route('/set_language/<lang>')
@@ -26,6 +29,19 @@ def get_lang():
 # ----------------- Translations Dictionary -----------------
 from translations import translations
 
+# ----------------- Load SoilScan Model -----------------
+MODEL_PATH = 'data/models/soil_model.h5'
+os.makedirs('data/models', exist_ok=True)
+
+# Download from Google Drive if not present
+if not os.path.exists(MODEL_PATH):
+    url = 'https://drive.google.com/uc?id=11uRkPMcr2IiDEH27U8lijbKPgzA49DuF'
+    gdown.download(url, MODEL_PATH, quiet=False)
+
+# Load the model
+soil_model = load_model(MODEL_PATH)
+
+# You can now pass this `soil_model` to your analyze_soil function if needed
 
 # ----------------- Home & Features -----------------
 @app.route('/')
@@ -33,7 +49,6 @@ def home():
     lang = get_lang()
     texts = translations[lang]
     return render_template('HomePage.html', texts=texts, lang=lang)
-
 
 # ----------------- KrishiUdaan -----------------
 @app.route('/krishiudaan/desc')
@@ -103,7 +118,9 @@ def soilscan_result():
     file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
     file.save(file_path)
 
-    soil_params, plot_path, pdf_path, recommendation, message = analyze_soil(image_path=file_path)
+    # Pass the loaded soil_model to your analyze_soil function
+    soil_params, plot_path, pdf_path, recommendation, message = analyze_soil(image_path=file_path, model=soil_model)
+
     lang = get_lang()
     texts = translations[lang]
     return render_template(
