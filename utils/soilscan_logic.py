@@ -33,7 +33,7 @@ def approximate_soil_from_image(image_path):
         return {'Clay': clay, 'Silt': silt, 'Sand': sand}
     except Exception as e:
         print("Error reading image:", e)
-        return {'Clay': 30, 'Silt': 40, 'Sand': 30}  # default
+        return {'Clay': 30, 'Silt': 40, 'Sand': 30}
 
 # --- Plot NASA Data ---
 def plot_nasa_data(nasa_data):
@@ -62,17 +62,13 @@ def plot_nasa_data(nasa_data):
     plt.close()
     return plot_path
 
-# --- Main logic for Flask ---
+# --- Main analysis ---
 def analyze_soil(image_path, lat=None, lon=None, start_date=None, end_date=None):
-    # Step 1: Soil image
     soil_params = approximate_soil_from_image(image_path)
-
-    # Step 2: NASA data (optional)
     nasa_data = None
     plot_path = None
     if all([lat, lon, start_date, end_date]):
         nasa_data = fetch_nasa_power_data(lat, lon, start_date, end_date)
         if nasa_data:
             plot_path = plot_nasa_data(nasa_data)
-
     return soil_params, plot_path
