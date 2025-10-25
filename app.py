@@ -259,6 +259,37 @@ translations = {
     }
 }
 
+# BharatBot
+"en": {
+    ...
+    "bharatbot_title": "BharatBot",
+    "bharatbot_desc": "BharatBot is an intelligent AI chatbot integrated into SoilBuddy. It acts as a smart digital assistant for farmers, helping them get quick answers to their queries related to crops, soil health, irrigation, and fertilizers — anytime, anywhere.",
+    "bharatbot_features_title": "Key Features:",
+    "bharatbot_features": [
+        "Provides instant AI-based guidance in local languages.",
+        "Connects farmers directly with the right knowledge, without waiting for human assistance.",
+        "Available 24/7 within the SoilBuddy ecosystem."
+    ],
+    "bharatbot_impact_title": "Impact:",
+    "bharatbot_impact": "BharatBot bridges the gap between modern AI and traditional agriculture. By making expert knowledge easily accessible, it empowers farmers to make informed decisions and improve productivity sustainably.",
+    "bharatbot_launch_link": "https://bharatbot-2a7793.zapier.app/"
+},
+"hi": {
+    ...
+    "bharatbot_title": "भारतबोट",
+    "bharatbot_desc": "भारतबोट SoilBuddy में एक बुद्धिमान एआई चैटबोट है। यह किसानों के लिए एक स्मार्ट डिजिटल सहायक के रूप में कार्य करता है, जो उन्हें फसल, मिट्टी की गुणवत्ता, सिंचाई और उर्वरक से संबंधित प्रश्नों के तुरंत उत्तर प्राप्त करने में मदद करता है।",
+    "bharatbot_features_title": "मुख्य विशेषताएँ:",
+    "bharatbot_features": [
+        "स्थानीय भाषाओं में त्वरित एआई-आधारित मार्गदर्शन प्रदान करता है।",
+        "किसानों को सही ज्ञान तक सीधे जोड़ता है, बिना मानव सहायता के इंतजार किए।",
+        "SoilBuddy पारिस्थितिकी तंत्र में 24/7 उपलब्ध।"
+    ],
+    "bharatbot_impact_title": "प्रभाव:",
+    "bharatbot_impact": "भारतबोट आधुनिक एआई और पारंपरिक कृषि के बीच की खाई को पाटता है। विशेषज्ञ ज्ञान को आसानी से सुलभ बनाकर, यह किसानों को सूचित निर्णय लेने और उत्पादकता में सुधार करने में सक्षम बनाता है।",
+    "bharatbot_launch_link": "https://bharatbot-2a7793.zapier.app/"
+}
+
+
 
 
 # ----------------- Home & Features -----------------
