@@ -23,7 +23,7 @@ def set_language(lang):
 def get_lang():
     return session.get('lang', 'en')
 
-# Translations dictionary
+# ----------------- Translations Dictionary -----------------
 translations = {
     "en": {
         "welcome_title": "Welcome to SoilBuddy",
@@ -35,7 +35,8 @@ translations = {
         "bharatbot_title": "BharatBot",
         "bharatbot_desc": "AI-powered chatbot to assist farmers with agriculture-related queries.",
         "soilscan_title": "SoilScan",
-        "soilscan_desc": "Upload soil images and receive AI-based quality analysis instantly."
+        "soilscan_desc": "Upload soil images and receive AI-based quality analysis instantly.",
+        "launch_btn": "Launch"
     },
     "hi": {
         "welcome_title": "सोइलबड्डी में आपका स्वागत है",
@@ -47,7 +48,8 @@ translations = {
         "bharatbot_title": "भारतबोट",
         "bharatbot_desc": "कृषि से संबंधित प्रश्नों में किसानों की सहायता के लिए एआई चैटबॉट।",
         "soilscan_title": "सोइलस्कैन",
-        "soilscan_desc": "मिट्टी की तस्वीरें अपलोड करें और तुरंत एआई आधारित गुणवत्ता विश्लेषण प्राप्त करें।"
+        "soilscan_desc": "मिट्टी की तस्वीरें अपलोड करें और तुरंत एआई आधारित गुणवत्ता विश्लेषण प्राप्त करें।",
+        "launch_btn": "शुरू करें"
     }
 }
 
@@ -144,7 +146,7 @@ def soilscan_result():
         lang=lang
     )
 
-# --------------BharatBot-------------------
+# ----------------- BharatBot -----------------
 @app.route('/bharatbot/desc')
 def bharatbot_desc():
     lang = get_lang()
