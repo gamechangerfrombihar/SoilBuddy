@@ -7,11 +7,11 @@ from utils.soilscan_logic import analyze_soil
 
 app = Flask(__name__)
 app.secret_key = 'some_secret_key'
-
-# Folder for uploaded images
+# ----------------- File Upload -----------------
 UPLOAD_FOLDER = 'static/uploads'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
 
 # ----------------- Language Logic -----------------
 @app.route('/set_language/<lang>')
@@ -268,6 +268,7 @@ def home():
     texts = translations[lang]
     return render_template('HomePage.html', texts=texts, lang=lang)
 
+
 # ----------------- KrishiUdaan -----------------
 @app.route('/krishiudaan/desc')
 def krishiudaan_desc():
@@ -279,7 +280,7 @@ def krishiudaan_desc():
 def krishiudaan():
     lang = get_lang()
     texts = translations[lang]
-    return render_template('KrishiUdaanF.html', texts=texts, lang=lang)
+    return render_template('KrishiUdaanF.html', texts=translations[lang], lang=lang)
 
 @app.route('/krishiudaan/result', methods=['POST'])
 def krishiudaan_result():
@@ -293,26 +294,22 @@ def krishiudaan_result():
         num_crops = request.form['num_crops']
 
         plan = generate_plan(land_size, climate, capital, water, labourers, region, num_crops)
-        lang = get_lang()
-        texts = translations[lang]
-        return render_template('KrishiUdaanResult.html', plan=plan, texts=texts, lang=lang)
+        texts = translations[get_lang()]
+        return render_template('KrishiUdaanResult.html', plan=plan, texts=texts, lang=get_lang())
 
     except ValueError as ve:
         flash(str(ve))
         return redirect('/krishiudaan')
-
 # ----------------- AmritJeevan -----------------
 @app.route('/amritjeevan/desc')
 def amritjeevan_desc():
-    lang = get_lang()
-    texts = translations[lang]
-    return render_template('AmritJeevan.html', texts=texts, lang=lang)
+    texts = translations[get_lang()]
+    return render_template('AmritJeevan.html', texts=texts, lang=get_lang())
 
 @app.route('/amritjeevan')
 def amritjeevan():
-    lang = get_lang()
-    texts = translations[lang]
-    return render_template('AmritJeevanF.html', texts=texts, lang=lang)
+    texts = translations[get_lang()]
+    return render_template('AmritJeevanF.html', texts=texts, lang=get_lang())
 
 # ----------------- SoilScan -----------------
 @app.route('/soilscan/desc')
