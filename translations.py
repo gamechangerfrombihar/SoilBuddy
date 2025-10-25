@@ -140,7 +140,7 @@ translations = {
         ],
         "soilscan_impact_title": "Impact:",
         "soilscan_impact": "SoilScan transforms traditional farming practices by giving farmers instant, data-driven insights about their land. It eliminates expensive lab testing, reduces turnaround time, and helps farmers make informed choices about fertilizer usage, irrigation schedules, and crop selection. This encourages sustainable farming practices and prevents soil depletion."
-        'launch_btn': "Launch" 
+        'launch_btn': "Launch", 
     },
     "hi": {
         # Homepage
@@ -281,6 +281,6 @@ translations = {
         ],
         "soilscan_impact_title": "प्रभाव:",
         "soilscan_impact": "सोइलस्कैन पारंपरिक खेती के तरीकों को बदल देता है। यह किसानों को उनके खेत के बारे में त्वरित, डेटा-आधारित इनसाइट देता है। यह महंगे लैब परीक्षण को समाप्त करता है, समय बचाता है, और उर्वरक उपयोग, सिंचाई योजना और फसल चयन के निर्णय लेने में मदद करता है। यह स्थायी खेती प्रथाओं को प्रोत्साहित करता है और मिट्टी की कमी को रोकता है।"
-        'launch_btn': "प्रारंभ करें"
+        'launch_btn': "प्रारंभ करें",
     }
 }
