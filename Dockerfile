@@ -7,9 +7,13 @@ WORKDIR /app
 # Copy project files into the container
 COPY . .
 
-# Install dependencies
+# Upgrade pip
 RUN pip install --upgrade pip
-RUN pip install -r requirements.txt
+
+# Install dependencies with compatible numpy version
+# Pin numpy to a version compatible with tensorflow 2.17
+RUN pip install "numpy>=1.23.5,<2.0.0" && \
+    pip install -r requirements.txt
 
 # Expose default port for Render
 EXPOSE 10000
