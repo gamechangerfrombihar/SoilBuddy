@@ -86,6 +86,11 @@ def soilscan_result():
         pdf_path=pdf_path
     )
 
+# --------------BharatBot-------------------
+@app.route('/bharatbot/desc')
+def bharatbot_desc():
+    return render_template('BharatBot.html')
+
 # ----------------- Run App -----------------
 if __name__ == '__main__':
     app.run(debug=True)
