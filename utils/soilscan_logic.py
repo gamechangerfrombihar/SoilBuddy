@@ -4,7 +4,6 @@ import os
 import requests
 import numpy as np
 from PIL import Image
-from fpdf import FPDF
 import matplotlib.pyplot as plt
 
 # --- Fetch NASA POWER Data ---
@@ -53,7 +52,7 @@ def plot_nasa_data(nasa_data):
         values = [daily_data[param][d] for d in dates]
         axs[i].plot(dates, values, marker='o')
         axs[i].set_title(param)
-        axs[i].set_xticks(dates[::max(1, len(dates)//10)])
+        axs[i].set_xticks(range(0, len(dates), max(1, len(dates)//10)))
         axs[i].set_xticklabels(dates[::max(1, len(dates)//10)], rotation=45)
         axs[i].set_ylabel(param)
         axs[i].grid(True)
@@ -65,34 +64,12 @@ def plot_nasa_data(nasa_data):
     plt.close()
     return plot_path
 
-# --- Generate PDF Report ---
-def generate_pdf_report(soil_params, nasa_data=None, plot_path=None, output_file="static/Soil_Report.pdf"):
-    os.makedirs("static", exist_ok=True)
-    pdf = FPDF()
-    pdf.add_page()
-    pdf.set_font("Arial", 'B', 16)
-    pdf.cell(0, 10, "Soil & NASA POWER Report", ln=True, align='C')
-
-    pdf.ln(10)
-    pdf.set_font("Arial", '', 12)
-    for key, val in soil_params.items():
-        pdf.cell(0, 8, f"{key}: {val}%", ln=True)
-
-    if nasa_data and plot_path:
-        pdf.ln(10)
-        pdf.set_font("Arial", 'B', 14)
-        pdf.cell(0, 10, "NASA POWER Graphs:", ln=True)
-        pdf.image(plot_path, x=10, w=190)
-
-    pdf.output(output_file)
-    return output_file
-
 # --- Main Logic for Flask ---
 def analyze_soil(lat=None, lon=None, start_date=None, end_date=None, image_path=None):
     # Step 1: NASA data (optional)
     nasa_data = None
     plot_path = None
-    if lat and lon and start_date and end_date:
+    if all([lat, lon, start_date, end_date]):
         nasa_data = fetch_nasa_power_data(lat, lon, start_date, end_date)
         if nasa_data:
             plot_path = plot_nasa_data(nasa_data)
@@ -100,7 +77,4 @@ def analyze_soil(lat=None, lon=None, start_date=None, end_date=None, image_path=
     # Step 2: Soil image (or default)
     soil_params = approximate_soil_from_image(image_path) if image_path else {'Clay': 30, 'Silt': 40, 'Sand': 30}
 
-    # Step 3: Generate PDF report
-    pdf_path = generate_pdf_report(soil_params, nasa_data, plot_path)
-
-    return soil_params, plot_path, pdf_path
+    return soil_params, plot_path
