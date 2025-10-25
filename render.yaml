@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: soilbuddy
+    env: python
+    plan: free
+    buildCommand: |
+      pip install --upgrade pip
+      pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    pythonVersion: 3.11.9
