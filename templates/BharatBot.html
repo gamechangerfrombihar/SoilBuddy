@@ -43,19 +43,20 @@
 <body class="light transition-all">
 
   <!-- Navbar -->
-  <nav class="navbar text-white body-font shadow-lg">
+  <nav class="navbar text-white shadow-lg">
     <div class="container mx-auto flex flex-wrap p-5 flex-row items-center justify-between">
-      <a href="/" class="flex title-font font-medium items-center mb-4 md:mb-0">
-        <img src="SoilBuddy_Logo.png" alt="SoilBuddy Logo" class="logo-img mr-3">
-        <span class="text-2xl">SoilBuddy</span>
-      </a>
-
-      <button id="theme-toggle" class="text-white bg-green-500 border-0 py-1 px-4 focus:outline-none hover:bg-green-600 rounded-md text-sm glow-btn">
-        Dark Theme
-      </button>
-    </div>
-  </nav>
-
+      <div class="flex items-center space-x-10">
+        <a href="/" class="flex items-center">
+          <img src="{{ url_for('static', filename='SoilBuddy_Logo.png') }}" alt="SoilBuddy Logo" class="logo-img mr-3" />
+          <span class="text-2xl font-semibold">SoilBuddy</span>
+        </a>
+        <div class="flex space-x-6 text-sm md:text-base">
+          <a href="/krishiudaan" class="hover:text-green-300 transition">KrishiUdaan</a>
+          <a href="/amritjeevan" class="hover:text-green-300 transition">AmritJeevan</a>
+          <a href="https://bharatbot-2a7793.zapier.app" target="_blank" class="hover:text-green-300 transition">BharatBot</a>
+          <a href="/soilscan" class="hover:text-green-300 transition">SoilScan</a>
+        </div>
+      </div>
   <div class="pt-24"></div>
 
   <!-- BharatBot Content -->
