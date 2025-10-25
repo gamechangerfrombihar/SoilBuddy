@@ -1,5 +1,5 @@
 # Core dependencies
-numpy==1.24.4
+numpy==1.25.0
 tensorflow==2.17.0
 
 # Flask stack
