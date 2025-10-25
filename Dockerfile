@@ -4,16 +4,14 @@ FROM python:3.11-slim
 # Set working directory
 WORKDIR /app
 
-# Copy project files into the container
+# Copy project files
 COPY . .
 
 # Upgrade pip
 RUN pip install --upgrade pip
 
-# Install dependencies with compatible numpy version
-# Pin numpy to a version compatible with tensorflow 2.17
-RUN pip install "numpy>=1.23.5,<2.0.0" && \
-    pip install -r requirements.txt
+# Install dependencies
+RUN pip install -r requirements.txt
 
 # Expose default port for Render
 EXPOSE 10000
