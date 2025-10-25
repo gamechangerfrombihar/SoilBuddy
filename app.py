@@ -3,14 +3,11 @@ from werkzeug.utils import secure_filename
 import os
 
 from utils.krishi_logic import generate_plan
-from utils.soilscan_logic import analyze_soil
-
-# --- Added imports for SoilScan model ---
-import gdown
-from tensorflow.keras.models import load_model
+from utils.soilscan_logic import analyze_soil  # Updated logic with NASA integration
 
 app = Flask(__name__)
 app.secret_key = 'some_secret_key'
+
 # ----------------- File Upload -----------------
 UPLOAD_FOLDER = 'static/uploads'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
@@ -28,20 +25,6 @@ def get_lang():
 
 # ----------------- Translations Dictionary -----------------
 from translations import translations
-
-# ----------------- Load SoilScan Model -----------------
-MODEL_PATH = 'data/models/soil_model.h5'
-os.makedirs('data/models', exist_ok=True)
-
-# Download from Google Drive if not present
-if not os.path.exists(MODEL_PATH):
-    url = 'https://drive.google.com/uc?id=196uC8VLMfgU5txZCvjUUMEbVde6W8nqy'  # Updated Google Drive link
-    gdown.download(url, MODEL_PATH, quiet=False)
-
-# Load the model
-soil_model = load_model(MODEL_PATH)
-
-# You can now pass this `soil_model` to your analyze_soil function if needed
 
 # ----------------- Home & Features -----------------
 @app.route('/')
@@ -61,7 +44,7 @@ def krishiudaan_desc():
 def krishiudaan():
     lang = get_lang()
     texts = translations[lang]
-    return render_template('KrishiUdaanF.html', texts=translations[lang], lang=lang)
+    return render_template('KrishiUdaanF.html', texts=texts, lang=lang)
 
 @app.route('/krishiudaan/result', methods=['POST'])
 def krishiudaan_result():
@@ -81,6 +64,7 @@ def krishiudaan_result():
     except ValueError as ve:
         flash(str(ve))
         return redirect('/krishiudaan')
+
 # ----------------- AmritJeevan -----------------
 @app.route('/amritjeevan/desc')
 def amritjeevan_desc():
@@ -92,7 +76,7 @@ def amritjeevan():
     texts = translations[get_lang()]
     return render_template('AmritJeevanF.html', texts=texts, lang=get_lang())
 
-# ----------------- SoilScan -----------------
+# ----------------- SoilScan (NEW) -----------------
 @app.route('/soilscan/desc')
 def soilscan_desc():
     lang = get_lang()
@@ -118,18 +102,29 @@ def soilscan_result():
     file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
     file.save(file_path)
 
-    # Pass the loaded soil_model to your analyze_soil function
-    soil_params, plot_path, pdf_path, recommendation, message = analyze_soil(image_path=file_path, model=soil_model)
+    # Optional NASA inputs
+    lat = request.form.get('latitude') or None
+    lon = request.form.get('longitude') or None
+    start_date = request.form.get('start_date') or None
+    end_date = request.form.get('end_date') or None
 
+    # Convert to proper types
+    try:
+        lat = float(lat) if lat else None
+        lon = float(lon) if lon else None
+        start_date = str(int(start_date)) if start_date else None
+        end_date = str(int(end_date)) if end_date else None
+    except:
+        lat = lon = start_date = end_date = None
+
+    soil_params, plot_path = analyze_soil(file_path, lat, lon, start_date, end_date)
     lang = get_lang()
     texts = translations[lang]
+
     return render_template(
         'SoilScanResult.html',
         soil_params=soil_params,
         plot_path=plot_path,
-        pdf_path=pdf_path,
-        recommendation=recommendation,
-        message=message,
         texts=texts,
         lang=lang
     )
