@@ -35,7 +35,7 @@ os.makedirs('data/models', exist_ok=True)
 
 # Download from Google Drive if not present
 if not os.path.exists(MODEL_PATH):
-    url = 'https://drive.google.com/uc?id=11uRkPMcr2IiDEH27U8lijbKPgzA49DuF'
+    url = 'https://drive.google.com/uc?id=196uC8VLMfgU5txZCvjUUMEbVde6W8nqy'  # Updated Google Drive link
     gdown.download(url, MODEL_PATH, quiet=False)
 
 # Load the model
