@@ -1,40 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ lang }}">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SoilBuddy - SoilScan</title>
+  <title>SoilBuddy - {{ texts.soilscan_title }}</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body { transition: background-color 0.4s, color 0.4s; }
-
-    /* Light Theme */
     body.light { background-color: #ffffff; color: #064e3b; }
-
-    /* Dark Theme */
     body.dark { background-color: #0f172a; color: #ffffff; }
 
     .navbar { background-color: #065f46; position: fixed; top: 0; left: 0; width: 100%; z-index: 50; }
-    .navbar h1 { font-family: 'Poppins', sans-serif; font-weight: 600; letter-spacing: 1px; }
-
-    .glow-btn {
-      box-shadow: 0 0 20px rgba(34,197,94,0.6);
-      transition: all 0.3s ease;
-    }
-    .glow-btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 25px rgba(34,197,94,0.9);
-    }
-
+    .glow-btn { box-shadow: 0 0 20px rgba(34,197,94,0.6); transition: all 0.3s ease; }
+    .glow-btn:hover { transform: scale(1.05); box-shadow: 0 0 25px rgba(34,197,94,0.9); }
     .transition-all { transition: all 0.4s ease-in-out; }
-
-    body.dark h1,
-    body.dark h2,
-    body.dark p,
-    body.dark a { color: #ffffff !important; }
-
+    body.dark h1, body.dark h2, body.dark p, body.dark a { color: #ffffff !important; }
     body.dark a.text-green-500 { color: #22c55e !important; }
-
     .logo-img { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; background-color: #d1fae5; padding: 4px; border: 2px solid #22c55e; }
   </style>
 </head>
@@ -55,48 +36,39 @@
 
   <div class="pt-24"></div>
 
-  <!-- SoilScanner Content -->
+  <!-- SoilScan Content -->
   <section class="text-gray-600 body-font">
     <div class="container px-5 py-24 mx-auto">
+      <h1 class="text-3xl font-semibold mb-4 text-center">{{ texts.soilscan_title }}</h1>
+      <p class="leading-relaxed text-base mb-6 text-center">{{ texts.soilscan_desc }}</p>
 
-      <h1 class="text-3xl font-semibold mb-4 text-center">SoilScanner</h1>
-      <p class="leading-relaxed text-base mb-6 text-center">
-        SoilScan is an advanced AI-powered feature within SoilBuddy designed to revolutionize how farmers understand their soil. By simply capturing and sending a clear photo of their soil, farmers can access an in-depth analysis powered by machine learning and computer vision technology. The feature identifies key physical and visual properties of the soil and provides precise insights into its nutrient profile and overall health.
-      </p>
-
-      <h2 class="text-2xl font-semibold mb-2">Key Features:</h2>
+      {% if texts.soilscan_features %}
+      <h2 class="text-2xl font-semibold mb-2">{{ texts.soilscan_features_title }}</h2>
       <ul class="list-disc pl-6 space-y-2">
-        <li>Allows farmers to upload high-resolution soil photos for instant analysis.</li>
-        <li>AI model evaluates soil color, granularity, texture, and moisture patterns.</li>
-        <li>Generates comprehensive digital reports including NPK levels, pH, and organic matter content.</li>
-        <li>Detects nutrient deficiencies and potential disease symptoms in soil composition.</li>
-        <li>Provides recommendations for fertilizers, crop rotation, and organic enrichment methods.</li>
+        {% for feature in texts.soilscan_features %}
+        <li>{{ feature }}</li>
+        {% endfor %}
       </ul>
+      {% endif %}
 
-      <h2 class="text-2xl font-semibold mt-6 mb-2">Impact:</h2>
-      <p class="leading-relaxed text-base">
-        SoilScan transforms traditional farming practices by giving farmers instant, data-driven insights about their land. It eliminates expensive lab testing, reduces turnaround time, and helps farmers make informed choices about fertilizer usage, irrigation schedules, and crop selection. This encourages sustainable farming practices and prevents soil depletion.
-      </p>
+      {% if texts.soilscan_impact %}
+      <h2 class="text-2xl font-semibold mt-6 mb-2">{{ texts.soilscan_impact_title }}</h2>
+      <p class="leading-relaxed text-base">{{ texts.soilscan_impact }}</p>
+      {% endif %}
 
-      <p class="leading-relaxed text-base mt-4">
-        In essence, SoilScan bridges the gap between artificial intelligence and agriculture, ensuring that every farmer, regardless of location or resources, can access scientific soil insights and take proactive steps towards healthier, more productive fields.
-      </p>
-
-      <!-- Centered Launch Button -->
+      <!-- Launch Button -->
       <div class="text-center mt-10">
-        <a href="/soilscan" 
+        <a href="/soilscan"
            class="bg-green-600 text-white px-6 py-3 rounded-md glow-btn inline-block text-lg font-semibold">
-          Launch
+          {{ texts.launch_btn }}
         </a>
       </div>
-
     </div>
   </section>
 
   <script>
     const body = document.body;
     const toggleBtn = document.getElementById('theme-toggle');
-
     toggleBtn.addEventListener('click', () => {
       body.classList.toggle('dark');
       body.classList.toggle('light');
