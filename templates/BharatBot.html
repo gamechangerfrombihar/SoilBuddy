@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ lang }}">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SoilBuddy - BharatBot</title>
+  <title>SoilBuddy - {{ texts.bharatbot_title }}</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body {
@@ -43,7 +43,7 @@
 <body class="light transition-all">
 
   <!-- Navbar -->
-   <nav class="navbar text-white shadow-lg">
+  <nav class="navbar text-white shadow-lg">
     <div class="container mx-auto flex flex-wrap p-5 flex-row items-center justify-between">
       <a href="/" class="flex title-font font-medium items-center mb-4 md:mb-0">
         <img src="SoilBuddy_Logo.png" alt="SoilBuddy Logo" class="logo-img mr-3">
@@ -59,28 +59,28 @@
   <!-- BharatBot Content -->
   <section class="text-gray-600 body-font">
     <div class="container px-5 py-24 mx-auto">
-      <h1 class="text-3xl font-semibold mb-4 text-center">BharatBot</h1>
-      <p class="leading-relaxed text-base mb-6">
-        BharatBot is an intelligent AI chatbot integrated into SoilBuddy. It acts as a smart digital assistant for farmers, helping them get quick answers to their queries related to crops, soil health, irrigation, and fertilizers — anytime, anywhere.
-      </p>
+      <h1 class="text-3xl font-semibold mb-4 text-center">{{ texts.bharatbot_title }}</h1>
+      <p class="leading-relaxed text-base mb-6">{{ texts.bharatbot_desc }}</p>
 
-      <h2 class="text-2xl font-semibold mb-2">Key Features:</h2>
+      {% if texts.bharatbot_features %}
+      <h2 class="text-2xl font-semibold mb-2">{{ texts.bharatbot_features_title }}</h2>
       <ul class="list-disc pl-6 space-y-2">
-        <li>Provides instant AI-based guidance in local languages.</li>
-        <li>Connects farmers directly with the right knowledge, without waiting for human assistance.</li>
-        <li>Available 24/7 within the SoilBuddy ecosystem.</li>
+        {% for feature in texts.bharatbot_features %}
+        <li>{{ feature }}</li>
+        {% endfor %}
       </ul>
+      {% endif %}
 
-      <h2 class="text-2xl font-semibold mt-6 mb-2">Impact:</h2>
-      <p class="leading-relaxed text-base">
-        BharatBot bridges the gap between modern AI and traditional agriculture. By making expert knowledge easily accessible, it empowers farmers to make informed decisions and improve productivity sustainably.
-      </p>
+      {% if texts.bharatbot_impact %}
+      <h2 class="text-2xl font-semibold mt-6 mb-2">{{ texts.bharatbot_impact_title }}</h2>
+      <p class="leading-relaxed text-base">{{ texts.bharatbot_impact }}</p>
+      {% endif %}
 
       <!-- Launch Button -->
       <div class="mt-10 text-center">
-        <a href="https://bharatbot-2a7793.zapier.app/" target="_blank"
+        <a href="{{ texts.bharatbot_launch_link }}" target="_blank"
            class="bg-green-500 text-white py-3 px-8 rounded-md glow-btn hover:bg-green-600 font-semibold">
-          Launch
+          {{ texts.launch_btn }}
         </a>
       </div>
     </div>
@@ -89,7 +89,6 @@
   <script>
     const body = document.body;
     const toggleBtn = document.getElementById('theme-toggle');
-
     toggleBtn.addEventListener('click', () => {
       body.classList.toggle('dark');
       body.classList.toggle('light');
