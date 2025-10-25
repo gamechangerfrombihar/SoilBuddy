@@ -34,9 +34,9 @@ translations = {
         "amrit_title": "AmritJeevan",
         "amrit_desc": "Monitor and manage soil moisture in real-time using IoT sensors.",
         "bharatbot_title": "BharatBot",
-        "bharatbot_desc": "AI-powered chatbot to assist farmers with agriculture-related queries.",
+        "bharatbot_desc": "BharatBot is an intelligent AI chatbot integrated into SoilBuddy. It acts as a smart digital assistant for farmers, helping them get quick answers to their queries related to crops, soil health, irrigation, and fertilizers — anytime, anywhere.",
         "soilscan_title": "SoilScan",
-        "soilscan_desc": "Upload soil images and receive AI-based quality analysis instantly.",
+        "soilscan_desc": "SoilScan is an advanced AI-powered feature within SoilBuddy designed to revolutionize how farmers understand their soil. By simply capturing and sending a clear photo of their soil, farmers can access an in-depth analysis powered by machine learning and computer vision technology. The feature identifies key physical and visual properties of the soil and provides precise insights into its nutrient profile and overall health.",
         "launch_btn": "Launch",
 
         # AmritJeevan page
@@ -139,7 +139,30 @@ translations = {
             "Ensures food security and resource-efficient agriculture."
         ],
         "krishi_vision_title": "Vision",
-        "krishi_vision_desc": "To empower farmers with knowledge, technology, and actionable insights, enabling every farm to achieve maximum growth, sustainability, and profit."
+        "krishi_vision_desc": "To empower farmers with knowledge, technology, and actionable insights, enabling every farm to achieve maximum growth, sustainability, and profit.",
+
+        # BharatBot
+        "bharatbot_features_title": "Key Features:",
+        "bharatbot_features": [
+            "Provides instant AI-based guidance in local languages.",
+            "Connects farmers directly with the right knowledge, without waiting for human assistance.",
+            "Available 24/7 within the SoilBuddy ecosystem."
+        ],
+        "bharatbot_impact_title": "Impact:",
+        "bharatbot_impact": "BharatBot bridges the gap between modern AI and traditional agriculture. By making expert knowledge easily accessible, it empowers farmers to make informed decisions and improve productivity sustainably.",
+        "bharatbot_launch_link": "https://bharatbot-2a7793.zapier.app/",
+
+        # SoilScan
+        "soilscan_features_title": "Key Features:",
+        "soilscan_features": [
+            "Allows farmers to upload high-resolution soil photos for instant analysis.",
+            "AI model evaluates soil color, granularity, texture, and moisture patterns.",
+            "Generates comprehensive digital reports including NPK levels, pH, and organic matter content.",
+            "Detects nutrient deficiencies and potential disease symptoms in soil composition.",
+            "Provides recommendations for fertilizers, crop rotation, and organic enrichment methods."
+        ],
+        "soilscan_impact_title": "Impact:",
+        "soilscan_impact": "SoilScan transforms traditional farming practices by giving farmers instant, data-driven insights about their land. It eliminates expensive lab testing, reduces turnaround time, and helps farmers make informed choices about fertilizer usage, irrigation schedules, and crop selection. This encourages sustainable farming practices and prevents soil depletion."
     },
     "hi": {
         # Homepage
@@ -150,9 +173,9 @@ translations = {
         "amrit_title": "अमृतजीवन",
         "amrit_desc": "आईओटी सेंसर का उपयोग करके मिट्टी की नमी को वास्तविक समय में मॉनिटर और प्रबंधित करें।",
         "bharatbot_title": "भारतबोट",
-        "bharatbot_desc": "कृषि से संबंधित प्रश्नों में किसानों की सहायता के लिए एआई चैटबॉट।",
+        "bharatbot_desc": "भारतबोट SoilBuddy में एक बुद्धिमान एआई चैटबोट है। यह किसानों के लिए एक स्मार्ट डिजिटल सहायक के रूप में कार्य करता है, जो उन्हें फसल, मिट्टी की गुणवत्ता, सिंचाई और उर्वरक से संबंधित प्रश्नों के तुरंत उत्तर प्राप्त करने में मदद करता है।",
         "soilscan_title": "सोइलस्कैन",
-        "soilscan_desc": "मिट्टी की तस्वीरें अपलोड करें और तुरंत एआई आधारित गुणवत्ता विश्लेषण प्राप्त करें।",
+        "soilscan_desc": "सोइलस्कैन SoilBuddy में एक उन्नत एआई-आधारित फीचर है, जो किसानों को उनकी मिट्टी की समझ को क्रांतिकारी बनाने में मदद करता है। केवल मिट्टी की स्पष्ट फोटो भेजकर, किसान मशीन लर्निंग और कंप्यूटर विज़न तकनीक से गहन विश्लेषण प्राप्त कर सकते हैं। यह फीचर मिट्टी की मुख्य भौतिक और दृश्य विशेषताओं की पहचान करता है और पोषक तत्व प्रोफ़ाइल और कुल स्वास्थ्य में सटीक जानकारी प्रदान करता है।",
         "launch_btn": "शुरू करें",
 
         # AmritJeevan page
@@ -216,112 +239,71 @@ translations = {
         "krishi_who_list": [
             "छोटे और मध्यम स्तर के किसान जो संसाधनों का अनुकूलन करना चाहते हैं।",
             "कृषि योजनाकार और सलाहकार जो किसानों को मार्गदर्शन देते हैं।",
-            "सरकारी कृषि विभाग जो क्षेत्रीय फसल योजना सुधारना चाहते हैं।",
-            "एग्री-टेक स्टार्टअप और निवेशक जो विभिन्न क्षेत्रों में फसल क्षमता का विश्लेषण करते हैं।",
-            "फसल उगाने में शामिल कोई भी व्यक्ति जो डेटा-आधारित निर्णय लेना चाहता है।"
+            "सरकारी कृषि विभाग जो क्षेत्रीय फसल योजना में सुधार करना चाहते हैं।",
+            "एग्री-टेक स्टार्टअप और निवेशक जो विभिन्न क्षेत्रों में फसल व्यवहार्यता का विश्लेषण करते हैं।",
+            "जो कोई भी डेटा-आधारित निर्णयों के लिए फसल उगाने में शामिल है।"
         ],
         "krishi_where_title": "यह कहाँ लागू हो सकता है?",
         "krishi_where_list": [
-            "विभिन्न जलवायु क्षेत्रों और मिट्टी के प्रकार वाले क्षेत्र।",
+            "विभिन्न जलवायु क्षेत्रों और मिट्टी प्रकार वाले क्षेत्र।",
             "शहरी और ग्रामीण खेत, छोटे किचन गार्डन से लेकर बड़े कृषि क्षेत्र तक।",
-            "सिंचाई सीमित या पूंजी निवेश अनुकूलन आवश्यक क्षेत्र।"
+            "ऐसे क्षेत्र जहाँ सिंचाई सीमाएँ हैं या पूंजी निवेश अनुकूलन महत्वपूर्ण है।"
         ],
-        "krishi_why_title": "क्यों उपयोग करें?",
+        "krishi_why_title": "कृषिउड़ान क्यों इस्तेमाल करें?",
         "krishi_why_list": [
-            "लाभ अधिकतम करें: उच्च उत्पादन और लाभ के लिए उपयुक्त फसल और तकनीक सुझाता है।",
-            "डेटा-आधारित निर्णय: क्षेत्रीय परिस्थितियों और मौसम पैटर्न के अनुसार अनुमान समाप्त करता है।",
-            "सतत खेती: फसल चक्रीय और मल्टीक्रॉपिंग को बढ़ावा देता है।",
-            "संसाधन अनुकूलन: पूंजी, सिंचाई और श्रम उपलब्धता के आधार पर फसल सुझाता है।",
-            "समग्र योजना: बुवाई, कटाई और फसल चक्र के लिए पूर्ण मार्गदर्शन।",
-            "स्केलेबल और अनुकूलनीय: एक या अधिक फसलों के लिए सुझाव देता है।"
+            "लाभ अधिकतम करें: अधिकतम उपज और लाभ के लिए उपयुक्त फसल और तकनीक सुझाता है।",
+            "डेटा-आधारित निर्णय: क्षेत्रीय परिस्थितियों और जलवायु पैटर्न के अनुसार अनुमान को समाप्त करता है।",
+            "सतत खेती: दीर्घकालिक मिट्टी स्वास्थ्य के लिए फसल चक्रीय और मल्टीक्रॉपिंग को बढ़ावा देता है।",
+            "संसाधन अनुकूलन: पूंजी, सिंचाई और श्रम उपलब्धता के अनुसार फसल सुझाता है।",
+            "व्यापक योजना: बुवाई, कटाई और फसल चक्र के लिए अंत-टू-एंड मार्गदर्शन।",
+            "स्केलेबल और अनुकूलन योग्य: 1 या कई फसलों के लिए सिफारिशों को समायोजित करता है।"
         ],
         "krishi_features_title": "मुख्य विशेषताएँ",
         "krishi_features_list": [
-            "बहु-कारक विश्लेषण: क्षेत्र, क्षेत्रफल, मिट्टी, जलवायु, पानी और वित्तीय संसाधन विचारित।",
-            "फसल उपयुक्तता सूचकांक: अधिकतम लाभ और न्यूनतम जोखिम वाली फसल की सिफारिश।",
-            "तकनीक सुझाव: मल्टीक्रॉपिंग, फसल चक्र, इंटरक्रॉपिंग और ऑर्गेनिक विधियों पर मार्गदर्शन।",
-            "लाभ अनुमानक: संभावित राजस्व और ROI का पूर्वानुमान।",
-            "मौसमी योजना: स्थानीय परिस्थितियों के अनुसार बुवाई-से-कटाई कैलेंडर।",
-            "दृश्य और रिपोर्ट: किसानों और योजनाकारों के लिए आसान चार्ट।",
-            "निर्णय समर्थन प्रणाली: पूंजी आवंटन, सिंचाई योजना और भूमि प्रबंधन में मदद।"
+            "मल्टी-फैक्टर विश्लेषण: क्षेत्र, क्षेत्रफल, मिट्टी, जलवायु, जल और वित्तीय संसाधन शामिल।",
+            "फसल उपयुक्तता सूचकांक: अधिकतम लाभ क्षमता और न्यूनतम जोखिम वाली फसल की सिफारिश।",
+            "तकनीक सिफारिशें: मल्टीक्रॉपिंग, फसल चक्रीय, इंटरक्रॉपिंग और जैविक विधियों पर मार्गदर्शन।",
+            "लाभ अनुमानक: संभावित राजस्व और आरओआई की भविष्यवाणी।",
+            "मौसमी योजना: स्थानीय परिस्थितियों के अनुसार बुवाई से कटाई तक कैलेंडर।",
+            "विज़ुअलाइज़ेशन और रिपोर्ट: किसानों और योजनाकारों के लिए सरल चार्ट।",
+            "निर्णय समर्थन प्रणाली: पूंजी आवंटन, सिंचाई योजना और भूमि प्रबंधन में मदद करता है।"
         ],
         "krishi_innovation_title": "नवाचार और यूएसपी",
-        "krishi_innovation_desc": "कृषिउड़ान सिर्फ फसल सिफारिश उपकरण नहीं है—यह एक संपूर्ण फार्म सलाहकार है। इसकी एआई-आधारित सिफारिशें कृषि विज्ञान, जलवायु विज्ञान और अर्थशास्त्र को जोड़ती हैं।",
+        "krishi_innovation_desc": "कृषिउड़ान केवल एक फसल सुझाव टूल नहीं है—यह एक समग्र खेत सलाहकार है। इसके एआई-आधारित सिफारिशें कृषि विज्ञान, जलवायु विज्ञान और अर्थशास्त्र को जोड़ती हैं, और हर किसान की स्थिति के अनुसार कार्रवाई योग्य इनसाइट प्रदान करती हैं।",
         "krishi_impact_title": "प्रभाव",
         "krishi_impact_list": [
-            "किसानों की आय बढ़ाता है और नुकसान कम करता है।",
-            "पर्यावरण-मित्र और स्थायी खेती को बढ़ावा देता है।",
+            "किसान की आय बढ़ाता है और नुकसान कम करता है।",
+            "पर्यावरण-अनुकूल और स्थायी खेती को बढ़ावा देता है।",
             "सरकार और एनजीओ के लिए योजना और नीति निर्माण का समर्थन करता है।",
-            "खाद्य सुरक्षा और संसाधन-कुशल कृषि सुनिश्चित करता है।"
+            "संसाधन-कुशल कृषि और खाद्य सुरक्षा सुनिश्चित करता है।"
         ],
         "krishi_vision_title": "दृष्टि",
-        "krishi_vision_desc": "किसानों को ज्ञान, तकनीक और कार्रवाई योग्य इनसाइट प्रदान करना, जिससे प्रत्येक खेत अधिकतम वृद्धि, स्थिरता और लाभ प्राप्त करे।"
+        "krishi_vision_desc": "किसानों को ज्ञान, तकनीक और कार्रवाई योग्य इनसाइट से सशक्त बनाना, जिससे हर खेत अधिकतम विकास, स्थिरता और लाभ प्राप्त करे।",
+
+        # BharatBot
+        "bharatbot_features_title": "मुख्य विशेषताएँ:",
+        "bharatbot_features": [
+            "स्थानीय भाषाओं में त्वरित एआई-आधारित मार्गदर्शन प्रदान करता है।",
+            "किसानों को सही ज्ञान तक सीधे जोड़ता है, बिना मानव सहायता के इंतजार किए।",
+            "SoilBuddy पारिस्थितिकी तंत्र में 24/7 उपलब्ध।"
+        ],
+        "bharatbot_impact_title": "प्रभाव:",
+        "bharatbot_impact": "भारतबोट आधुनिक एआई और पारंपरिक कृषि के बीच की खाई को पाटता है। विशेषज्ञ ज्ञान को आसानी से उपलब्ध कराकर, यह किसानों को सूचित निर्णय लेने और स्थायी रूप से उत्पादकता बढ़ाने में सक्षम बनाता है।",
+        "bharatbot_launch_link": "https://bharatbot-2a7793.zapier.app/",
+
+        # SoilScan
+        "soilscan_features_title": "मुख्य विशेषताएँ:",
+        "soilscan_features": [
+            "किसानों को तुरंत विश्लेषण के लिए उच्च-रिज़ॉल्यूशन मिट्टी की तस्वीरें अपलोड करने की अनुमति देता है।",
+            "एआई मॉडल मिट्टी के रंग, दानेपन, बनावट और नमी पैटर्न का मूल्यांकन करता है।",
+            "एनपीके स्तर, पीएच और कार्बनिक पदार्थ की सामग्री सहित व्यापक डिजिटल रिपोर्ट तैयार करता है।",
+            "मिट्टी की संरचना में पोषक तत्वों की कमी और संभावित रोग लक्षण का पता लगाता है।",
+            "उर्वरक, फसल चक्र और जैविक संवर्धन विधियों के लिए सिफारिशें प्रदान करता है।"
+        ],
+        "soilscan_impact_title": "प्रभाव:",
+        "soilscan_impact": "सोइलस्कैन पारंपरिक खेती के तरीकों को बदल देता है। यह किसानों को उनके खेत के बारे में त्वरित, डेटा-आधारित इनसाइट देता है। यह महंगे लैब परीक्षण को समाप्त करता है, समय बचाता है, और उर्वरक उपयोग, सिंचाई योजना और फसल चयन के निर्णय लेने में मदद करता है। यह स्थायी खेती प्रथाओं को प्रोत्साहित करता है और मिट्टी की कमी को रोकता है।"
     }
 }
-
-# BharatBot
-"en": {
-    "bharatbot_title": "BharatBot",
-    "bharatbot_desc": "BharatBot is an intelligent AI chatbot integrated into SoilBuddy. It acts as a smart digital assistant for farmers, helping them get quick answers to their queries related to crops, soil health, irrigation, and fertilizers — anytime, anywhere.",
-    "bharatbot_features_title": "Key Features:",
-    "bharatbot_features": [
-        "Provides instant AI-based guidance in local languages.",
-        "Connects farmers directly with the right knowledge, without waiting for human assistance.",
-        "Available 24/7 within the SoilBuddy ecosystem."
-    ],
-    "bharatbot_impact_title": "Impact:",
-    "bharatbot_impact": "BharatBot bridges the gap between modern AI and traditional agriculture. By making expert knowledge easily accessible, it empowers farmers to make informed decisions and improve productivity sustainably.",
-    "bharatbot_launch_link": "https://bharatbot-2a7793.zapier.app/"
-},
-"hi": {
-    ...
-    "bharatbot_title": "भारतबोट",
-    "bharatbot_desc": "भारतबोट SoilBuddy में एक बुद्धिमान एआई चैटबोट है। यह किसानों के लिए एक स्मार्ट डिजिटल सहायक के रूप में कार्य करता है, जो उन्हें फसल, मिट्टी की गुणवत्ता, सिंचाई और उर्वरक से संबंधित प्रश्नों के तुरंत उत्तर प्राप्त करने में मदद करता है।",
-    "bharatbot_features_title": "मुख्य विशेषताएँ:",
-    "bharatbot_features": [
-        "स्थानीय भाषाओं में त्वरित एआई-आधारित मार्गदर्शन प्रदान करता है।",
-        "किसानों को सही ज्ञान तक सीधे जोड़ता है, बिना मानव सहायता के इंतजार किए।",
-        "SoilBuddy पारिस्थितिकी तंत्र में 24/7 उपलब्ध।"
-    ],
-    "bharatbot_impact_title": "प्रभाव:",
-    "bharatbot_impact": "भारतबोट आधुनिक एआई और पारंपरिक कृषि के बीच की खाई को पाटता है। विशेषज्ञ ज्ञान को आसानी से सुलभ बनाकर, यह किसानों को सूचित निर्णय लेने और उत्पादकता में सुधार करने में सक्षम बनाता है।",
-    "bharatbot_launch_link": "https://bharatbot-2a7793.zapier.app/"
-}
-
-# SoilScan
-
-"en": {
-    ...
-    "soilscan_title": "SoilScan",
-    "soilscan_desc": "SoilScan is an advanced AI-powered feature within SoilBuddy designed to revolutionize how farmers understand their soil. By simply capturing and sending a clear photo of their soil, farmers can access an in-depth analysis powered by machine learning and computer vision technology. The feature identifies key physical and visual properties of the soil and provides precise insights into its nutrient profile and overall health.",
-    "soilscan_features_title": "Key Features:",
-    "soilscan_features": [
-        "Allows farmers to upload high-resolution soil photos for instant analysis.",
-        "AI model evaluates soil color, granularity, texture, and moisture patterns.",
-        "Generates comprehensive digital reports including NPK levels, pH, and organic matter content.",
-        "Detects nutrient deficiencies and potential disease symptoms in soil composition.",
-        "Provides recommendations for fertilizers, crop rotation, and organic enrichment methods."
-    ],
-    "soilscan_impact_title": "Impact:",
-    "soilscan_impact": "SoilScan transforms traditional farming practices by giving farmers instant, data-driven insights about their land. It eliminates expensive lab testing, reduces turnaround time, and helps farmers make informed choices about fertilizer usage, irrigation schedules, and crop selection. This encourages sustainable farming practices and prevents soil depletion."
-},
-"hi": {
-    ...
-    "soilscan_title": "सोइलस्कैन",
-    "soilscan_desc": "सोइलस्कैन SoilBuddy में एक उन्नत एआई-आधारित फीचर है, जो किसानों को उनकी मिट्टी की समझ को क्रांतिकारी बनाने में मदद करता है। केवल मिट्टी की स्पष्ट फोटो भेजकर, किसान मशीन लर्निंग और कंप्यूटर विज़न तकनीक से गहन विश्लेषण प्राप्त कर सकते हैं। यह फीचर मिट्टी की मुख्य भौतिक और दृश्य विशेषताओं की पहचान करता है और पोषक तत्व प्रोफ़ाइल और कुल स्वास्थ्य में सटीक जानकारी प्रदान करता है।",
-    "soilscan_features_title": "मुख्य विशेषताएँ:",
-    "soilscan_features": [
-        "किसानों को तुरंत विश्लेषण के लिए उच्च-रिज़ॉल्यूशन मिट्टी की तस्वीरें अपलोड करने की अनुमति देता है।",
-        "एआई मॉडल मिट्टी के रंग, दानेपन, बनावट और नमी पैटर्न का मूल्यांकन करता है।",
-        "एनपीके स्तर, पीएच, और कार्बनिक पदार्थ की सामग्री सहित व्यापक डिजिटल रिपोर्ट तैयार करता है।",
-        "मिट्टी की संरचना में पोषक तत्वों की कमी और संभावित रोग लक्षण का पता लगाता है।",
-        "उर्वरक, फसल चक्र, और जैविक संवर्धन विधियों के लिए सिफारिशें प्रदान करता है।"
-    ],
-    "soilscan_impact_title": "प्रभाव:",
-    "soilscan_impact": "सोइलस्कैन पारंपरिक खेती के तरीकों को बदल देता है, किसानों को उनकी भूमि के बारे में तुरंत, डेटा-आधारित जानकारी देता है। यह महंगे लैब परीक्षण को समाप्त करता है, समय बचाता है और किसानों को उर्वरक उपयोग, सिंचाई कार्यक्रम और फसल चयन के बारे में सूचित निर्णय लेने में मदद करता है। इससे टिकाऊ खेती को बढ़ावा मिलता है और मिट्टी के अपक्षय को रोका जाता है।"
-}
-
-
 
 
 # ----------------- Home & Features -----------------
