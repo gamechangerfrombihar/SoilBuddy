@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SoilScan Results</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SoilBuddy - SoilScan Result</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    .navbar { background-color:#065f46; position:fixed; top:0; left:0; width:100%; z-index:50; }
-    .logo-img { width:50px; height:50px; border-radius:50%; object-fit:cover; background:#d1fae5; padding:4px; border:2px solid #22c55e; }
-    .glow-btn { box-shadow:0 0 20px rgba(34,197,94,0.6); transition:0.3s; }
-    .glow-btn:hover { transform:scale(1.05); box-shadow:0 0 25px rgba(34,197,94,0.9); }
+    body { transition: background-color 0.4s, color 0.4s; }
+    body.light { background-color: #ffffff; color: #064e3b; }
+    .navbar { background-color: #065f46; position: fixed; top: 0; left: 0; width: 100%; z-index: 50; }
+    .logo-img { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; background-color: #d1fae5; padding: 4px; border: 2px solid #22c55e; }
+    .glow-btn { box-shadow: 0 0 20px rgba(34,197,94,0.6); transition: all 0.3s ease; }
+    .glow-btn:hover { transform: scale(1.05); box-shadow: 0 0 25px rgba(34,197,94,0.9); }
   </style>
 </head>
-<body class="bg-white text-gray-800">
+<body class="light transition-all">
 
   <!-- Navbar -->
   <nav class="navbar text-white shadow-lg">
@@ -33,26 +35,30 @@
 
   <div class="pt-24"></div>
 
+  <!-- SoilScan Result -->
   <div class="max-w-3xl mx-auto p-6 bg-white rounded-lg shadow-lg">
-    <h2 class="text-3xl font-semibold mb-6 text-green-800 text-center"> Soil Scan Results</h2>
+    <h1 class="text-3xl font-semibold mb-6 text-green-800 text-center">SoilScan Result</h1>
 
-    <h3 class="text-xl font-semibold mb-2">Soil Composition:</h3>
-    <ul class="list-disc list-inside mb-6">
-      {% for key, val in soil_params.items() %}
-        <li>{{ key }}: {{ val }}%</li>
-      {% endfor %}
-    </ul>
+    <div class="flex flex-col items-center space-y-4">
+      {% if soil_params %}
+        <p class="text-lg"><strong>Predicted Soil Type:</strong> {{ soil_params.type }}</p>
+        <p class="text-lg"><strong>Confidence:</strong> {{ soil_params.confidence }}%</p>
+      {% endif %}
 
-    {% if plot_path %}
-      <h3 class="text-xl font-semibold mb-2">NASA POWER Data Graph:</h3>
-      <img src="{{ plot_path }}" alt="NASA Data Plot" class="w-full mb-6">
-    {% endif %}
+      {% if recommendation %}
+        <p class="text-green-800 font-semibold text-center mt-4">{{ recommendation }}</p>
+      {% endif %}
 
-    <h3 class="text-xl font-semibold mb-2">Download Report:</h3>
-    <a href="{{ pdf_path }}" download class="bg-green-600 text-white px-4 py-2 rounded-md glow-btn inline-block mb-6">Download PDF Report</a>
+      {% if message %}
+        <p class="text-gray-600 text-center">{{ message }}</p>
+      {% endif %}
 
-    <br>
-    <a href="/soilscan" class="text-green-500 hover:underline">← Back to SoilScan</a>
+      {% if plot_path %}
+        <img src="{{ plot_path }}" alt="Soil Plot" class="mt-4 rounded shadow">
+      {% endif %}
+
+      <a href="{{ url_for('soilscan') }}" class="mt-6 bg-green-600 hover:bg-green-700 text-white py-2 px-6 rounded font-semibold glow-btn">Analyze Another Soil</a>
+    </div>
   </div>
 
 </body>
