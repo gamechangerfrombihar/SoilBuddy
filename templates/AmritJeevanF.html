@@ -40,7 +40,7 @@
 <body class="light transition-all">
 
   <!-- 🌿 Navbar -->
- <nav class="navbar text-white shadow-lg">
+  <nav class="navbar text-white shadow-lg">
     <div class="container mx-auto flex flex-wrap p-5 flex-row items-center justify-between">
       <div class="flex items-center space-x-10">
         <a href="/" class="flex items-center">
@@ -54,13 +54,13 @@
           <a href="/soilscan" class="hover:text-green-300 transition">SoilScan</a>
         </div>
       </div>
+    </div>
   </nav>
-
 
   <!-- Spacer -->
   <div class="pt-24"></div>
 
-  <!--  Amritjeevan Calculator (Light only) -->
+  <!--  Amritjeevan Calculator -->
   <section class="text-gray-600 body-font">
     <div
       class="container px-5 py-12 mx-auto bg-white rounded-lg shadow-lg max-w-3xl transition-all"
@@ -196,15 +196,7 @@
   </section>
 
   <script>
-    // Navbar Theme toggle
-    const toggleBtn = document.getElementById("theme-toggle");
-    toggleBtn.addEventListener("click", () => {
-      document.body.classList.toggle("dark");
-      document.body.classList.toggle("light");
-      toggleBtn.textContent = document.body.classList.contains("dark")
-        ? "Light Theme"
-        : "Dark Theme";
-    });
+    // ✅ Fixed: Removed broken theme-toggle code
 
     // Soil factors (water retention)
     const soilFactors = { alluvial: 0.9, black: 0.85, redYellow: 0.8, desert: 0.6 };
@@ -264,7 +256,7 @@
         const waterNeededLiters =
           (cropNeedPerDay * totalAreaSqM) / (soilFactor * irrigationEfficiency);
 
-        res.textContent = ` Estimated daily water needed: ${waterNeededLiters.toLocaleString(undefined, { maximumFractionDigits: 0 })} liters`;
+        res.textContent = `💧 Estimated daily water needed: ${waterNeededLiters.toLocaleString(undefined, { maximumFractionDigits: 0 })} liters`;
         res.classList.remove("hidden");
       });
   </script>
