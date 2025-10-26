@@ -76,19 +76,6 @@ def amritjeevan():
     texts = translations[get_lang()]
     return render_template('AmritJeevanF.html', texts=texts, lang=get_lang())
 
-# ----------------- SoilScan (NEW) -----------------
-@app.route('/soilscan/desc')
-def soilscan_desc():
-    lang = get_lang()
-    texts = translations[lang]
-    return render_template('SoilScan.html', texts=texts, lang=lang)
-
-@app.route('/soilscan')
-def soilscan():
-    lang = get_lang()
-    texts = translations[lang]
-    return render_template('SoilScanF.html', texts=texts, lang=lang)
-
 @app.route('/soilscan/result', methods=['POST'])
 def soilscan_result():
     if 'soil_image' not in request.files:
@@ -102,29 +89,20 @@ def soilscan_result():
     file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
     file.save(file_path)
 
-    # Optional NASA inputs (only latitude and longitude now)
-    lat = request.form.get('latitude') or None
-    lon = request.form.get('longitude') or None
+    # Only analyze soil from image; no dates, no NASA plot
+    soil_params, _ = analyze_soil(file_path)
 
-    # Convert to proper types
-    try:
-        lat = float(lat) if lat else None
-        lon = float(lon) if lon else None
-    except:
-        lat = lon = None
-
-    # Call analyze_soil without dates
-    soil_params, plot_path = analyze_soil(file_path, lat, lon)
     lang = get_lang()
     texts = translations[lang]
 
     return render_template(
         'SoilScanResult.html',
         soil_params=soil_params,
-        plot_path=plot_path,
+        plot_path=None,  # plot completely removed
         texts=texts,
         lang=lang
     )
+
 
 # ----------------- BharatBot -----------------
 @app.route('/bharatbot/desc')
