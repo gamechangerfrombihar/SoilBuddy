@@ -1,43 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>{% block title %}SoilBuddy{% endblock %}</title>
+<!-- base.html -->
+<div id="google_translate_wrapper" class="translate-wrapper"></div>
 
-  <!-- Optional: improve speed -->
-  <link rel="preconnect" href="https://translate.google.com">
-  <link rel="preconnect" href="https://translate.googleapis.com">
+<style>
+/* Wrapper styling */
+.translate-wrapper {
+  display: inline-block;
+  background-color: #0d6efd; /* Blue background */
+  border-radius: 8px;
+  padding: 4px 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-    #google_translate_element {
-      position: fixed;
-      top: 10px;
-      right: 10px;
-      z-index: 999;
-    }
-  </style>
-</head>
-<body>
+/* Smooth hover effect */
+.translate-wrapper:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
 
-  <!-- 🌍 Google Translate Widget -->
-  <div id="google_translate_element"></div>
+/* Target the select element inside Google Translate */
+#google_translate_element select {
+  background-color: #0d6efd !important;
+  color: #ffffff !important;
+  border: none !important;
+  font-weight: bold;
+  border-radius: 6px;
+  padding: 4px 8px;
+  cursor: pointer;
+}
 
-  <!-- 🧱 Page-specific content goes here -->
-  {% block content %}{% endblock %}
+/* Hover for the dropdown */
+#google_translate_element select:hover {
+  background-color: #0056b3 !important;
+}
+</style>
 
-  <script>
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement(
-        { pageLanguage: 'en', includedLanguages: 'hi,fr,es,de,it,ar,zh-CN' },
-        'google_translate_element'
-      );
-    }
-  </script>
-  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-</body>
-</html>
+<div id="google_translate_element"></div>
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement(
+    {
+      pageLanguage: 'en',
+      includedLanguages: 'hi,bn,ta,te,ml,mr,gu,kn,pa,or,as,sd,ne',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    },
+    'google_translate_element'
+  );
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
