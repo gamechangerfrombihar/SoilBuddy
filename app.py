@@ -89,6 +89,11 @@ def soilscan():
     texts = translations[lang]
     return render_template('SoilScanF.html', texts=texts, lang=lang)
 
+@app.route('/soilscan/result', methods=['POST'])
+def soilscan_result():
+    if 'soil_image' not in request.files:
+        return "No file uploaded", 400
+
     file = request.files['soil_image']
     if file.filename == '':
         return "No selected file", 400
@@ -97,8 +102,8 @@ def soilscan():
     file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
     file.save(file_path)
 
-    # Only analyze soil from image; no dates, no NASA plot
-    soil_params, _ = analyze_soil(file_path)
+    # Analyze soil from image only
+    soil_params, _ = analyze_soil(file_path, lat=None, lon=None, start_date=None, end_date=None)
 
     lang = get_lang()
     texts = translations[lang]
@@ -106,10 +111,11 @@ def soilscan():
     return render_template(
         'SoilScanResult.html',
         soil_params=soil_params,
-        plot_path=None,  # plot completely removed
+        plot_path=None,
         texts=texts,
         lang=lang
     )
+
 
 
 # ----------------- BharatBot -----------------
