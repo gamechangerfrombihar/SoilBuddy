@@ -21,7 +21,7 @@
     <div class="container mx-auto flex flex-wrap p-5 flex-row items-center justify-between">
       <div class="flex items-center space-x-10">
         <a href="/" class="flex items-center">
-          <img src="/templates/SoilBuddy Logo.png" alt="SoilBuddy Logo" class="h-10 w-auto">
+          <img src="/static/SoilBuddy Logo.png" alt="SoilBuddy Logo" class="h-10 w-auto">
           <span class="text-2xl font-semibold">SoilBuddy</span>
         </a>
         <div class="flex space-x-6 text-sm md:text-base">
@@ -45,6 +45,18 @@
         <p class="text-lg"><strong>Clay:</strong> {{ soil_params['Clay'] }}%</p>
         <p class="text-lg"><strong>Silt:</strong> {{ soil_params['Silt'] }}%</p>
         <p class="text-lg"><strong>Sand:</strong> {{ soil_params['Sand'] }}%</p>
+
+        {% if crops %}
+          <div class="mt-4 text-center">
+            <h3 class="text-xl font-semibold text-green-700 mb-2">Recommended Crops</h3>
+            <ul class="list-disc list-inside text-lg">
+              {% for crop in crops %}
+                <li>{{ crop }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+
       {% else %}
         <p class="text-gray-600 text-center">No soil data available.</p>
       {% endif %}
