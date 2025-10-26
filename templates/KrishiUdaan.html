@@ -25,8 +25,7 @@
   <nav class="navbar text-white shadow-lg">
     <div class="container mx-auto flex flex-wrap p-5 flex-row items-center justify-between">
       <a href="/" class="flex title-font font-medium items-center mb-4 md:mb-0">
-      <img src="/templates/SoilBuddy Logo.png" alt="SoilBuddy Logo" class="h-10 w-auto">
-
+        <img src="/templates/SoilBuddy Logo.png" alt="SoilBuddy Logo" class="h-10 w-auto">
         <span class="text-2xl">SoilBuddy</span>
       </a>
       <button id="theme-toggle" class="text-white bg-green-500 border-0 py-1 px-4 focus:outline-none hover:bg-green-600 rounded-md text-sm glow-btn">
@@ -41,24 +40,30 @@
     <div class="container px-5 py-24 mx-auto">
 
       <!-- Page Title -->
-      <h1 class="text-4xl font-bold mb-6 text-center section-heading">{{ texts.krishi_title }}</h1>
+      <h1 class="text-4xl font-bold mb-6 text-center section-heading">KrishiUdaan</h1>
 
       <!-- What is KrishiUdaan -->
       <div class="mb-10">
-        <h2 class="text-2xl mb-2 section-heading">{{ texts.krishi_what_title }}</h2>
-        <p class="leading-relaxed text-base mb-3">{{ texts.krishi_what_desc1 }}</p>
-        <p class="leading-relaxed text-base">{{ texts.krishi_what_desc2 }}</p>
+        <h2 class="text-2xl mb-2 section-heading">What is KrishiUdaan?</h2>
+        <p class="leading-relaxed text-base mb-3">
+          KrishiUdaan is an advanced AI powered crop recommendation and farm management system designed to help farmers maximize productivity, profitability, and sustainability. It analyzes multiple farm-specific factors — such as region, area, capital, irrigation system, soil type, climate, and number of crops a farmer intends to grow — to provide precise recommendations on which crops to cultivate and which modern techniques to use for optimum yield.
+        </p>
+        <p class="leading-relaxed text-base">
+          Techniques like multicropping and crop rotation ensure efficient land use and soil health while boosting profitability.
+        </p>
       </div>
 
       <div class="section-divider"></div>
 
       <!-- Who is it for -->
       <div class="mb-10">
-        <h2 class="text-2xl mb-2 section-heading">{{ texts.krishi_who_title }}</h2>
+        <h2 class="text-2xl mb-2 section-heading">Who is it for?</h2>
         <ul class="list-disc list-inside ml-4">
-          {% for item in texts.krishi_who_list %}
-          <li>{{ item }}</li>
-          {% endfor %}
+          <li>Small and medium scale farmers seeking to optimize resources.</li>
+          <li>Agricultural planners and consultants who advise farmers.</li>
+          <li>Government agricultural departments aiming to improve regional crop planning.</li>
+          <li>Agri tech startups and investors analyzing crop viability in different regions.</li>
+          <li>Anyone involved in crop cultivation who wants data driven insights for informed decisions.</li>
         </ul>
       </div>
 
@@ -66,11 +71,11 @@
 
       <!-- Where can it be applied -->
       <div class="mb-10">
-        <h2 class="text-2xl mb-2 section-heading">{{ texts.krishi_where_title }}</h2>
+        <h2 class="text-2xl mb-2 section-heading">Where can it be applied?</h2>
         <ul class="list-disc list-inside ml-4">
-          {% for item in texts.krishi_where_list %}
-          <li>{{ item }}</li>
-          {% endfor %}
+          <li>Diverse regions with varying climate zones and soil types.</li>
+          <li>Urban and rural farms, from small kitchen gardens to large agricultural fields.</li>
+          <li>Areas with irrigation constraints or where capital investment optimization is crucial.</li>
         </ul>
       </div>
 
@@ -78,11 +83,14 @@
 
       <!-- Why use KrishiUdaan -->
       <div class="mb-10">
-        <h2 class="text-2xl mb-2 section-heading">{{ texts.krishi_why_title }}</h2>
+        <h2 class="text-2xl mb-2 section-heading">Why use KrishiUdaan?</h2>
         <ul class="list-disc list-inside ml-4">
-          {% for item in texts.krishi_why_list %}
-          <li>{{ item }}</li>
-          {% endfor %}
+          <li>Maximize Profits: Suggests suitable crops and techniques for higher yield per acre.</li>
+          <li>Data Driven Decisions: Eliminates guesswork, adapting to regional conditions and climate patterns.</li>
+          <li>Sustainable Farming: Promotes crop rotation and multicropping for long term soil health.</li>
+          <li>Resource Optimization: Recommends crops based on capital, irrigation, and labor availability.</li>
+          <li>Comprehensive Planning: End to end guidance for sowing, harvesting, and crop cycles.</li>
+          <li>Scalable & Customizable: Adapts recommendations for 1 or multiple crops.</li>
         </ul>
       </div>
 
@@ -90,11 +98,15 @@
 
       <!-- Key Features -->
       <div class="mb-10">
-        <h2 class="text-2xl mb-2 section-heading">{{ texts.krishi_features_title }}</h2>
+        <h2 class="text-2xl mb-2 section-heading">Key Features</h2>
         <ul class="list-disc list-inside ml-4">
-          {% for item in texts.krishi_features_list %}
-          <li>{{ item }}</li>
-          {% endfor %}
+          <li>Multi Factor Analysis: region, area, soil, climate, water, and financial resources considered.</li>
+          <li>Crop Suitability Index: recommends crops with max profit potential and minimal risk.</li>
+          <li>Technique Suggestions: guides on multicropping, crop rotation, intercropping, and organic methods.</li>
+          <li>Smart Financial Planning: provides potential revenue and ROI.</li>
+          <li>Seasonal Planning: provides detailed calendar tailored to local conditions.</li>
+          <li>Visualization & Reports: easy to read charts for farmers and planners.</li>
+          <li>Decision Support System: helps with capital allocation, irrigation planning, and land management.</li>
         </ul>
       </div>
 
@@ -102,19 +114,22 @@
 
       <!-- Innovation -->
       <div class="mb-10">
-        <h2 class="text-2xl mb-2 section-heading">{{ texts.krishi_innovation_title }}</h2>
-        <p class="leading-relaxed text-base">{{ texts.krishi_innovation_desc }}</p>
+        <h2 class="text-2xl mb-2 section-heading">Innovation & USP</h2>
+        <p class="leading-relaxed text-base">
+          KrishiUdaan is more than a crop suggestion tool — it’s a holistic farm advisor. Its AI driven recommendations combine agronomy, climate science, and economics to provide actionable insights, personalized for each farmer’s conditions.
+        </p>
       </div>
 
       <div class="section-divider"></div>
 
       <!-- Impact -->
       <div class="mb-10">
-        <h2 class="text-2xl mb-2 section-heading">{{ texts.krishi_impact_title }}</h2>
+        <h2 class="text-2xl mb-2 section-heading">Impact</h2>
         <ul class="list-disc list-inside ml-4">
-          {% for item in texts.krishi_impact_list %}
-          <li>{{ item }}</li>
-          {% endfor %}
+          <li>Improves farmer income and reduces losses.</li>
+          <li>Promotes eco-friendly and sustainable farming practices.</li>
+          <li>Supports planning and policy making for government and NGOs.</li>
+          <li>Ensures food security and resource efficient agriculture.</li>
         </ul>
       </div>
 
@@ -122,14 +137,16 @@
 
       <!-- Vision -->
       <div class="mb-10">
-        <h2 class="text-2xl mb-2 section-heading">{{ texts.krishi_vision_title }}</h2>
-        <p class="leading-relaxed text-base">{{ texts.krishi_vision_desc }}</p>
+        <h2 class="text-2xl mb-2 section-heading">Vision</h2>
+        <p class="leading-relaxed text-base">
+          To empower farmers with knowledge, technology, and actionable insights, enabling every farm to achieve maximum growth, sustainability, and profit.
+        </p>
       </div>
 
       <!-- Launch Button -->
       <div class="flex justify-center mt-10 mb-16">
         <a href="/krishiudaan" class="bg-green-600 text-white px-8 py-3 rounded-md glow-btn text-lg shadow-lg transform transition-transform hover:scale-105">
-          {{ texts.launch_btn }}
+          Launch
         </a>
       </div>
 
