@@ -80,4 +80,155 @@
   </div>
 </section>
 
-<!-- Keep the rest of your weather, toast, and script sections unchanged -->
+ <!-- Weather Updates Section -->
+  <section id="weather-section" class="bg-green-50 py-20 mt-10">
+    <div class="container mx-auto text-center">
+      <h2 class="text-2xl font-semibold mb-4 text-green-800">🌦 Live Weather Updates</h2>
+      <p class="mb-6 text-gray-700">Select your state to view the current weather conditions.</p>
+
+      <select id="stateSelect" class="border border-green-500 rounded-lg p-2 w-64 text-green-800 focus:ring focus:ring-green-300">
+        <option value="">-- Select a State / UT --</option>
+        <option value="Andhra Pradesh">Andhra Pradesh</option>
+        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+        <option value="Assam">Assam</option>
+        <option value="Bihar">Bihar</option>
+        <option value="Chhattisgarh">Chhattisgarh</option>
+        <option value="Goa">Goa</option>
+        <option value="Gujarat">Gujarat</option>
+        <option value="Haryana">Haryana</option>
+        <option value="Himachal Pradesh">Himachal Pradesh</option>
+        <option value="Jharkhand">Jharkhand</option>
+        <option value="Karnataka">Karnataka</option>
+        <option value="Kerala">Kerala</option>
+        <option value="Madhya Pradesh">Madhya Pradesh</option>
+        <option value="Maharashtra">Maharashtra</option>
+        <option value="Manipur">Manipur</option>
+        <option value="Meghalaya">Meghalaya</option>
+        <option value="Mizoram">Mizoram</option>
+        <option value="Nagaland">Nagaland</option>
+        <option value="Odisha">Odisha</option>
+        <option value="Punjab">Punjab</option>
+        <option value="Rajasthan">Rajasthan</option>
+        <option value="Sikkim">Sikkim</option>
+        <option value="Tamil Nadu">Tamil Nadu</option>
+        <option value="Telangana">Telangana</option>
+        <option value="Tripura">Tripura</option>
+        <option value="Uttar Pradesh">Uttar Pradesh</option>
+        <option value="Uttarakhand">Uttarakhand</option>
+        <option value="West Bengal">West Bengal</option>
+        <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+        <option value="Chandigarh">Chandigarh</option>
+        <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli and Daman and Diu</option>
+        <option value="Delhi">Delhi</option>
+        <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+        <option value="Ladakh">Ladakh</option>
+        <option value="Lakshadweep">Lakshadweep</option>
+        <option value="Puducherry">Puducherry</option>
+      </select>
+
+      <div id="weatherDisplay" class="mt-6 text-lg text-green-900 font-medium"></div>
+    </div>
+  </section>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="fixed top-5 right-5 bg-green-500 text-white px-6 py-4 rounded-lg shadow-lg opacity-0 transition-opacity duration-500 z-50"></div>
+
+  <!-- Scripts -->
+  <script>
+    // Theme Toggle
+    const body = document.body;
+    const toggleBtn = document.getElementById('theme-toggle');
+    toggleBtn.addEventListener('click', () => {
+      body.classList.toggle('dark');
+      body.classList.toggle('light');
+      toggleBtn.textContent = body.classList.contains('dark') ? 'Light Theme' : 'Dark Theme';
+    });
+
+    // Toast Notification
+    function showToast(message) {
+      const toast = document.getElementById("toast");
+      toast.textContent = message;
+      toast.classList.remove("opacity-0");
+      toast.classList.add("opacity-100");
+
+      setTimeout(() => {
+        toast.classList.remove("opacity-100");
+        toast.classList.add("opacity-0");
+      }, 5000);
+    }
+
+    // Weather Fetch
+    const apiKey = "16d833d545828a703d4b7a1192231244";
+    const stateSelect = document.getElementById("stateSelect");
+    const weatherDisplay = document.getElementById("weatherDisplay");
+
+    const stateToCity = {
+      "Andhra Pradesh": "Vijayawada",
+      "Arunachal Pradesh": "Itanagar",
+      "Assam": "Guwahati",
+      "Bihar": "Patna",
+      "Chhattisgarh": "Raipur",
+      "Goa": "Panaji",
+      "Gujarat": "Ahmedabad",
+      "Haryana": "Gurgaon",
+      "Himachal Pradesh": "Shimla",
+      "Jharkhand": "Ranchi",
+      "Karnataka": "Bengaluru",
+      "Kerala": "Kochi",
+      "Madhya Pradesh": "Bhopal",
+      "Maharashtra": "Mumbai",
+      "Manipur": "Imphal",
+      "Meghalaya": "Shillong",
+      "Mizoram": "Aizawl",
+      "Nagaland": "Kohima",
+      "Odisha": "Bhubaneswar",
+      "Punjab": "Chandigarh",
+      "Rajasthan": "Jaipur",
+      "Sikkim": "Gangtok",
+      "Tamil Nadu": "Chennai",
+      "Telangana": "Hyderabad",
+      "Tripura": "Agartala",
+      "Uttar Pradesh": "Lucknow",
+      "Uttarakhand": "Dehradun",
+      "West Bengal": "Kolkata",
+      "Andaman and Nicobar Islands": "Port Blair",
+      "Chandigarh": "Chandigarh",
+      "Dadra and Nagar Haveli and Daman and Diu": "Daman",
+      "Delhi": "Delhi",
+      "Jammu and Kashmir": "Srinagar",
+      "Ladakh": "Leh",
+      "Lakshadweep": "Kavaratti",
+      "Puducherry": "Puducherry"
+    };
+
+    stateSelect.addEventListener("change", async () => {
+      const state = stateSelect.value;
+      if (!state) return;
+
+      const city = stateToCity[state];
+      if (!city) {
+        showToast("City not mapped for this state.");
+        return;
+      }
+
+      try {
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},IN&appid=${apiKey}&units=metric`);
+        const data = await response.json();
+
+        if (data.cod !== 200) {
+          showToast("Weather data not available for this state.");
+          return;
+        }
+
+        const weatherInfo = `${data.name} 🌍 Temp: ${data.main.temp}°C | ${data.weather[0].description} | Humidity: ${data.main.humidity}% | Wind: ${data.wind.speed} m/s`;
+        showToast(weatherInfo);
+        weatherDisplay.textContent = `Latest Update for ${state}: ${data.main.temp}°C, ${data.weather[0].main}`;
+      } catch (error) {
+        console.error("Error fetching weather data:", error);
+        showToast("Could not fetch weather data. Please try again.");
+      }
+    });
+  </script>
+
+</body>
+</html>
