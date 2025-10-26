@@ -21,23 +21,36 @@
 </head>
 <body class="light transition-all">
 
-  <!-- Navbar -->
-  <nav class="navbar text-white shadow-lg">
-    <div class="container mx-auto flex flex-wrap p-5 flex-row items-center justify-between">
-      <a href="/" class="flex title-font font-medium items-center mb-4 md:mb-0">
+ <!-- Navbar -->
+<nav class="navbar text-white shadow-lg">
+  <div class="container mx-auto flex flex-wrap p-5 flex-row items-center justify-between">
+    <div class="flex items-center space-x-10">
+      <a href="/" class="flex items-center">
         <img src="/templates/SoilBuddy Logo.png" alt="SoilBuddy Logo" class="h-10 w-auto">
-        <span class="text-2xl">SoilBuddy</span>
+        <span class="text-2xl font-semibold ml-2">SoilBuddy</span>
       </a>
-      <button id="theme-toggle" class="text-white bg-green-500 border-0 py-1 px-4 focus:outline-none hover:bg-green-600 rounded-md text-sm glow-btn">
-        Dark Theme
-      </button>
+      <div class="flex space-x-6 text-sm md:text-base">
+        <a href="/krishiudaan" class="hover:text-green-300 transition">KrishiUdaan</a>
+        <a href="/amritjeevan" class="hover:text-green-300 transition">AmritJeevan</a>
+        <a href="https://bharatbot-2a7793.zapier.app" target="_blank" class="hover:text-green-300 transition">BharatBot</a>
+        <a href="/soilscan" class="hover:text-green-300 transition">SoilScan</a>
+        <a href="{{ url_for('agric_connect') }}" class="hover:text-green-300 transition">AgriConnect</a>
+        <a href="{{ url_for('agrirates') }}" class="hover:text-green-300 transition">AgriRates</a>
+      </div>
     </div>
-  </nav>
 
-  <div class="pt-24"></div>
+   <nav class="flex items-center space-x-4">
+  <!-- Other navbar elements -->
+  {% include 'base.html' %}
+  <button id="theme-toggle" class="p-2 rounded-lg bg-green-700 hover:bg-green-800 text-white">
+    Dark / Light
+  </button>
+</nav>
 
-  <section class="text-gray-600 body-font">
-    <div class="container px-5 py-24 mx-auto">
+  </div>
+</nav>
+
+<div class="pt-24"></div>
 
       <!-- Page Title -->
       <h1 class="text-4xl font-bold mb-6 text-center section-heading">KrishiUdaan</h1>
