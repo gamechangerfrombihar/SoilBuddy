@@ -102,22 +102,19 @@ def soilscan_result():
     file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
     file.save(file_path)
 
-    # Optional NASA inputs
+    # Optional NASA inputs (only latitude and longitude now)
     lat = request.form.get('latitude') or None
     lon = request.form.get('longitude') or None
-    start_date = request.form.get('start_date') or None
-    end_date = request.form.get('end_date') or None
 
     # Convert to proper types
     try:
         lat = float(lat) if lat else None
         lon = float(lon) if lon else None
-        start_date = str(int(start_date)) if start_date else None
-        end_date = str(int(end_date)) if end_date else None
     except:
-        lat = lon = start_date = end_date = None
+        lat = lon = None
 
-    soil_params, plot_path = analyze_soil(file_path, lat, lon, start_date, end_date)
+    # Call analyze_soil without dates
+    soil_params, plot_path = analyze_soil(file_path, lat, lon)
     lang = get_lang()
     texts = translations[lang]
 
