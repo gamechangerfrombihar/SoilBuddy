@@ -137,6 +137,12 @@ from flask import send_from_directory
 def serve_template_file(filename):
     return send_from_directory('templates', filename)
 
+# ------------AgriRates----------------------    
+    @app.route('/agrirates')
+def agrirates():
+    return render_template('AgriRates.html')
+
+
 # ----------------- Run App -----------------
 if __name__ == '__main__':
     app.run(debug=True)
