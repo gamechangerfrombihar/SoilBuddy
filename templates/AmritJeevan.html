@@ -33,7 +33,7 @@
 </head>
 <body class="light transition-all">
 
- <!-- Navbar -->
+<!-- Navbar -->
 <nav class="navbar text-white shadow-lg">
   <div class="container mx-auto flex flex-wrap p-5 flex-row items-center justify-between">
     <div class="flex items-center space-x-10">
@@ -50,6 +50,20 @@
         <a href="{{ url_for('agrirates') }}" class="hover:text-green-300 transition">AgriRates</a>
       </div>
     </div>
+
+   <nav class="flex items-center space-x-4">
+  <!-- Other navbar elements -->
+  {% include 'base.html' %}
+  <button id="theme-toggle" class="p-2 rounded-lg bg-green-700 hover:bg-green-800 text-white">
+    Dark / Light
+  </button>
+</nav>
+
+  </div>
+</nav>
+
+<div class="pt-24"></div>
+
 
 
   <div class="pt-24"></div>
