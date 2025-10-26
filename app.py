@@ -76,10 +76,18 @@ def amritjeevan():
     texts = translations[get_lang()]
     return render_template('AmritJeevanF.html', texts=texts, lang=get_lang())
 
-@app.route('/soilscan/result', methods=['POST'])
-def soilscan_result():
-    if 'soil_image' not in request.files:
-        return "No file uploaded", 400
+# ----------------- SoilScan -----------------
+@app.route('/soilscan/desc')
+def soilscan_desc():
+    lang = get_lang()
+    texts = translations[lang]
+    return render_template('SoilScan.html', texts=texts, lang=lang)
+
+@app.route('/soilscan')
+def soilscan():
+    lang = get_lang()
+    texts = translations[lang]
+    return render_template('SoilScanF.html', texts=texts, lang=lang)
 
     file = request.files['soil_image']
     if file.filename == '':
