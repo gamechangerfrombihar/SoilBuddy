@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SoilBuddy - AgriRates</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { transition: background-color 0.4s, color 0.4s; }
+    body.light { background-color: #ffffff; color: #064e3b; }
+    body.dark { background-color: #0f172a; color: #ffffff; }
+    .navbar { background-color: #065f46; position: fixed; top: 0; left: 0; width: 100%; z-index: 50; }
+    .glow-btn { box-shadow: 0 0 20px rgba(34, 197, 94, 0.6); transition: all 0.3s ease; }
+    .glow-btn:hover { transform: scale(1.05); box-shadow: 0 0 25px rgba(34, 197, 94, 0.9); }
+    .logo-img { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; background: #d1fae5; padding: 4px; border: 2px solid #22c55e; }
+  </style>
+</head>
+
+<body class="light transition-all">
+
+  <!-- Navbar (from main page) -->
+  <nav class="navbar text-white shadow-lg">
+    <div class="container mx-auto flex flex-wrap p-5 flex-row items-center justify-between">
+      <div class="flex items-center space-x-10">
+        <a href="/" class="flex items-center">
+          <img src="/templates/SoilBuddy Logo.png" alt="SoilBuddy Logo" class="h-10 w-auto">
+          <span class="text-2xl font-semibold ml-2">SoilBuddy</span>
+        </a>
+        <div class="flex space-x-6 text-sm md:text-base">
+          <a href="/krishiudaan" class="hover:text-green-300 transition">KrishiUdaan</a>
+          <a href="/amritjeevan" class="hover:text-green-300 transition">AmritJeevan</a>
+          <a href="https://bharatbot-2a7793.zapier.app" target="_blank" class="hover:text-green-300 transition">BharatBot</a>
+          <a href="/soilscan" class="hover:text-green-300 transition">SoilScan</a>
+        </div>
+      </div>
+
+      <div class="flex items-center space-x-4">
+        {% if lang == 'en' %}
+        <a href="{{ url_for('set_language', lang='hi', next=request.path) }}" class="text-white hover:underline">हिन्दी</a>
+        {% else %}
+        <a href="{{ url_for('set_language', lang='en', next=request.path) }}" class="text-white hover:underline">English</a>
+        {% endif %}
+        <button id="theme-toggle" class="p-2 rounded-lg focus:outline-none bg-green-700 hover:bg-green-800 transition">
+          Dark / Light
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="pt-24"></div>
+
+  <!-- AgriRates Section -->
+  <section class="text-gray-700 body-font">
+    <div class="container px-5 py-20 mx-auto">
+      <h1 class="text-3xl font-semibold mb-4 text-center">AgriRates</h1>
+      <p class="text-center text-lg mb-10 max-w-2xl mx-auto">
+        It allows you to check the market rates of your crops in the current financial year.
+      </p>
+
+      <div class="max-w-lg mx-auto bg-green-50 p-8 rounded-2xl shadow-lg">
+        <form id="bhaavForm" class="space-y-6">
+          <div>
+            <label for="crop" class="block text-lg font-medium mb-2">Select Crop / फ़सल चुनें</label>
+            <select id="crop" required class="w-full border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-green-400">
+              <option value="" disabled selected>Select a crop / फ़सल चुनें</option>
+              <option value="Paddy">Paddy (धान)</option>
+              <option value="Jowar">Jowar (ज्वार)</option>
+              <option value="Bajra">Bajra (बाजरा)</option>
+              <option value="Ragi">Ragi (रागी)</option>
+              <option value="Maize">Maize (मक्का)</option>
+              <option value="Tur">Tur / Arhar (अरहर / तूर)</option>
+              <option value="Moong">Moong (मूंग)</option>
+              <option value="Urad">Urad (उड़द)</option>
+              <option value="Groundnut">Groundnut (मूंगफली)</option>
+              <option value="Sunflower">Sunflower (सूरजमुखी)</option>
+              <option value="Soyabean">Soyabean (सोयाबीन)</option>
+              <option value="Sesamum">Sesamum (तिल)</option>
+              <option value="Nigerseed">Nigerseed (रामतिल)</option>
+              <option value="Cotton">Cotton (कपास)</option>
+              <option value="Wheat">Wheat (गेहूं)</option>
+              <option value="Barley">Barley (जौ)</option>
+              <option value="Gram">Gram (चना)</option>
+              <option value="Masur">Masur / Lentil (मसूर)</option>
+              <option value="Mustard">Rapeseed & Mustard (सरसों)</option>
+              <option value="Safflower">Safflower (कुसुम)</option>
+              <option value="Copra">Copra (सूखा नारियल)</option>
+              <option value="Coconut">Coconut (नारियल)</option>
+              <option value="Jute">Jute (जूट)</option>
+            </select>
+          </div>
+
+          <button type="submit" class="bg-green-500 text-white px-6 py-2 rounded-md glow-btn hover:bg-green-600 font-semibold w-full">
+            Check Market Rate / भाव देखें
+          </button>
+        </form>
+
+        <div id="result" class="mt-8 text-center text-xl font-semibold hidden"></div>
+      </div>
+
+      <!-- Info Section with Launch Button -->
+      <div class="flex flex-col md:flex-row items-center justify-between mt-12 max-w-3xl mx-auto text-center md:text-left">
+        <p class="text-lg mb-4 md:mb-0">
+          For more info, click on this button.<br>
+          अधिक जानकारी के लिए, इस बटन पर क्लिक करें।
+        </p>
+        <a href="https://desagri.gov.in/document-report-category/agricultural-prices-in-india/"
+           target="_blank"
+           class="bg-green-500 text-white py-3 px-8 rounded-md glow-btn hover:bg-green-600 font-semibold">
+          Launch Link 🔗
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Script -->
+  <script>
+    // Theme toggle (kept same as main page)
+    const body = document.body;
+    const toggleBtn = document.getElementById('theme-toggle');
+    toggleBtn.addEventListener('click', () => {
+      body.classList.toggle('dark');
+      body.classList.toggle('light');
+      toggleBtn.textContent = body.classList.contains('dark') ? 'Light Theme' : 'Dark Theme';
+    });
+
+    // MSP Data
+    const mspData = {
+      "Paddy": 2300,
+      "Jowar": 3400,
+      "Bajra": 2625,
+      "Ragi": 4290,
+      "Maize": 2225,
+      "Tur": 7550,
+      "Moong": 8682,
+      "Urad": 7400,
+      "Groundnut": 6783,
+      "Sunflower": 7280,
+      "Soyabean": 4892,
+      "Sesamum": 9267,
+      "Nigerseed": 8717,
+      "Cotton": 7320,
+      "Wheat": 2425,
+      "Barley": 1980,
+      "Gram": 5650,
+      "Masur": 6700,
+      "Mustard": 5950,
+      "Safflower": 5940,
+      "Copra": 11160,
+      "Coconut": 3013,
+      "Jute": 5335
+    };
+
+    const form = document.getElementById('bhaavForm');
+    const resultDiv = document.getElementById('result');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const crop = document.getElementById('crop').value;
+      const price = mspData[crop];
+      if (price) {
+        resultDiv.innerHTML = `
+          The current Minimum Support Price for <b>${crop}</b> is 
+          <span class="text-green-600">₹${price.toLocaleString()}</span> per quintal.<br>
+          <b>${crop}</b> का वर्तमान न्यूनतम समर्थन मूल्य 
+          <span class="text-green-600">₹${price.toLocaleString()}</span> प्रति क्विंटल है।
+        `;
+        resultDiv.classList.remove('hidden');
+      } else {
+        resultDiv.innerHTML = "No data available / जानकारी उपलब्ध नहीं है।";
+        resultDiv.classList.remove('hidden');
+      }
+    });
+  </script>
+</body>
+</html>
