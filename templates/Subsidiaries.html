@@ -1,1 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AgriConnect - SoilBuddy</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { transition: background-color 0.4s, color 0.4s; }
+    body.light { background-color: #ffffff; color: #064e3b; }
+    body.dark { background-color: #0f172a; color: #ffffff; }
+
+    .navbar { background-color: #065f46; position: fixed; top: 0; left: 0; width: 100%; z-index: 50; }
+    .glow-btn { box-shadow: 0 0 20px rgba(34,197,94,0.6); transition: all 0.3s ease; }
+    .glow-btn:hover { transform: scale(1.05); box-shadow: 0 0 25px rgba(34,197,94,0.9); }
+
+    .subsidy-btn { background-color: #065f46; color: white; padding: 6px 12px; border-radius: 5px; font-weight: 500; transition: 0.2s; }
+    .subsidy-btn:hover { background-color: #054d3b; }
+
+    .logo-img { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; background-color: #d1fae5; padding: 4px; border: 2px solid #22c55e; }
+    body.dark a, body.dark span { color: #ffffff !important; }
+    body.dark a.text-green-500 { color: #22c55e !important; }
+  </style>
+</head>
+<body class="light transition-all">
+
+  <!-- Navbar -->
+  <nav class="navbar text-white shadow-lg">
+    <div class="container mx-auto flex flex-wrap p-5 flex-row items-center justify-between">
+      <div class="flex items-center space-x-10">
+        <a href="/" class="flex items-center">
+          <img src="/templates/SoilBuddy Logo.png" alt="SoilBuddy Logo" class="h-10 w-auto">
+          <span class="text-2xl font-semibold ml-2">SoilBuddy</span>
+        </a>
+        <div class="flex space-x-6 text-sm md:text-base">
+          <a href="/krishiudaan" class="hover:text-green-300 transition">KrishiUdaan</a>
+          <a href="/amritjeevan" class="hover:text-green-300 transition">AmritJeevan</a>
+          <a href="https://bharatbot-2a7793.zapier.app" target="_blank" class="hover:text-green-300 transition">BharatBot</a>
+          <a href="/soilscan" class="hover:text-green-300 transition">SoilScan</a>
+          <a href="Subsidiaries.html" class="hover:text-green-300 transition">AgriConnect</a>
+        </div>
+      </div>
+
+      <div class="flex items-center space-x-4">
+        {% if lang == 'en' %}
+        <a href="{{ url_for('set_language', lang='hi', next=request.path) }}" class="text-white hover:underline">हिन्दी</a>
+        {% else %}
+        <a href="{{ url_for('set_language', lang='en', next=request.path) }}" class="text-white hover:underline">English</a>
+        {% endif %}
+        <button id="theme-toggle" class="p-2 rounded-lg focus:outline-none bg-green-700 hover:bg-green-800 transition glow-btn">
+          Dark / Light
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="pt-24 container mx-auto px-4">
+
+    <h1 class="text-3xl font-bold mb-6 text-green-700">AgriConnect: Personalized Subsidy Finder</h1>
+
+    <!-- Form -->
+    <form id="farmerForm" class="space-y-4 bg-green-50 p-6 rounded-lg shadow-lg">
+      <!-- 1. Land -->
+      <div>
+        <label class="font-semibold">1. Land Ownership:</label><br>
+        <select name="land" required class="border rounded p-2 w-full">
+          <option value="">Select...</option>
+          <option value="own">Own</option>
+          <option value="lease">Lease/Tenant</option>
+        </select>
+      </div>
+
+      <!-- 2. Location / Climate -->
+      <div>
+        <label class="font-semibold">2. Farming Conditions:</label><br>
+        <select name="climate" required class="border rounded p-2 w-full">
+          <option value="">Select...</option>
+          <option value="rainfed">Rain-fed</option>
+          <option value="irrigated">Irrigated / Mixed</option>
+        </select>
+      </div>
+
+      <!-- 3. Crops Grown -->
+      <div>
+        <label class="font-semibold">3. Crops Grown:</label><br>
+        <select name="crops" required class="border rounded p-2 w-full">
+          <option value="">Select...</option>
+          <option value="food">Food Crops (rice, wheat, pulses)</option>
+          <option value="cash">Cash Crops (cotton, sugarcane)</option>
+          <option value="horticulture">Horticulture / Vegetables / Fruits</option>
+        </select>
+      </div>
+
+      <!-- 4. Farming Method -->
+      <div>
+        <label class="font-semibold">4. Farming Method:</label><br>
+        <select name="method" required class="border rounded p-2 w-full">
+          <option value="">Select...</option>
+          <option value="organic">Organic</option>
+          <option value="traditional">Traditional / Conventional</option>
+        </select>
+      </div>
+
+      <!-- 5. Support Needed -->
+      <div>
+        <label class="font-semibold">5. Support Needed:</label><br>
+        <select name="support" required class="border rounded p-2 w-full">
+          <option value="">Select...</option>
+          <option value="seeds">Seeds & Fertilizers</option>
+          <option value="irrigation">Irrigation / Drip</option>
+          <option value="machinery">Machinery</option>
+          <option value="insurance">Crop Insurance</option>
+          <option value="organic">Organic Farming Support</option>
+          <option value="storage">Storage / Market Access</option>
+        </select>
+      </div>
+
+      <!-- 6. Financial / Risk Info -->
+      <div>
+        <label class="font-semibold">6. Financial / Risk Info:</label><br>
+        <select name="risk" required class="border rounded p-2 w-full">
+          <option value="">Select...</option>
+          <option value="kcc">Has Kisan Credit Card</option>
+          <option value="loss">Experienced Crop Loss</option>
+        </select>
+      </div>
+
+      <button type="submit" class="mt-4 p-3 rounded bg-green-700 hover:bg-green-800 text-white font-semibold glow-btn w-full">Find My Subsidies</button>
+    </form>
+
+    <!-- Results -->
+    <div id="results" class="mt-8 space-y-4"></div>
+
+  </div>
+
+  <script>
+    // Theme toggle
+    const body = document.body;
+    const toggleBtn = document.getElementById('theme-toggle');
+    toggleBtn.addEventListener('click', () => {
+      body.classList.toggle('dark');
+      body.classList.toggle('light');
+      toggleBtn.textContent = body.classList.contains('dark') ? 'Light Theme' : 'Dark Theme';
+    });
+
+    // Subsidy mapping logic
+    const subsidyData = [
+      { name: "PM-KISAN", link: "https://pmkisan.gov.in/" },
+      { name: "PMFBY", link: "https://pmfby.gov.in/" },
+      { name: "PMKSY", link: "https://pmksy.gov.in/" },
+      { name: "NFSM", link: "https://nfsm.gov.in/" },
+      { name: "PKVY", link: "https://pkvy.gov.in/" },
+      { name: "NHM", link: "https://nhm.nic.in/" },
+      { name: "SMAM", link: "https://agrimachinery.nic.in/" }
+    ];
+
+    function getSubsidies(answers) {
+      let subs = [];
+
+      if(answers.land === 'own') subs.push("PM-KISAN", "PMKSY", "SMAM");
+      if(answers.land === 'lease') subs.push("PMFBY", "PMKSY");
+
+      if(answers.climate === 'rainfed') subs.push("PMKSY", "NFSM", "PMFBY");
+      if(answers.climate === 'irrigated') subs.push("PM-KISAN", "SMAM", "PMFBY");
+
+      if(answers.crops === 'food') subs.push("PMFBY", "NFSM", "PM-KISAN");
+      if(answers.crops === 'cash') subs.push("PMFBY", "SMAM", "PMKSY");
+      if(answers.crops === 'horticulture') subs.push("NHM", "PMKSY", "PKVY");
+
+      if(answers.method === 'organic') subs.push("PKVY", "NHM", "PMKSY");
+      if(answers.method === 'traditional') subs.push("PM-KISAN", "PMFBY", "SMAM");
+
+      if(answers.support === 'seeds') subs.push("PM-KISAN", "NFSM", "PMFBY");
+      if(answers.support === 'irrigation') subs.push("PMKSY", "SMAM", "NHM");
+      if(answers.support === 'machinery') subs.push("SMAM", "PM-KISAN", "NHM");
+      if(answers.support === 'insurance') subs.push("PMFBY");
+      if(answers.support === 'organic') subs.push("PKVY", "NHM");
+      if(answers.support === 'storage') subs.push("NHM", "PM-KISAN");
+
+      if(answers.risk === 'kcc') subs.push("SMAM", "PMKSY", "NHM");
+      if(answers.risk === 'loss') subs.push("PMFBY", "PM-KISAN", "NFSM");
+
+      return [...new Set(subs)];
+    }
+
+    // Form submit
+    const form = document.getElementById('farmerForm');
+    const resultsDiv = document.getElementById('results');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const formData = new FormData(form);
+      const answers = Object.fromEntries(formData.entries());
+      const recommended = getSubsidies(answers);
+
+      resultsDiv.innerHTML = '';
+      if(recommended.length === 0) {
+        resultsDiv.innerHTML = '<p class="text-red-600 font-semibold">No subsidies found.</p>';
+        return;
+      }
+
+      recommended.forEach(sub => {
+        const data = subsidyData.find(s => s.name === sub);
+        const div = document.createElement('div');
+        div.className = 'flex justify-between items-center bg-green-100 p-3 rounded shadow';
+        div.innerHTML = `
+          <span class="font-semibold">${sub}</span>
+          <a href="${data.link}" target="_blank" class="subsidy-btn">Launch</a>
+        `;
+        resultsDiv.appendChild(div);
+      });
+
+      resultsDiv.scrollIntoView({ behavior: 'smooth' });
+    });
+  </script>
+
+</body>
+</html>
 
