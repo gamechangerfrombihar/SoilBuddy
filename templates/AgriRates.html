@@ -18,7 +18,7 @@
 
 <body class="light transition-all">
 
-  <!-- Navbar -->
+ <!-- Navbar -->
 <nav class="navbar text-white shadow-lg">
   <div class="container mx-auto flex flex-wrap p-5 flex-row items-center justify-between">
     <div class="flex items-center space-x-10">
@@ -36,23 +36,19 @@
       </div>
     </div>
 
+   <nav class="flex items-center space-x-4">
+  <!-- Other navbar elements -->
+  {% include 'base.html' %}
+  <button id="theme-toggle" class="p-2 rounded-lg bg-green-700 hover:bg-green-800 text-white">
+    Dark / Light
+  </button>
+</nav>
 
-  <div class="pt-24"></div>
+  </div>
+</nav>
 
-      <div class="flex items-center space-x-4">
-        {% if lang == 'en' %}
-        <a href="{{ url_for('set_language', lang='hi', next=request.path) }}" class="text-white hover:underline">हिन्दी</a>
-        {% else %}
-        <a href="{{ url_for('set_language', lang='en', next=request.path) }}" class="text-white hover:underline">English</a>
-        {% endif %}
-        <button id="theme-toggle" class="p-2 rounded-lg focus:outline-none bg-green-700 hover:bg-green-800 transition">
-          Dark / Light
-        </button>
-      </div>
-    </div>
-  </nav>
+<div class="pt-24"></div>
 
-  <div class="pt-24"></div>
 
   <!-- AgriRates Section -->
   <section class="text-gray-700 body-font">
