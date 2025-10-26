@@ -123,6 +123,14 @@ def bharatbot_desc():
     texts = translations[lang]
     return render_template('BharatBot.html', texts=texts, lang=lang)
 
+# ----------------- AgriConnect -----------------
+@app.route('/agriconnect')
+def agric_connect():
+    lang = get_lang()
+    texts = translations[lang]
+    return render_template('Subsidiaries.html', texts=texts, lang=lang)
+
+
 # ----------------- Logo -----------------
 from flask import send_from_directory
 @app.route('/templates/<path:filename>')
