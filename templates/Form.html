@@ -1,0 +1,185 @@
+<!-- 🌱 SoilBuddy Google Form Section -->
+<section id="user-form" class="form-section">
+  <div class="form-container">
+    <h2 class="form-title"> Share Your Soil & Crop Details</h2>
+    <p class="form-subtitle">Your input helps SoilBuddy improve soil analysis and provide accurate insights for a sustainable future.</p>
+
+    <div class="form-frame">
+      <iframe 
+        id="soilForm" 
+        src="https://docs.google.com/forms/d/e/1FAIpQLScOJVWPeb3tf3kMF3YY6dTi51C4WuPGxTeB93TfX2vM5TmVog/viewform?embedded=true"
+        width="100%" 
+        height="850" 
+        frameborder="0" 
+        marginheight="0" 
+        marginwidth="0">
+        Loading…
+      </iframe>
+    </div>
+
+    <button class="submit-btn" onclick="showToast()">✅ I have submitted the form</button>
+  </div>
+
+  <!-- 🌿 Success Toast -->
+  <div id="toast" class="toast">
+    <div class="toast-icon">🌱</div>
+    <p><strong>Form Submitted Successfully!</strong><br><small>Thank you for helping SoilBuddy grow 🌾</small></p>
+  </div>
+</section>
+
+<style>
+/* 🌿 Background Styling */
+.form-section {
+  background: linear-gradient(135deg, #d7f9e9, #b8f1c8, #e2ffe5);
+  background-size: 300% 300%;
+  animation: gradientFlow 10s ease infinite;
+  padding: 90px 20px;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 🌿 Floating background elements */
+.form-section::before, .form-section::after {
+  content: '';
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  background: url('https://cdn-icons-png.flaticon.com/512/2907/2907258.png') no-repeat center/contain;
+  opacity: 0.1;
+  animation: floatLeaves 15s infinite linear;
+}
+.form-section::before { top: 10%; left: 8%; }
+.form-section::after { bottom: 8%; right: 10%; animation-delay: 7s; }
+
+@keyframes floatLeaves {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-30px) rotate(180deg); }
+  100% { transform: translateY(0) rotate(360deg); }
+}
+
+/* 🌿 Main Container */
+.form-container {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 45px;
+  max-width: 850px;
+  margin: 0 auto;
+  border-radius: 24px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+.form-container:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.15);
+}
+
+/* 🌿 Titles */
+.form-title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #256c38;
+  animation: fadeDown 1.2s ease;
+}
+.form-subtitle {
+  color: #3a7741;
+  font-size: 1rem;
+  margin-bottom: 30px;
+  animation: fadeUp 1.2s ease;
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 🌿 Iframe Frame */
+.form-frame {
+  border: 4px solid #94d08d;
+  border-radius: 18px;
+  overflow: hidden;
+  animation: zoomIn 1s ease;
+}
+@keyframes zoomIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* 🌿 Submit Button */
+.submit-btn {
+  margin-top: 30px;
+  background: linear-gradient(90deg, #2e7d32, #43a047);
+  color: white;
+  padding: 14px 32px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  transition: all 0.4s ease;
+  box-shadow: 0 4px 15px rgba(46, 125, 50, 0.4);
+}
+.submit-btn:hover {
+  background: linear-gradient(90deg, #43a047, #2e7d32);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(46, 125, 50, 0.5);
+}
+
+/* ✅ Toast Popup */
+.toast {
+  visibility: hidden;
+  min-width: 320px;
+  background: #256c38;
+  color: #fff;
+  text-align: center;
+  border-radius: 16px;
+  padding: 18px 25px;
+  position: fixed;
+  z-index: 999;
+  left: 50%;
+  bottom: 40px;
+  transform: translateX(-50%) translateY(50px);
+  transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+  opacity: 0;
+  box-shadow: 0 4px 25px rgba(0,0,0,0.3);
+  font-size: 0.95rem;
+}
+.toast.show {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+.toast-icon {
+  font-size: 1.8rem;
+  animation: pop 0.8s ease infinite alternate;
+}
+@keyframes pop {
+  from { transform: scale(1); }
+  to { transform: scale(1.15); }
+}
+
+/* 🌿 Responsive */
+@media (max-width: 768px) {
+  .form-container { padding: 25px; }
+  .form-title { font-size: 1.9rem; }
+  .form-subtitle { font-size: 0.95rem; }
+}
+</style>
+
+<script>
+function showToast() {
+  const toast = document.getElementById("toast");
+  toast.classList.add("show");
+  setTimeout(() => toast.classList.remove("show"), 4500);
+}
+</script>
