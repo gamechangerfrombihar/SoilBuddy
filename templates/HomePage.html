@@ -87,22 +87,43 @@
       <p class="mb-6 text-gray-700">Select your state to view the current weather conditions.</p>
 
       <select id="stateSelect" class="border border-green-500 rounded-lg p-2 w-64 text-green-800 focus:ring focus:ring-green-300">
-        <option value="">-- Select a State --</option>
-        <option value="Delhi">Delhi</option>
-        <option value="Maharashtra">Maharashtra</option>
-        <option value="Karnataka">Karnataka</option>
-        <option value="Tamil Nadu">Tamil Nadu</option>
-        <option value="Uttar Pradesh">Uttar Pradesh</option>
-        <option value="West Bengal">West Bengal</option>
-        <option value="Gujarat">Gujarat</option>
-        <option value="Rajasthan">Rajasthan</option>
-        <option value="Bihar">Bihar</option>
-        <option value="Punjab">Punjab</option>
-        <option value="Haryana">Haryana</option>
-        <option value="Kerala">Kerala</option>
+        <option value="">-- Select a State / UT --</option>
+        <option value="Andhra Pradesh">Andhra Pradesh</option>
+        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
         <option value="Assam">Assam</option>
+        <option value="Bihar">Bihar</option>
+        <option value="Chhattisgarh">Chhattisgarh</option>
+        <option value="Goa">Goa</option>
+        <option value="Gujarat">Gujarat</option>
+        <option value="Haryana">Haryana</option>
+        <option value="Himachal Pradesh">Himachal Pradesh</option>
+        <option value="Jharkhand">Jharkhand</option>
+        <option value="Karnataka">Karnataka</option>
+        <option value="Kerala">Kerala</option>
         <option value="Madhya Pradesh">Madhya Pradesh</option>
+        <option value="Maharashtra">Maharashtra</option>
+        <option value="Manipur">Manipur</option>
+        <option value="Meghalaya">Meghalaya</option>
+        <option value="Mizoram">Mizoram</option>
+        <option value="Nagaland">Nagaland</option>
         <option value="Odisha">Odisha</option>
+        <option value="Punjab">Punjab</option>
+        <option value="Rajasthan">Rajasthan</option>
+        <option value="Sikkim">Sikkim</option>
+        <option value="Tamil Nadu">Tamil Nadu</option>
+        <option value="Telangana">Telangana</option>
+        <option value="Tripura">Tripura</option>
+        <option value="Uttar Pradesh">Uttar Pradesh</option>
+        <option value="Uttarakhand">Uttarakhand</option>
+        <option value="West Bengal">West Bengal</option>
+        <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+        <option value="Chandigarh">Chandigarh</option>
+        <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli and Daman and Diu</option>
+        <option value="Delhi">Delhi</option>
+        <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+        <option value="Ladakh">Ladakh</option>
+        <option value="Lakshadweep">Lakshadweep</option>
+        <option value="Puducherry">Puducherry</option>
       </select>
 
       <div id="weatherDisplay" class="mt-6 text-lg text-green-900 font-medium"></div>
@@ -142,21 +163,42 @@
     const weatherDisplay = document.getElementById("weatherDisplay");
 
     const stateToCity = {
-      "Delhi": "Delhi",
-      "Maharashtra": "Mumbai",
-      "Karnataka": "Bengaluru",
-      "Tamil Nadu": "Chennai",
-      "Uttar Pradesh": "Lucknow",
-      "West Bengal": "Kolkata",
-      "Gujarat": "Ahmedabad",
-      "Rajasthan": "Jaipur",
-      "Bihar": "Patna",
-      "Punjab": "Chandigarh",
-      "Haryana": "Gurgaon",
-      "Kerala": "Kochi",
+      "Andhra Pradesh": "Vijayawada",
+      "Arunachal Pradesh": "Itanagar",
       "Assam": "Guwahati",
+      "Bihar": "Patna",
+      "Chhattisgarh": "Raipur",
+      "Goa": "Panaji",
+      "Gujarat": "Ahmedabad",
+      "Haryana": "Gurgaon",
+      "Himachal Pradesh": "Shimla",
+      "Jharkhand": "Ranchi",
+      "Karnataka": "Bengaluru",
+      "Kerala": "Kochi",
       "Madhya Pradesh": "Bhopal",
-      "Odisha": "Bhubaneswar"
+      "Maharashtra": "Mumbai",
+      "Manipur": "Imphal",
+      "Meghalaya": "Shillong",
+      "Mizoram": "Aizawl",
+      "Nagaland": "Kohima",
+      "Odisha": "Bhubaneswar",
+      "Punjab": "Chandigarh",
+      "Rajasthan": "Jaipur",
+      "Sikkim": "Gangtok",
+      "Tamil Nadu": "Chennai",
+      "Telangana": "Hyderabad",
+      "Tripura": "Agartala",
+      "Uttar Pradesh": "Lucknow",
+      "Uttarakhand": "Dehradun",
+      "West Bengal": "Kolkata",
+      "Andaman and Nicobar Islands": "Port Blair",
+      "Chandigarh": "Chandigarh",
+      "Dadra and Nagar Haveli and Daman and Diu": "Daman",
+      "Delhi": "Delhi",
+      "Jammu and Kashmir": "Srinagar",
+      "Ladakh": "Leh",
+      "Lakshadweep": "Kavaratti",
+      "Puducherry": "Puducherry"
     };
 
     stateSelect.addEventListener("change", async () => {
