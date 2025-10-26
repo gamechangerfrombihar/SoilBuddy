@@ -139,3 +139,12 @@ def bharatbot_desc():
 # ----------------- Run App -----------------
 if __name__ == '__main__':
     app.run(debug=True)
+
+# ------------------Logo------------------
+
+from flask import send_from_directory
+
+@app.route('/templates/<path:filename>')
+def serve_template_file(filename):
+    return send_from_directory('templates', filename)
+
