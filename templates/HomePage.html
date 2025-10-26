@@ -18,36 +18,38 @@
 
 <body class="light transition-all">
 
-  <!-- Navbar -->
-  <nav class="navbar text-white shadow-lg">
-    <div class="container mx-auto flex flex-wrap p-5 flex-row items-center justify-between">
-      <div class="flex items-center space-x-10">
-        <a href="/" class="flex items-center">
-          <img src="/templates/SoilBuddy Logo.png" alt="SoilBuddy Logo" class="h-10 w-auto">
-          <span class="text-2xl font-semibold ml-2">SoilBuddy</span>
-        </a>
-        <div class="flex space-x-6 text-sm md:text-base">
-          <a href="/krishiudaan" class="hover:text-green-300 transition">KrishiUdaan</a>
-          <a href="/amritjeevan" class="hover:text-green-300 transition">AmritJeevan</a>
-          <a href="https://bharatbot-2a7793.zapier.app" target="_blank" class="hover:text-green-300 transition">BharatBot</a>
-          <a href="/soilscan" class="hover:text-green-300 transition">SoilScan</a>
-        </div>
-      </div>
-
-      <div class="flex items-center space-x-4">
-        {% if lang == 'en' %}
-        <a href="{{ url_for('set_language', lang='hi', next=request.path) }}" class="text-white hover:underline">हिन्दी</a>
-        {% else %}
-        <a href="{{ url_for('set_language', lang='en', next=request.path) }}" class="text-white hover:underline">English</a>
-        {% endif %}
-        <button id="theme-toggle" class="p-2 rounded-lg focus:outline-none bg-green-700 hover:bg-green-800 transition">
-          Dark / Light
-        </button>
+ <!-- Navbar -->
+<nav class="navbar text-white shadow-lg">
+  <div class="container mx-auto flex flex-wrap p-5 flex-row items-center justify-between">
+    <div class="flex items-center space-x-10">
+      <a href="/" class="flex items-center">
+        <img src="/templates/SoilBuddy Logo.png" alt="SoilBuddy Logo" class="h-10 w-auto">
+        <span class="text-2xl font-semibold ml-2">SoilBuddy</span>
+      </a>
+      <div class="flex space-x-6 text-sm md:text-base">
+        <a href="/krishiudaan" class="hover:text-green-300 transition">KrishiUdaan</a>
+        <a href="/amritjeevan" class="hover:text-green-300 transition">AmritJeevan</a>
+        <a href="https://bharatbot-2a7793.zapier.app" target="_blank" class="hover:text-green-300 transition">BharatBot</a>
+        <a href="/soilscan" class="hover:text-green-300 transition">SoilScan</a>
+        <a href="{{ url_for('agric_connect') }}" class="hover:text-green-300 transition">AgriConnect</a>
       </div>
     </div>
-  </nav>
 
-  <div class="pt-24"></div>
+    <div class="flex items-center space-x-4">
+      {% if lang == 'en' %}
+      <a href="{{ url_for('set_language', lang='hi', next=request.path) }}" class="text-white hover:underline">हिन्दी</a>
+      {% else %}
+      <a href="{{ url_for('set_language', lang='en', next=request.path) }}" class="text-white hover:underline">English</a>
+      {% endif %}
+      <button id="theme-toggle" class="p-2 rounded-lg focus:outline-none bg-green-700 hover:bg-green-800 transition">
+        Dark / Light
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="pt-24"></div>
+
 
   <!-- Welcome Section -->
   <section class="text-gray-600 body-font">
