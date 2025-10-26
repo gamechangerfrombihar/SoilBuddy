@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="{{ lang }}">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SoilBuddy - {{ texts.amrit_title }}</title>
+  <title>SoilBuddy - AmritJeevan</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body { transition: background-color 0.4s, color 0.4s; }
@@ -37,11 +37,9 @@
   <nav class="navbar text-white body-font shadow-lg">
     <div class="container mx-auto flex flex-wrap p-5 flex-row items-center justify-between">
       <a href="/" class="flex title-font font-medium items-center mb-4 md:mb-0">
-      <img src="/templates/SoilBuddy Logo.png" alt="SoilBuddy Logo" class="h-10 w-auto">
-
+        <img src="/templates/SoilBuddy Logo.png" alt="SoilBuddy Logo" class="h-10 w-auto">
         <span class="text-2xl">SoilBuddy</span>
       </a>
-    
       <button id="theme-toggle" class="text-white bg-green-500 border-0 py-1 px-4 focus:outline-none hover:bg-green-600 rounded-md text-sm glow-btn">
         Dark Theme
       </button>
@@ -54,24 +52,30 @@
   <section class="text-gray-600 body-font">
     <div class="container px-5 py-24 mx-auto">
 
-      <h1 class="text-4xl font-bold mb-6 text-center section-heading">{{ texts.amrit_title }}</h1>
+      <h1 class="text-4xl font-bold mb-6 text-center section-heading">AmritJeevan</h1>
 
       <!-- What is AmritJeevan -->
       <div class="mb-10">
-        <h2 class="text-2xl mb-2 section-heading">{{ texts.amrit_what_title }}</h2>
-        <p class="leading-relaxed text-base mb-3">{{ texts.amrit_what_desc1 }}</p>
-        <p class="leading-relaxed text-base">{{ texts.amrit_what_desc2 }}</p>
+        <h2 class="text-2xl mb-2 section-heading">What is AmritJeevan?</h2>
+        <p class="leading-relaxed text-base mb-3">
+          AmritJeevan is an advanced irrigation and water management system designed to help farmers achieve maximum water efficiency, crop health, and sustainability. It gathers essential farm-specific inputs such as location, total field area, soil type, crop variety, and climate data directly from farmers. Based on this data, AmritJeevan calculates the exact daily water requirement for each field, ensuring precise irrigation with minimal wastage.
+        </p>
+        <p class="leading-relaxed text-base">
+          The system promotes smart water use by integrating rainfall prediction, soil moisture sensing, and crop water demand analytics — making irrigation both sustainable and cost-effective.
+        </p>
       </div>
 
       <div class="section-divider"></div>
 
       <!-- Who is it for -->
       <div class="mb-10">
-        <h2 class="text-2xl mb-2 section-heading">{{ texts.amrit_who_title }}</h2>
+        <h2 class="text-2xl mb-2 section-heading">Who is it for?</h2>
         <ul class="list-disc list-inside ml-4">
-          {% for item in texts.amrit_who_list %}
-          <li>{{ item }}</li>
-          {% endfor %}
+          <li>Farmers aiming to optimize water use and reduce irrigation costs.</li>
+          <li>Agricultural planners and consultants developing efficient irrigation models.</li>
+          <li>Government and NGOs working on water conservation initiatives.</li>
+          <li>Researchers studying crop water relationships and soil hydration levels.</li>
+          <li>Agri-tech startups building sustainable smart farming systems.</li>
         </ul>
       </div>
 
@@ -79,11 +83,12 @@
 
       <!-- Where can it be applied -->
       <div class="mb-10">
-        <h2 class="text-2xl mb-2 section-heading">{{ texts.amrit_where_title }}</h2>
+        <h2 class="text-2xl mb-2 section-heading">Where can it be applied?</h2>
         <ul class="list-disc list-inside ml-4">
-          {% for item in texts.amrit_where_list %}
-          <li>{{ item }}</li>
-          {% endfor %}
+          <li>Regions facing irregular rainfall and limited water resources.</li>
+          <li>Areas where over irrigation leads to soil erosion or nutrient loss.</li>
+          <li>Farms using traditional irrigation systems seeking modernization.</li>
+          <li>Smart farming setups using IoT-based sensors and water automation tools.</li>
         </ul>
       </div>
 
@@ -91,11 +96,14 @@
 
       <!-- Why use AmritJeevan -->
       <div class="mb-10">
-        <h2 class="text-2xl mb-2 section-heading">{{ texts.amrit_why_title }}</h2>
+        <h2 class="text-2xl mb-2 section-heading">Why use AmritJeevan?</h2>
         <ul class="list-disc list-inside ml-4">
-          {% for item in texts.amrit_why_list %}
-          <li>{{ item }}</li>
-          {% endfor %}
+          <li>Water Conservation: Prevents water wastage by calculating exact crop-wise needs.</li>
+          <li>Cost Efficiency: Reduces unnecessary irrigation expenses.</li>
+          <li>Climate Adaptation: Adjusts recommendations as per seasonal and regional variations.</li>
+          <li>Healthy Crops: Maintains ideal moisture levels for maximum yield.</li>
+          <li>Automation Ready: Can integrate with IoT irrigation systems for auto-scheduling.</li>
+          <li>Data Driven: Replaces guesswork with accurate analytics and smart insights.</li>
         </ul>
       </div>
 
@@ -103,31 +111,39 @@
 
       <!-- Key Features -->
       <div class="mb-10">
-        <h2 class="text-2xl mb-2 section-heading">{{ texts.amrit_features_title }}</h2>
+        <h2 class="text-2xl mb-2 section-heading">Key Features</h2>
         <ul class="list-disc list-inside ml-4">
-          {% for item in texts.amrit_features_list %}
-          <li>{{ item }}</li>
-          {% endfor %}
+          <li>Real-time water need estimation using farm data and weather info.</li>
+          <li>Soil moisture-based irrigation recommendation engine.</li>
+          <li>Integration with rainfall prediction APIs for automatic adjustments.</li>
+          <li>Custom alerts for under or over irrigation detection.</li>
+          <li>Water usage dashboard showing daily, weekly, and monthly statistics.</li>
+          <li>Region-wise comparison for better water resource planning.</li>
+          <li>Smart irrigation planning compatible with all crop types.</li>
         </ul>
       </div>
 
       <div class="section-divider"></div>
 
-      <!-- Innovation -->
+      <!-- Innovation & USP -->
       <div class="mb-10">
-        <h2 class="text-2xl mb-2 section-heading">{{ texts.amrit_innovation_title }}</h2>
-        <p class="leading-relaxed text-base">{{ texts.amrit_innovation_desc }}</p>
+        <h2 class="text-2xl mb-2 section-heading">Innovation & USP</h2>
+        <p class="leading-relaxed text-base">
+          AmritJeevan combines meteorological data and soil science to deliver intelligent irrigation insights. Its precision-based approach reduces water wastage up to 40% and boosts yield through efficient hydration cycles. The system’s USP lies in its ability to continuously learn from field data and refine future irrigation schedules automatically.
+        </p>
       </div>
 
       <div class="section-divider"></div>
 
       <!-- Impact -->
       <div class="mb-10">
-        <h2 class="text-2xl mb-2 section-heading">{{ texts.amrit_impact_title }}</h2>
+        <h2 class="text-2xl mb-2 section-heading">Impact</h2>
         <ul class="list-disc list-inside ml-4">
-          {% for item in texts.amrit_impact_list %}
-          <li>{{ item }}</li>
-          {% endfor %}
+          <li>Reduces irrigation water use by up to 30–40%.</li>
+          <li>Improves overall soil fertility and crop consistency.</li>
+          <li>Minimizes manual effort and dependency on weather guesswork.</li>
+          <li>Empowers farmers with accurate, actionable water insights.</li>
+          <li>Promotes long-term sustainable water resource management.</li>
         </ul>
       </div>
 
@@ -135,15 +151,17 @@
 
       <!-- Vision -->
       <div class="mb-10">
-        <h2 class="text-2xl mb-2 section-heading">{{ texts.amrit_vision_title }}</h2>
-        <p class="leading-relaxed text-base">{{ texts.amrit_vision_desc }}</p>
+        <h2 class="text-2xl mb-2 section-heading">Vision</h2>
+        <p class="leading-relaxed text-base">
+          To revolutionize Indian agriculture by enabling smart, data-driven water management — ensuring every drop counts and every farm thrives sustainably with balanced irrigation and higher productivity.
+        </p>
       </div>
 
       <!-- Launch Button -->
       <div class="text-center mt-10">
         <a href="/amritjeevan"
            class="bg-green-600 text-white px-6 py-3 rounded-md glow-btn inline-block text-lg font-semibold">
-           {{ texts.launch_btn }}
+           Launch
         </a>
       </div>
 
