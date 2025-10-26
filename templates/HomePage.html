@@ -36,11 +36,14 @@
       </div>
     </div>
 
-    <div class="flex items-center space-x-4">
-      <button id="theme-toggle" class="p-2 rounded-lg focus:outline-none bg-green-700 hover:bg-green-800 transition">
-        Dark / Light
-      </button>
-    </div>
+   <nav class="flex items-center space-x-4">
+  <!-- Other navbar elements -->
+  {% include 'base.html' %}
+  <button id="theme-toggle" class="p-2 rounded-lg bg-green-700 hover:bg-green-800 text-white">
+    Dark / Light
+  </button>
+</nav>
+
   </div>
 </nav>
 
