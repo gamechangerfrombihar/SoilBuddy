@@ -16,8 +16,10 @@
     .collapsible-btn { cursor: pointer; }
   </style>
 </head>
+
 <body class="light transition-all">
 
+  <!-- Navbar -->
   <nav class="navbar text-white shadow-lg">
     <div class="container mx-auto flex flex-wrap p-5 flex-row items-center justify-between">
       <div class="flex items-center space-x-10">
@@ -25,24 +27,28 @@
           <img src="{{ url_for('static', filename='SoilBuddy_Logo.png') }}" alt="SoilBuddy Logo" class="logo-img mr-3" />
           <span class="text-2xl font-semibold">SoilBuddy</span>
         </a>
+
         <div class="flex space-x-6 text-sm md:text-base">
           <a href="/krishiudaan" class="hover:text-green-300 transition">KrishiUdaan</a>
           <a href="/amritjeevan" class="hover:text-green-300 transition">AmritJeevan</a>
           <a href="https://bharatbot-2a7793.zapier.app" target="_blank" class="hover:text-green-300 transition">BharatBot</a>
           <a href="/soilscan" class="hover:text-green-300 transition">SoilScan</a>
         </div>
-      </nav>
+      </div>
+    </div>
+  </nav>
 
   <div class="pt-24"></div>
 
+  <!-- Main Content -->
   <section class="text-gray-700 body-font">
     <div class="container mx-auto p-6 max-w-3xl bg-white rounded-lg shadow-lg">
-      <h1 class="text-3xl font-semibold mb-6 text-green-800 text-center"> Krishi Udaan Smart Plan</h1>
+      <h1 class="text-3xl font-semibold mb-6 text-green-800 text-center">Krishi Udaan Smart Plan</h1>
 
       <p class="mb-4"><strong>Farmer Profile:</strong> {{ plan.farmer_profile }}</p>
 
       <div class="mb-4">
-        <h2 class="text-xl font-semibold mb-2"> Recommended Crop Combination:</h2>
+        <h2 class="text-xl font-semibold mb-2">Recommended Crop Combination:</h2>
         <p>Primary Crop: {{ plan.primary_crop }} ({{ plan.primary_percent }})</p>
         <p>Secondary Crop: {{ plan.secondary_crop }} ({{ plan.secondary_percent }})</p>
       </div>
@@ -53,39 +59,35 @@
       </div>
 
       <div class="mb-4">
-        <h2 class="text-xl font-semibold mb-2"> Crop Rotation Plan (Next Season):</h2>
+        <h2 class="text-xl font-semibold mb-2">Crop Rotation Plan (Next Season):</h2>
         <p>{{ plan.rotation_plan }}</p>
       </div>
 
       <div class="mb-4">
-        <h2 class="text-xl font-semibold mb-2"> Estimated Impact:</h2>
+        <h2 class="text-xl font-semibold mb-2">Estimated Impact:</h2>
         <p>Expected yield improvement: {{ plan.yield_improvement }}</p>
         <p>Projected profitability: {{ plan.profitability }}</p>
         <p>Soil quality improvement: {{ plan.soil_quality }}</p>
       </div>
 
+      <!-- Collapsible Explanation -->
       <div id="explanationCard" class="mt-6 border-t pt-4">
         <button id="toggleExplain" class="w-full text-left px-4 py-2 font-semibold text-green-800 collapsible-btn">
           How the system decided ▼
         </button>
-        <div id="explanationContent" class="px-4 py-2 hidden text-sm">
+        <div id="explanationContent" class="px-4 py-2 hidden text-sm text-gray-700">
           {{ plan.explanation }}
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Script Section -->
   <script>
-    const body = document.body;
-    const toggleBtn = document.getElementById('theme-toggle');
-    toggleBtn.addEventListener('click', () => {
-      body.classList.toggle('dark');
-      body.classList.toggle('light');
-      toggleBtn.textContent = body.classList.contains('dark') ? 'Light Theme' : 'Dark Theme';
-    });
-
+    // Collapsible section toggle
     const toggleExplain = document.getElementById('toggleExplain');
     const explanationContent = document.getElementById('explanationContent');
+
     toggleExplain.addEventListener('click', () => {
       explanationContent.classList.toggle('hidden');
       toggleExplain.textContent = explanationContent.classList.contains('hidden') 
@@ -93,5 +95,6 @@
         : 'How the system decided ▲';
     });
   </script>
+
 </body>
 </html>
