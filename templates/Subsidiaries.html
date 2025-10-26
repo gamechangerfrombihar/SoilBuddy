@@ -60,7 +60,6 @@
 
     <!-- Form -->
     <form id="farmerForm" class="space-y-4 bg-green-50 p-6 rounded-lg shadow-lg">
-      <!-- 1. Land -->
       <div>
         <label class="font-semibold">1. Land Ownership:</label><br>
         <select name="land" required class="border rounded p-2 w-full">
@@ -69,8 +68,6 @@
           <option value="lease">Lease/Tenant</option>
         </select>
       </div>
-
-      <!-- 2. Location / Climate -->
       <div>
         <label class="font-semibold">2. Farming Conditions:</label><br>
         <select name="climate" required class="border rounded p-2 w-full">
@@ -79,8 +76,6 @@
           <option value="irrigated">Irrigated / Mixed</option>
         </select>
       </div>
-
-      <!-- 3. Crops Grown -->
       <div>
         <label class="font-semibold">3. Crops Grown:</label><br>
         <select name="crops" required class="border rounded p-2 w-full">
@@ -90,8 +85,6 @@
           <option value="horticulture">Horticulture / Vegetables / Fruits</option>
         </select>
       </div>
-
-      <!-- 4. Farming Method -->
       <div>
         <label class="font-semibold">4. Farming Method:</label><br>
         <select name="method" required class="border rounded p-2 w-full">
@@ -100,8 +93,6 @@
           <option value="traditional">Traditional / Conventional</option>
         </select>
       </div>
-
-      <!-- 5. Support Needed -->
       <div>
         <label class="font-semibold">5. Support Needed:</label><br>
         <select name="support" required class="border rounded p-2 w-full">
@@ -114,8 +105,6 @@
           <option value="storage">Storage / Market Access</option>
         </select>
       </div>
-
-      <!-- 6. Financial / Risk Info -->
       <div>
         <label class="font-semibold">6. Financial / Risk Info:</label><br>
         <select name="risk" required class="border rounded p-2 w-full">
@@ -124,7 +113,6 @@
           <option value="loss">Experienced Crop Loss</option>
         </select>
       </div>
-
       <button type="submit" class="mt-4 p-3 rounded bg-green-700 hover:bg-green-800 text-white font-semibold glow-btn w-full">Find My Subsidies</button>
     </form>
 
@@ -143,77 +131,69 @@
       toggleBtn.textContent = body.classList.contains('dark') ? 'Light Theme' : 'Dark Theme';
     });
 
-    // Subsidy mapping logic
+    // Subsidy mapping with full forms
     const subsidyData = [
-      { name: "PM-KISAN", link: "https://pmkisan.gov.in/" },
-      { name: "PMFBY", link: "https://pmfby.gov.in/" },
-      { name: "PMKSY", link: "https://pmksy.gov.in/" },
-      { name: "NFSM", link: "https://nfsm.gov.in/" },
-      { name: "PKVY", link: "https://pkvy.gov.in/" },
-      { name: "NHM", link: "https://nhm.nic.in/" },
-      { name: "SMAM", link: "https://agrimachinery.nic.in/" }
+      { name: "PM-KISAN", full_en: "Pradhan Mantri Kisan Samman Nidhi", full_hi: "प्रधान मंत्री किसान सम्मान निधि", link: "https://pmkisan.gov.in/" },
+      { name: "PMFBY", full_en: "Pradhan Mantri Fasal Bima Yojana", full_hi: "प्रधान मंत्री फसल बीमा योजना", link: "https://pmfby.gov.in/" },
+      { name: "PMKSY", full_en: "Pradhan Mantri Krishi Sinchayee Yojana", full_hi: "प्रधान मंत्री कृषि सिंचाई योजना", link: "https://pmksy.gov.in/" },
+      { name: "NFSM", full_en: "National Food Security Mission", full_hi: "राष्ट्रीय खाद्य सुरक्षा मिशन", link: "https://nfsm.gov.in/" },
+      { name: "PKVY", full_en: "Paramparagat Krishi Vikas Yojana (Organic Farming)", full_hi: "परंपरागत कृषि विकास योजना (जैविक खेती)", link: "https://pkvy.gov.in/" },
+      { name: "NHM", full_en: "National Horticulture Mission", full_hi: "राष्ट्रीय बागवानी मिशन", link: "https://nhm.nic.in/" },
+      { name: "SMAM", full_en: "Sub-Mission on Agricultural Mechanization", full_hi: "कृषि यंत्रीकरण उप-मिशन", link: "https://agrimachinery.nic.in/" }
     ];
 
     function getSubsidies(answers) {
       let subs = [];
-
-      if(answers.land === 'own') subs.push("PM-KISAN", "PMKSY", "SMAM");
-      if(answers.land === 'lease') subs.push("PMFBY", "PMKSY");
-
-      if(answers.climate === 'rainfed') subs.push("PMKSY", "NFSM", "PMFBY");
-      if(answers.climate === 'irrigated') subs.push("PM-KISAN", "SMAM", "PMFBY");
-
-      if(answers.crops === 'food') subs.push("PMFBY", "NFSM", "PM-KISAN");
-      if(answers.crops === 'cash') subs.push("PMFBY", "SMAM", "PMKSY");
-      if(answers.crops === 'horticulture') subs.push("NHM", "PMKSY", "PKVY");
-
-      if(answers.method === 'organic') subs.push("PKVY", "NHM", "PMKSY");
-      if(answers.method === 'traditional') subs.push("PM-KISAN", "PMFBY", "SMAM");
-
-      if(answers.support === 'seeds') subs.push("PM-KISAN", "NFSM", "PMFBY");
-      if(answers.support === 'irrigation') subs.push("PMKSY", "SMAM", "NHM");
-      if(answers.support === 'machinery') subs.push("SMAM", "PM-KISAN", "NHM");
-      if(answers.support === 'insurance') subs.push("PMFBY");
-      if(answers.support === 'organic') subs.push("PKVY", "NHM");
-      if(answers.support === 'storage') subs.push("NHM", "PM-KISAN");
-
-      if(answers.risk === 'kcc') subs.push("SMAM", "PMKSY", "NHM");
-      if(answers.risk === 'loss') subs.push("PMFBY", "PM-KISAN", "NFSM");
-
+      if(answers.land==='own') subs.push("PM-KISAN","PMKSY","SMAM");
+      if(answers.land==='lease') subs.push("PMFBY","PMKSY");
+      if(answers.climate==='rainfed') subs.push("PMKSY","NFSM","PMFBY");
+      if(answers.climate==='irrigated') subs.push("PM-KISAN","SMAM","PMFBY");
+      if(answers.crops==='food') subs.push("PMFBY","NFSM","PM-KISAN");
+      if(answers.crops==='cash') subs.push("PMFBY","SMAM","PMKSY");
+      if(answers.crops==='horticulture') subs.push("NHM","PMKSY","PKVY");
+      if(answers.method==='organic') subs.push("PKVY","NHM","PMKSY");
+      if(answers.method==='traditional') subs.push("PM-KISAN","PMFBY","SMAM");
+      if(answers.support==='seeds') subs.push("PM-KISAN","NFSM","PMFBY");
+      if(answers.support==='irrigation') subs.push("PMKSY","SMAM","NHM");
+      if(answers.support==='machinery') subs.push("SMAM","PM-KISAN","NHM");
+      if(answers.support==='insurance') subs.push("PMFBY");
+      if(answers.support==='organic') subs.push("PKVY","NHM");
+      if(answers.support==='storage') subs.push("NHM","PM-KISAN");
+      if(answers.risk==='kcc') subs.push("SMAM","PMKSY","NHM");
+      if(answers.risk==='loss') subs.push("PMFBY","PM-KISAN","NFSM");
       return [...new Set(subs)];
     }
 
-    // Form submit
     const form = document.getElementById('farmerForm');
     const resultsDiv = document.getElementById('results');
 
-    form.addEventListener('submit', function(e) {
+    form.addEventListener('submit', function(e){
       e.preventDefault();
       const formData = new FormData(form);
       const answers = Object.fromEntries(formData.entries());
       const recommended = getSubsidies(answers);
-
-      resultsDiv.innerHTML = '';
-      if(recommended.length === 0) {
-        resultsDiv.innerHTML = '<p class="text-red-600 font-semibold">No subsidies found.</p>';
+      resultsDiv.innerHTML='';
+      if(recommended.length===0){
+        resultsDiv.innerHTML='<p class="text-red-600 font-semibold">No subsidies found.</p>';
         return;
       }
-
-      recommended.forEach(sub => {
-        const data = subsidyData.find(s => s.name === sub);
-        const div = document.createElement('div');
-        div.className = 'flex justify-between items-center bg-green-100 p-3 rounded shadow';
-        div.innerHTML = `
-          <span class="font-semibold">${sub}</span>
-          <a href="${data.link}" target="_blank" class="subsidy-btn">Launch</a>
+      recommended.forEach(sub=>{
+        const data = subsidyData.find(s=>s.name===sub);
+        const div=document.createElement('div');
+        div.className='flex flex-col md:flex-row justify-between items-start md:items-center bg-green-100 p-3 rounded shadow';
+        div.innerHTML=`
+          <div>
+            <span class="font-semibold text-lg">${sub}</span><br>
+            <span class="text-sm font-medium text-gray-700">English: ${data.full_en}</span><br>
+            <span class="text-sm font-medium text-gray-700">Hindi: ${data.full_hi}</span>
+          </div>
+          <a href="${data.link}" target="_blank" class="subsidy-btn mt-2 md:mt-0">Launch</a>
         `;
         resultsDiv.appendChild(div);
       });
-
-      resultsDiv.scrollIntoView({ behavior: 'smooth' });
+      resultsDiv.scrollIntoView({behavior:'smooth'});
     });
   </script>
 
 </body>
 </html>
-
