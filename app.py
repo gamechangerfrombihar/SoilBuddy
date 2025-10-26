@@ -3,7 +3,7 @@ from werkzeug.utils import secure_filename
 import os
 
 from utils.krishi_logic import generate_plan
-from utils.soilscan_logic import analyze_soil  # Updated logic with NASA integration
+from utils.soilscan_logic import analyze_soil  # only one argument
 
 app = Flask(__name__)
 app.secret_key = 'some_secret_key'
@@ -102,8 +102,8 @@ def soilscan_result():
     file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
     file.save(file_path)
 
-    # Analyze soil from image only
-    soil_params, _ = analyze_soil(file_path, lat=None, lon=None, start_date=None, end_date=None)
+    # ✅ Correct: only one argument
+    soil_params, _ = analyze_soil(file_path)
 
     lang = get_lang()
     texts = translations[lang]
@@ -116,8 +116,6 @@ def soilscan_result():
         lang=lang
     )
 
-
-
 # ----------------- BharatBot -----------------
 @app.route('/bharatbot/desc')
 def bharatbot_desc():
@@ -125,15 +123,12 @@ def bharatbot_desc():
     texts = translations[lang]
     return render_template('BharatBot.html', texts=texts, lang=lang)
 
-# ----------------- Run App -----------------
-if __name__ == '__main__':
-    app.run(debug=True)
-
-# ------------------Logo------------------
-
+# ----------------- Logo -----------------
 from flask import send_from_directory
-
 @app.route('/templates/<path:filename>')
 def serve_template_file(filename):
     return send_from_directory('templates', filename)
 
+# ----------------- Run App -----------------
+if __name__ == '__main__':
+    app.run(debug=True)
