@@ -42,23 +42,7 @@
       padding: 4px;
       border: 2px solid #22c55e;
     }
-    #map {
-      width: 100%;
-      max-width: 1000px;
-      height: 500px;
-      margin: 2rem auto;
-      border: 2px solid #22c55e;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(34, 197, 94, 0.5);
-    }
   </style>
-
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-sA+uVTy38oi2Y+SpS53oOWhXz6D9h7PeUjI2kNjf2Hk="
-    crossorigin=""
-  />
 </head>
 
 <body class="light transition-all">
@@ -106,46 +90,38 @@
       <h1 class="text-3xl font-semibold mb-4">{{ texts.welcome_title }}</h1>
       <p class="leading-relaxed text-base mb-10">{{ texts.welcome_desc }}</p>
 
-    <!-- Feature Cards -->
-<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-  
-  <!-- KrishiUdaan -->
-  <div class="p-6 border rounded-lg shadow hover:shadow-md transition">
-    <h2 class="text-xl font-semibold mb-2">{{ texts.krishi_title }}</h2>
-    <p class="text-sm mb-2">{{ texts.krishi_desc }}</p>
-    <a href="/krishiudaan/desc" class="text-green-500 hover:underline text-sm">Read More</a>
-  </div>
+      <!-- Feature Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <!-- KrishiUdaan -->
+        <div class="p-6 border rounded-lg shadow hover:shadow-md transition">
+          <h2 class="text-xl font-semibold mb-2">{{ texts.krishi_title }}</h2>
+          <p class="text-sm mb-2">{{ texts.krishi_desc }}</p>
+          <a href="/krishiudaan/desc" class="text-green-500 hover:underline text-sm">Read More</a>
+        </div>
 
-  <!-- AmritJeevan -->
-  <div class="p-6 border rounded-lg shadow hover:shadow-md transition">
-    <h2 class="text-xl font-semibold mb-2">{{ texts.amrit_title }}</h2>
-    <p class="text-sm mb-2">{{ texts.amrit_desc }}</p>
-    <a href="/amritjeevan/desc" class="text-green-500 hover:underline text-sm">Read More</a>
-  </div>
+        <!-- AmritJeevan -->
+        <div class="p-6 border rounded-lg shadow hover:shadow-md transition">
+          <h2 class="text-xl font-semibold mb-2">{{ texts.amrit_title }}</h2>
+          <p class="text-sm mb-2">{{ texts.amrit_desc }}</p>
+          <a href="/amritjeevan/desc" class="text-green-500 hover:underline text-sm">Read More</a>
+        </div>
 
-  <!-- BharatBot -->
-  <div class="p-6 border rounded-lg shadow hover:shadow-md transition">
-    <h2 class="text-xl font-semibold mb-2">{{ texts.bharatbot_title }}</h2>
-    <p class="text-sm mb-2">{{ texts.bharatbot_desc }}</p>
-    <a href="/bharatbot/desc" class="text-green-500 hover:underline text-sm">Read More</a>
-  </div>
+        <!-- BharatBot -->
+        <div class="p-6 border rounded-lg shadow hover:shadow-md transition">
+          <h2 class="text-xl font-semibold mb-2">{{ texts.bharatbot_title }}</h2>
+          <p class="text-sm mb-2">{{ texts.bharatbot_desc }}</p>
+          <a href="/bharatbot/desc" class="text-green-500 hover:underline text-sm">Read More</a>
+        </div>
 
-  <!-- SoilScan -->
-  <div class="p-6 border rounded-lg shadow hover:shadow-md transition">
-    <h2 class="text-xl font-semibold mb-2">{{ texts.soilscan_title }}</h2>
-    <p class="text-sm mb-2">{{ texts.soilscan_desc }}</p>
-    <a href="/soilscan/desc" class="text-green-500 hover:underline text-sm">Read More</a>
-  </div>
+        <!-- SoilScan -->
+        <div class="p-6 border rounded-lg shadow hover:shadow-md transition">
+          <h2 class="text-xl font-semibold mb-2">{{ texts.soilscan_title }}</h2>
+          <p class="text-sm mb-2">{{ texts.soilscan_desc }}</p>
+          <a href="/soilscan/desc" class="text-green-500 hover:underline text-sm">Read More</a>
+        </div>
 
-</div>
-
-
-  <!-- Map Section -->
-  <section class="container mx-auto mt-24">
-    <div id="map"></div>
-    <div class="w-full md:w-1/3 mx-auto mt-4 text-center">
-      <h2 class="text-2xl font-semibold text-green-600 mb-3">{{ texts.location_title }}</h2>
-      <p class="leading-relaxed text-base dark:text-gray-300">{{ texts.location_desc }}</p>
+      </div>
     </div>
   </section>
 
@@ -158,22 +134,6 @@
       body.classList.toggle('light');
       toggleBtn.textContent = body.classList.contains('dark') ? 'Light Theme' : 'Dark Theme';
     });
-  </script>
-
-  <!-- Leaflet JS -->
-  <script
-    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    integrity="sha256-oN1vZyD6QHBgVQmUWyguNz9w6D7hCpDUIZlWvX7k+kM="
-    crossorigin=""
-  ></script>
-  <script>
-    const map = L.map('map').setView([28.5748, 77.3573], 17);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; OpenStreetMap contributors'
-    }).addTo(map);
-    L.marker([28.5748, 77.3573]).addTo(map)
-      .bindPopup("<b>Bal Bharati Public School</b><br>Sector 21, Noida")
-      .openPopup();
   </script>
 
 </body>
